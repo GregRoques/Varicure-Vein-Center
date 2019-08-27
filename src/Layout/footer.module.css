@@ -18,6 +18,10 @@
     grid-template-columns: auto auto auto;
 }
 
+.closed {
+    font-weight: bold;
+    color:red;
+}
 
 
 @keyframes fadeIn{

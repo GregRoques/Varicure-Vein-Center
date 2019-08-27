@@ -25,7 +25,7 @@ const footer = () => {
                     <a href="https://www.google.com/maps/place/9595+N+Kendall+Dr,+Miami,+FL+33176/@25.6880755,-80.3506089,17z/data=!3m1!4b1!4m5!3m4!1s0x88d9c73c861e9189:0xeb40d00fad0dec28!8m2!3d25.6880755!4d-80.3484202" target="_blank" rel="noopener noreferrer">9595 N.Kendall Dr. • Miami</a>
                 </div>
                 <div>
-                    {today}: {time}
+                    {today}: <span className={ time === "Closed" ? cssFooter.closed : null }>{time}</span>
                 </div>
             </div>
         </div>
