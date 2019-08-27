@@ -1,11 +1,9 @@
-
-
-.fadeIn{
-    animation-name: fadeIn;
+.backgroundIn{
+    animation-name: backgroundIn;
     animation-duration:2s;
 }
 
-@keyframes fadeIn{
+@keyframes backgroundIn{
     0%{
         opacity:0;
         transform: scale(1.25)

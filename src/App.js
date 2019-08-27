@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import Layout from "./Layout/HOC/Layout";
 import Home from "./Pages/Home";
+import About from "./Pages/About";
 import cssApp from "./app.module.css";
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
                 <Layout>
                     <Switch>
                         <Route exact path= "/" component= { Home } />
+                        <Route exact path= "/about" component= { About } />
                         <Route component = { this.NoPage } />
                     </Switch>
                 </Layout>
@@ -23,4 +25,4 @@ class App extends Component {
     }
 };
 
-export default App;
+export default withRouter(App);
