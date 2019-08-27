@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import Layout from "./Footer-HOC/Layout";
+import Layout from "./Layout/HOC/Layout";
+import Home from "./Pages/Home";
+import cssApp from "./app.module.css";
 
 class App extends Component {
     NoPage = () => {
@@ -9,12 +11,14 @@ class App extends Component {
 
     render () {
         return (
-            <Layout>
-                <Switch>
-                    <Route exact path= "/" component= { Home } />
-                    <Route component = { this.NoPage } />
-                </Switch>
-            </Layout>
+            <div className = { cssApp.body }>
+                <Layout>
+                    <Switch>
+                        <Route exact path= "/" component= { Home } />
+                        <Route component = { this.NoPage } />
+                    </Switch>
+                </Layout>
+            </div>
         );
     }
 };
