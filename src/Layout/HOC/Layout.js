@@ -11,7 +11,7 @@ const Layout = props => {
         width: auto;
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: left, bottom;
+        background-position: bottom right;
         background-image: url("/1.jpg");
         margin: 0;
         
