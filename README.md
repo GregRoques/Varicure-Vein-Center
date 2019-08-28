@@ -20,15 +20,16 @@
 * Cypress.js
 
 ## Packages
+* npm install eslint --save-dev  
+    * ./node_modules/.bin/eslint --init
+
 ### Front End
 * npx i create-react-app
-* npm install eslint --save-dev / ./node_modules/.bin/eslint --init
 * npm i react-router-dom
 * npm i emotions
 * npm i axios
 
 ### backend End
-* npm install eslint --save-dev / ./node_modules/.bin/eslint --init
 * npx i express
 * npm i body-parser
 * npm i mysql2

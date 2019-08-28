@@ -6,7 +6,7 @@ const header = () => {
     return (
         <div className={ cssHeader.headerContainer }>
             <div >
-                <Link to="/"><img className={ cssHeader.VClogo } src="/logos/siteLogo.png"/></Link>
+                <Link to="/"><img alt="VeriCure Logo" className={ cssHeader.VClogo } src="/logos/siteLogo.png"/></Link>
             </div>
 
         </div>
