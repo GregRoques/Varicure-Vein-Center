@@ -2,7 +2,7 @@ import React from "react";
 import Aux from "./Aux";
 import { css } from "emotion";
 import Footer from "./Footer";
-import Modal from "./Modal";
+import Header from "./Header";
 import cssLayout from "../layout.module.css";
 
 const Layout = props => {
@@ -20,12 +20,12 @@ const Layout = props => {
 
     return (
         <div>
-            <Modal />
-            <div key={ currentPath } className={ cssJoin.join(" ")}>
-                <Aux>
+            <Aux>
+                <div key={ currentPath } className={ cssJoin.join(" ")}>
                     {props.children}
-                </Aux>
-            </div>
+                </div>
+            </Aux>
+            <Header />
             <Footer />
         </div>
     );

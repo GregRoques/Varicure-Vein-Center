@@ -1,4 +1,4 @@
-.container {
+.footerContainer {
     position: absolute;
     padding: 5px;
     width: 100%;
@@ -11,6 +11,7 @@
     animation-delay:0.5s;
     animation-fill-mode: forwards;
 }
+
 .grid {
     display: grid;
     text-align: center;
@@ -23,6 +24,25 @@
     color:red;
 }
 
+.headerContainer{
+    position: absolute;
+    top:0;
+    padding: 2%;
+    width: 100%;
+    height: 100%;
+    opacity:0;
+    animation-name: fadeIn;
+    animation-duration:1s;
+    animation-delay:0.5s;
+    animation-fill-mode: forwards;
+} 
+
+.VClogo {
+    position: absolute;
+    width: 275px;
+    height: auto;
+    left: 0;
+} 
 
 @keyframes fadeIn{
     0%{

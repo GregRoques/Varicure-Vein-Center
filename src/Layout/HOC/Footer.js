@@ -1,5 +1,5 @@
 import React from "react";
-import cssFooter from "../footer.module.css";
+import cssFooter from "../headerFooter.module.css";
 
 const footer = () => {
     const dayNum = (new Date()).getDay();
@@ -16,7 +16,7 @@ const footer = () => {
     };
 
     return (
-        <div className={ cssFooter.container }>
+        <div className={ cssFooter.footerContainer }>
             <div className={cssFooter.grid}>
                 <div>
                     <a href="tel:305-284-8090">(305) 284-8090</a>
