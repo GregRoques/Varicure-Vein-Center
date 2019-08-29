@@ -2,13 +2,14 @@
     position:absolute;
     bottom:25%;
     left: 3%;
-    width:25%;
-    padding:15px;
-    background-color: rgb(255,255,255,0.35);
+    width:35%;
+    /* padding:15px; */
+    /* background-color: rgb(255,255,255,0.35); */
     border-radius: 15px;
     z-index: 5;
+    font-family: 'Nunito', sans-serif;
     text-align: left;
-    font-size: 24px;
+    font-size: 30px;
     font-style: italic;
     opacity: 0;
     animation: container 2s 1s forwards;
