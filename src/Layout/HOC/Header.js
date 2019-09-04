@@ -6,9 +6,11 @@ const header = () => {
     return (
         <div className={ cssHeader.headerPosition}>
             <div className={ cssHeader.headerContainer }>
-                About
-                Services
-                Contact
+                <div className= { cssHeader.headerContainerText}>
+                    About
+                    Services
+                    Contact
+                </div>
             </div>
             <div className={ cssHeader.logoShadow}></div>
             <Link to="/"><img alt="VeriCure Logo" className={ cssHeader.VClogo } src="/logos/siteLogo.png"/></Link>
