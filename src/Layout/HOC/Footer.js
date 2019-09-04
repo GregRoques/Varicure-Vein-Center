@@ -1,5 +1,5 @@
 import React from "react";
-import cssFooter from "../headerFooter.module.css";
+import cssFooter from "../footer.module.css";
 
 const footer = () => {
     const dayNum = (new Date()).getDay();

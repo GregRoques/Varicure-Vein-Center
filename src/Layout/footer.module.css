@@ -24,26 +24,6 @@
     color:red;
 }
 
-.headerContainer{
-    position: absolute;
-    top:0;
-    padding: 2%;
-    width: 100%;
-    height: 100%;
-    opacity:0;
-    animation-name: fadeIn;
-    animation-duration:1s;
-    animation-delay:0.5s;
-    animation-fill-mode: forwards;
-} 
-
-.VClogo {
-    position: absolute;
-    width: 350px;
-    height: auto;
-    left: 0;
-} 
-
 @keyframes fadeIn{
     0%{
         opacity:0;
@@ -52,3 +32,4 @@
         opacity:1;
     }
 }
+

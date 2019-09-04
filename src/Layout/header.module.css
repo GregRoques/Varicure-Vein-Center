@@ -1,14 +1,45 @@
+/* ================================================================================= */
+.headerPosition {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    z-index:100;
+}
+
 .headerContainer{
-    position: absolute;
-    top:0;
-    padding: 2%;
     width: 100%;
-    height: 100%;
+    height:35px;
+    top: 0;
+    background-color: white;
+    padding: 0.5rem 0 0.5rem 0;
+    position: fixed;
+    box-shadow:0 1px 6px rgba(2, 15, 7, 0.502);
+    color: gray;
+    z-index:102
 } 
 
 .VClogo {
-    position: absolute;
-    width: 275px;
-    height: auto;
-    left: 0;
+    top:5px;
+    left:25px;
+    position: fixed;
+    background-color:white;
+    border-radius: 15px;
+    padding: 10px;
+    width: 200px;
+    height: 110px;
+    z-index:103;
+} 
+
+.logoShadow{
+    top:5px;
+    left:25px;
+    position: fixed;
+    background-color:white;
+    border-radius: 15px;
+    padding: 10px;
+    width: 200px;
+    height: 110px;
+    z-index:101;
+    box-shadow:0 1px 6px rgba(2, 15, 7, 0.502);
+
 } 

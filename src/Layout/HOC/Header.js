@@ -1,14 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import cssHeader from "../headerFooter.module.css";
+import cssHeader from "../header.module.css";
 
 const header = () => {
     return (
-        <div className={ cssHeader.headerContainer }>
-            <div >
-                <Link to="/"><img alt="VeriCure Logo" className={ cssHeader.VClogo } src="/logos/siteLogo.png"/></Link>
+        <div className={ cssHeader.headerPosition}>
+            <div className={ cssHeader.headerContainer }>
+                About
+                Services
+                Contact
             </div>
-
+            <div className={ cssHeader.logoShadow}></div>
+            <Link to="/"><img alt="VeriCure Logo" className={ cssHeader.VClogo } src="/logos/siteLogo.png"/></Link>
         </div>
     );
 };
