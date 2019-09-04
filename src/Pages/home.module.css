@@ -1,13 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
+
 .backgroundStyle {
-    position:relative;
-    top:45px;
+    position:fixed;
+    top:0px;
     bottom:0;
-    height:100vh;
+    right:0;
+    left:0;
     width: auto;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom right;
-    margin: 0;
+    height: 100%;
+    width:auto;
+    overflow-x: hidden;
 }
 
 .userReview {
@@ -21,10 +26,21 @@
     z-index: 5;
     font-family: 'Nunito', sans-serif;
     text-align: left;
+    color: white;
+    /* -webkit-text-stroke: .75px black; */
     font-size: 28px;
     font-style: italic;
     opacity: 0;
     animation: container 2s .75s forwards;
+}
+
+.indent{
+    text-indent: 15px;
+}
+
+.userReview .indent> a{
+    text-decoration: none;
+    color:white;
 }
 
 @keyframes container {
