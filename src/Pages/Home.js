@@ -6,7 +6,7 @@ const Home = props => {
     const UserReview = () => {
         return props.review && props.name ? (
             <div className={ cssHome.userReview }>
-                "{props.review}" <div className ={ cssHome.indent }>– {props.url ? <a href={props.url} className={cssHome.underline} rel="noopener noreferrer" target="_blank">{props.name}</a> : props.name }</div>
+                "{props.review}" <div className ={ cssHome.indent }>– {props.url ? <a href={props.url} className={cssHome.underline} rel="noopener noreferrer" target="_blank">{props.name} <img src={"/" + props.social + ".png"} /></a> : props.name }</div>
             </div>
         ) : (
             <div className={ cssHome.userReview }>

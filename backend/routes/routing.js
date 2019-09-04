@@ -8,7 +8,7 @@ router.get("/reviews", (req, res) => {
         .then(results => {
             const max = (Object.values(results[0][0])[0]);
             const random = Math.floor(Math.random() * max) + 1;
-            const customerReview = `Select review, name, url FROM reviews WHERE id = ${random}`;
+            const customerReview = `Select review, name, url, social FROM reviews WHERE id = ${random}`;
             db.execute(customerReview)
                 .then(results2 => {
                     res.json(Object.values(results2[0])[0]);
