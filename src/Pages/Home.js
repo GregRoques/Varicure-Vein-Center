@@ -1,31 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
 import { css } from "emotion";
 import cssHome from "./home.module.css";
 
-class Home extends Component {
-    UserReview = () => {
-        return this.props.review && this.props.name ? (
+const Home = props => {
+    const UserReview = () => {
+        return props.review && props.name ? (
             <div className={ cssHome.userReview }>
-                "{this.props.review}" <br/> – {this.props.url ? <a href={this.props.url} rel="noopener noreferrer" target="_blank">{this.props.name}</a> : this.props.name }
+                "{props.review}" <br/> – {props.url ? <a href={props.url} rel="noopener noreferrer" target="_blank">{props.name}</a> : props.name }
             </div>
         ) : (
             <div className={ cssHome.userReview }>
                 We Take Care of the Spiders
             </div>
         );
-    }
+    };
 
-    render () {
-        const backgroundImage = css`
-            background-image: url("/home.jpg");
-        `;
-        const cssJoin = [backgroundImage, cssHome.backgroundIn, cssHome.backgroundStyle];
-        return (
-            <div className={ cssJoin.join(" ")}>
-                <this.UserReview />
-            </div>
-        );
-    }
+    const backgroundImage = css`
+        background-image: url("/${props.homePagePic}.jpg");
+    `;
+    const cssJoin = [backgroundImage, cssHome.backgroundIn, cssHome.backgroundStyle];
+    return (
+        <div className={ cssJoin.join(" ")}>
+            <UserReview />
+        </div>
+    );
 };
 
 export default Home;

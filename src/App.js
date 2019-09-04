@@ -12,10 +12,14 @@ class App extends Component {
     };
 
     userReviews = () => {
+        const number = Math.floor(Math.random() * 2);
         axios.get("http://localhost:2000/reviews")
             .then(res => {
                 this.setState({
-                    customerReview: res.data
+                    customerReview: {
+                        ...res.data,
+                        homePagePic: number
+                    }
                 });
             })
             .catch(err => {
@@ -38,7 +42,7 @@ class App extends Component {
                     <Switch>
                         <Route
                             exact path= "/"
-                            render={() => <Home {...this.state.customerReview} isAuthed={this.state.customerReview}/>} />
+                            render={() => <Home {...this.state.customerReview} />} />
                         <Route exact path= "/about" component= { About } />
                         <Route component = { this.NoPage } />
                     </Switch>

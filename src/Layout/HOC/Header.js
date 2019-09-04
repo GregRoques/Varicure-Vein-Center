@@ -12,7 +12,7 @@ const header = () => {
                     Contact
                 </div>
             </div>
-            <div className={ cssHeader.logoShadow}></div>
+            {/* <div className={ cssHeader.logoShadow}></div> */}
             <Link to="/"><img alt="VeriCure Logo" className={ cssHeader.VClogo } src="/logos/siteLogo.png"/></Link>
         </div>
     );

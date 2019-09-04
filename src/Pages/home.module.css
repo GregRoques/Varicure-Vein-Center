@@ -1,6 +1,6 @@
 .backgroundStyle {
     position:relative;
-    top:50px;
+    top:45px;
     bottom:0;
     height:100vh;
     width: auto;
@@ -24,7 +24,7 @@
     font-size: 28px;
     font-style: italic;
     opacity: 0;
-    animation: container 2s 1s forwards;
+    animation: container 2s .75s forwards;
 }
 
 @keyframes container {
