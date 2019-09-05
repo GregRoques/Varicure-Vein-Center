@@ -3,9 +3,14 @@
     height: auto;
     display: grid;
     grid-template-rows: auto;
+    row-gap: 1rem;
 }
 
 .body{
     position: relative;
     top:45px;
+}
+
+.test {
+    height:1000px;
 }

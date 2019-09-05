@@ -92,3 +92,13 @@
   .textSpace{
     margin-left:50px;
   }
+
+  .VCsmall {
+    top:5px;
+    left:25px;
+    position: fixed;
+    height: 35px;
+    width:auto;
+    z-index:104;
+
+} 

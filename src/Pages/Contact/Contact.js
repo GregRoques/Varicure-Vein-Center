@@ -7,6 +7,7 @@ const Contact = () => {
         <div className={ cssContact.body }>
             <div className={ cssContact.grid }>
                 <Top />
+                <div className={ cssContact.test }></div>
             </div>
         </div>
     );
