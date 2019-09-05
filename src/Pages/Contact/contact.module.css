@@ -1,0 +1,11 @@
+.grid {
+    width:100%;
+    height: auto;
+    display: grid;
+    grid-template-rows: auto;
+}
+
+.body{
+    position: relative;
+    top:45px;
+}

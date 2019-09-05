@@ -1,11 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
+import cssContact from "./contact.module.css";
+import Top from "./Components/ContactTop";
 
-class Contact extends Component {
-    render () {
-        return <div>
-
-        </div>;
-    }
+const Contact = () => {
+    return (
+        <div className={ cssContact.body }>
+            <div className={ cssContact.grid }>
+                <Top />
+            </div>
+        </div>
+    );
 };
 
 export default Contact;
