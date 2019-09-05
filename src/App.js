@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import Layout from "./Layout/HOC/Layout";
-import Home from "./Pages/Home";
-import About from "./Pages/About";
 import cssApp from "./app.module.css";
 import axios from "axios";
+import Home from "./Pages/Home/Home";
+import Services from "./Pages/About/About";
+import Contact from "./Pages/Contact/Contact";
 
 class App extends Component {
     state ={
@@ -43,7 +44,8 @@ class App extends Component {
                         <Route
                             exact path= "/"
                             render={() => <Home {...this.state.customerReview} />} />
-                        <Route exact path= "/about" component= { About } />
+                        <Route exact path= "/services" component= { Services } />
+                        <Route exact path= "/contact" component= { Contact } />
                         <Route component = { this.NoPage } />
                     </Switch>
                 </Layout>
