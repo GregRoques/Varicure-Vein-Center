@@ -4,6 +4,17 @@
     display: grid;
     grid-template-rows: auto;
     row-gap: 1rem;
+    animation-name: fadeIn;
+    animation-duration:2s;
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
 }
 
 .body{
@@ -14,3 +25,4 @@
 .test {
     height:1000px;
 }
+

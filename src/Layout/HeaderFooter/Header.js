@@ -11,6 +11,7 @@ class Header extends Component {
 
     componentDidMount () {
         window.addEventListener("scroll", this.logoScroll);
+        window.pageYOffset > 50 && window.location.pathname !== "/home" ? this.setState({ isScrolled: false }) : this.setState({ isScrolled: true });
         window.addEventListener("resize", this.logoResize);
         window.innerWidth < 650 ? this.setState({ isResized: false }) : this.setState({ isResized: true });
     };
@@ -33,9 +34,9 @@ class Header extends Component {
                     }
                     { !this.state.isResized
                         ? <div className= { cssHeader.headerContainerSmallText}>
-                            <button class="hamburger hamburger--spin" type="button">
-                                <span class="hamburger-box">
-                                    <span class="hamburger-inner"></span>
+                            <button className="hamburger hamburger--spin" type="button">
+                                <span className="hamburger-box">
+                                    <span className="hamburger-inner"></span>
                                 </span>
                             </button>
                         </div>
