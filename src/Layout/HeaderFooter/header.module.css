@@ -58,17 +58,17 @@
     font-weight: 500;
 }
 
-.headerContainerText > a {
+.headerContainerText > a, .headerContainerText > span {
     position: relative;
     color: white;
     text-decoration: none;
 }
 
-.headerContainerText > a:hover {
+.headerContainerText > a:hover, .headerContainerText > span:hover {
     color: white;
 }
 
-.headerContainerText > a:before {
+.headerContainerText > a:before, .headerContainerText > span:before {
     content: "";
     position: absolute;
     width: 100%;
@@ -83,13 +83,17 @@
     transition: all 0.3s ease-in-out 0s;
   }
 
-  .headerContainerText > a:hover:before {
+  .headerContainerText > a:hover:before, .headerContainerText > span:hover:before {
     visibility: visible;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
   }
 
-  .textSpace{
+  a + a {
+    margin-left:50px;
+  }
+
+  a + span {
     margin-left:50px;
   }
 

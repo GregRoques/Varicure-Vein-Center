@@ -13,7 +13,7 @@ class Header extends Component {
         window.addEventListener("scroll", this.logoScroll);
         window.pageYOffset > 50 && window.location.pathname !== "/home" ? this.setState({ isScrolled: false }) : this.setState({ isScrolled: true });
         window.addEventListener("resize", this.logoResize);
-        window.innerWidth < 650 ? this.setState({ isResized: false }) : this.setState({ isResized: true });
+        window.innerWidth < 600 ? this.setState({ isResized: false }) : this.setState({ isResized: true });
     };
 
     logoScroll = () => {
@@ -21,7 +21,7 @@ class Header extends Component {
     };
 
     logoResize = () => {
-        window.innerWidth < 650 ? this.setState({ isResized: false }) : this.setState({ isResized: true });
+        window.innerWidth < 600 ? this.setState({ isResized: false }) : this.setState({ isResized: true });
     };
 
     render () {
@@ -42,8 +42,8 @@ class Header extends Component {
                         </div>
                         : <div className= { cssHeader.headerContainerText}>
                             <Link className = { cssHeader.textSpace } to="/services"> Services </Link>
-                            <Link className = { cssHeader.textSpace } to="/services"> Appointments </Link>
                             <Link className = { cssHeader.textSpace } to="/contact"> Contact </Link>
+                            <span onClick={""}>EN</span>&#160;/&#160;<span className={cssHeader.EnSp} onClick={""}>ES</span>
                         </div>
                     }
                 </div>
