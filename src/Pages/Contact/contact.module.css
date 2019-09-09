@@ -26,3 +26,16 @@
     height:1000px;
 }
 
+hr {
+    margin-top: 25px;
+    opacity:0.35;
+}
+.contactMagin{
+    padding-left:5%;
+    padding-right:5%;
+}
+
+.copyright{
+    margin-bottom:25px;
+    font-weight: bold;
+}

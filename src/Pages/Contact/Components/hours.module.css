@@ -10,3 +10,39 @@
     font-weight: bold;
     color: rgb(19,163,153);
 }
+
+.header{
+    font-family: "Nunito", cursive;
+    color:rgb(250,173,73);
+    font-size:72px;
+    margin-bottom: 20px;
+}
+
+.connectGrid{
+    height: auto;
+    display: grid; 
+    grid-template-columns: 50% 50%;
+    row-gap: 1rem;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.connectContact {
+    width: 75px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.connectSocial{
+    width: 45px;
+    height: auto;
+    margin-top: 40px;
+}
+
+.connectSocial + .connectSocial {
+    margin-left:45px;
+}
+
+.weekDays {
+    font-size: 18px;
+}

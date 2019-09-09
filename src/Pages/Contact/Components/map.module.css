@@ -1,0 +1,11 @@
+.mapBody {
+    height: 400px;
+    width:100%;
+}
+
+.header{
+    font-family: "Nunito", cursive;
+    margin-bottom: 20px;
+    color:rgb(250,173,73);
+    font-size:72px;
+};

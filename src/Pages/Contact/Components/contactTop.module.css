@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Satisfy&display=swap');
-
 .topImage {
     background-image: url("/contactPic.jpg");
     height: 500px;
@@ -17,8 +15,8 @@
     align-items: center;
     justify-content: left;
     text-indent: 50px;
-    font-family: 'Satisfy', cursive;
+    font-family: 'Dancing Script', cursive;
     font-size: 175px;
-    color: purple;
-    text-shadow: 3px 3px 2px white;
+    color: white;
+    text-shadow: 3px 3px 2px rgb(0,0,0,0.65);
 }

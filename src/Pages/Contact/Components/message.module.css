@@ -1,0 +1,13 @@
+.messageGrid{
+    height: auto;
+    display: grid; 
+    grid-template-columns: 50% 50%;
+    row-gap: 1rem;
+}
+
+.header{
+    font-family: "Nunito", cursive;
+    color:rgb(250,173,73);
+    font-size:72px;
+    margin-bottom: 10px;
+}

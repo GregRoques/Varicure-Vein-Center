@@ -11,13 +11,13 @@ class Header extends Component {
 
     componentDidMount () {
         window.addEventListener("scroll", this.logoScroll);
-        window.pageYOffset > 50 && window.location.pathname !== "/home" ? this.setState({ isScrolled: false }) : this.setState({ isScrolled: true });
+        window.pageYOffset > 65 && window.location.pathname !== "/home" ? this.setState({ isScrolled: false }) : this.setState({ isScrolled: true });
         window.addEventListener("resize", this.logoResize);
         window.innerWidth < 600 ? this.setState({ isResized: false }) : this.setState({ isResized: true });
     };
 
     logoScroll = () => {
-        window.pageYOffset > 50 && window.location.pathname !== "/home" ? this.setState({ isScrolled: false }) : this.setState({ isScrolled: true });
+        window.pageYOffset > 65 && window.location.pathname !== "/home" ? this.setState({ isScrolled: false }) : this.setState({ isScrolled: true });
     };
 
     logoResize = () => {
