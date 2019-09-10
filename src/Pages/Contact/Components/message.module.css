@@ -19,7 +19,7 @@
 }
 
 .shortForm {
-    margin: 5px 0px 5px 0px;
+    margin: 10px 0px 5px 0px;
     padding: 0px 10px 0px 10px;
     width: 80%;
     height: 25px;
@@ -54,9 +54,9 @@ input:placeholder-shown, textarea:placeholder-shown{
 }
 
 .radioBoxes{
-    width: 80%;
     margin-top: 10px;
     color: gray;
+    padding: 0px 10px 0px 10px;
 }
 
 .radio {
