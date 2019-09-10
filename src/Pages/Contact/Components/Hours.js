@@ -19,7 +19,7 @@ const Hours = () => {
                 Closed
                 </div>
             </div>
-            <div>
+            <div className= { cssHours.seperator}>
                 <div className={ cssHours.header }>Connect</div>
                 <div className={ cssHours.connectGrid }>
                     <div>
@@ -37,9 +37,15 @@ const Hours = () => {
                         </a>
                     </div>
                 </div>
-                <img alt="Facebook: @VeriCure" className={ cssHours.connectSocial } src="/icons/Facebook.png"/>
-                <img alt="Yelp: @VeriCure" className={ cssHours.connectSocial } src="/icons/yelp.png"/>
-                <img alt="Google Business: @VeriCure" className={ cssHours.connectSocial } src="/icons/Google.png"/>
+                <a href="" target="_blank" rel="noopener noreferrer">
+                    <img alt="Facebook" className={ cssHours.connectSocial } src="/icons/Facebook.png"/>
+                </a>
+                <a href="https://www.yelp.com/biz/varicure-vein-center-miami-2" target="_blank" rel="noopener noreferrer">
+                    <img alt="Yelp" className={ cssHours.connectSocial } src="/icons/yelp.png"/>
+                </a>
+                <a href="" target="_blank" rel="noopener noreferrer">
+                    <img alt="Google Business" className={ cssHours.connectSocial } src="/icons/Google.png"/>
+                </a>
             </div>
         </div>
     );

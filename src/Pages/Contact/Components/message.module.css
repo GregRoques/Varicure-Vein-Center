@@ -1,6 +1,7 @@
 .messageGrid{
     height: auto;
     display: grid; 
+    margin-top: 35px;
     grid-template-columns: 50% 50%;
     row-gap: 1rem;
 }
@@ -10,4 +11,54 @@
     color:rgb(250,173,73);
     font-size:72px;
     margin-bottom: 10px;
+}
+
+.intro {
+    padding: 0px 15% 0px 15%;
+    margin-bottom: 10px;
+}
+
+.shortForm {
+    margin: 5px 0px 5px 0px;
+    padding: 0px 10px 0px 10px;
+    width: 80%;
+    height: 25px;
+    border:none;
+    border-radius:5px;
+    background-color:rgb(211,211,211,0.75);
+    color:black;
+}
+
+input:placeholder-shown, textarea:placeholder-shown{
+    color:darkgray;
+}
+
+.messageForm{
+    margin: 10px 0px 10px 0px;
+    padding: 10px;
+    width: 80%;
+    height: 225px;
+    border:none;
+    border-radius:5px;
+    background-color:rgb(211,211,211,0.75);
+    color:black;
+}
+
+.submit {
+    width: 80%;
+    height: 25px;
+    background-color: rgb(19,163,153);
+    color:white;
+    border: none;
+    border-radius: 5px;
+}
+
+.radioBoxes{
+    width: 80%;
+    margin-top: 10px;
+    color: gray;
+}
+
+.radio {
+    margin-left: 25px;
 }
