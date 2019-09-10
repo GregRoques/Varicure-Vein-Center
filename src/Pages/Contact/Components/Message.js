@@ -6,7 +6,7 @@ const Message = () => {
         <div className={ cssMessage.messageGrid }>
             <div>
                 <div className={ cssMessage.header }>Message</div>
-                <div className={ cssMessage.intro }>Send a brief message to our lead physician and we will get back with you with two business days.</div>
+                <div className={ cssMessage.intro }>Send a brief message to our lead physician and we will get back to you within two business days.</div>
                 <form name="form1">
                     <input className={ cssMessage.shortForm } type="text" name="name" placeholder="NAME" required/> <br/>
                     <input className={ cssMessage.shortForm } type="text" name="email" placeholder="EMAIL" required/> <br/>
