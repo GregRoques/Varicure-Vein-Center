@@ -8,7 +8,8 @@ class Message extends Component {
         email: "",
         phone: "",
         contact: "email",
-        message: ""
+        message: "",
+        services: ""
     };
 
     onChangeHandler = e => {
@@ -20,13 +21,14 @@ class Message extends Component {
 
     onSubmitHanlder = e => {
         e.preventDefault();
-        const { name, email, phone, contact, message } = this.state;
+        const { name, email, phone, contact, message, services } = this.state;
         axios.post("http://localhost:2000/personalData", {
             name,
             email,
             phone,
             contact,
-            message
+            message,
+            services
         })
             .then(res => {
                 console.log(res);
@@ -44,7 +46,15 @@ class Message extends Component {
                     <div className={ cssMessage.intro }>Send a brief message to our lead physician and we will get back to you within two business days.</div>
                     <input className={ cssMessage.shortForm } type="text" name="name" placeholder="FULL NAME" defaultValue={ this.state.name } required/> <br/>
                     <input className={ cssMessage.shortForm } type="email" name="email" placeholder="EMAIL" defaultValue={ this.state.email } required/> <br/>
-                    <input className={ cssMessage.shortForm } type="tel" maxLength="14" name="phone" placeholder="PHONE NUMBER" defaultValue={ this.state.phone }/> <br/>
+                    <input className={ cssMessage.shortForm } type="tel" maxLength="14" name="phone" placeholder="PHONE (Optional)" defaultValue={ this.state.phone }/> <br/>
+                    <select className={ cssMessage.shortForm } name="services">
+                        <option value="" disabled selected required>SERVICE LINE</option>
+                        <option value="Kill Spider Man">Kill Spider Man</option>
+                        <option value="laser hair removal">Laser Hair Removal</option>
+                        <option value="cybernetic implants">Cybernetic Limbs </option>
+                        <option value="laser eyes"> Laser Eyes </option>
+                        <option value="General Service Questions"> General Questions/Other </option>
+                    </select>
                     <div className={ cssMessage.radioBoxes }>
                         Preferred Contact:
                         <input className={ cssMessage.radio } type="radio" name="contact" value="email" defaultChecked={this.state.contact === "email"}/> Email

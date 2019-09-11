@@ -20,9 +20,10 @@
 
 .shortForm {
     margin: 10px 0px 5px 0px;
-    padding: 0px 10px 0px 10px;
+    text-indent: 10px;
+    font-size:14px;
     width: 80%;
-    height: 25px;
+    height: 30px;
     border:none;
     border-radius:5px;
     background-color:rgb(211,211,211,0.75);
@@ -37,11 +38,12 @@ input:placeholder-shown, textarea:placeholder-shown{
     margin: 10px 0px 10px 0px;
     padding: 10px;
     width: 80%;
-    height: 255px;
+    height: 300px;
     border:none;
     border-radius:5px;
     background-color:rgb(211,211,211,0.75);
     color:black;
+    font-size:14px;
 }
 
 .submit {
