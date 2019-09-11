@@ -14,7 +14,7 @@
 
 ## Technologies
 * HTML/CSS/JavaScript
-* React
+* React/Redux
 * Node.js/Express
 * MySQL
 * Cypress.js
@@ -38,6 +38,9 @@
 
 ## Images
 
+### Home Page
 ![home page](/nonessential/ReadMePics/1.png)
 
+
+### Contact Page
 ![contact page](/nonessential/ReadMePics/2.jpg)
