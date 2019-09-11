@@ -22,8 +22,4 @@ router.get("/reviews", (req, res) => {
         });
 });
 
-// router.get("/personalData", (req, res) => {
-
-// });
-
 module.exports = router;

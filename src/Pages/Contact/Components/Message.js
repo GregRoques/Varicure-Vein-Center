@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import cssMessage from "./message.module.css";
-// import axios from "axios";
+import axios from "axios";
 
 class Message extends Component {
     state = {
@@ -20,19 +20,20 @@ class Message extends Component {
 
     onSubmitHanlder = e => {
         e.preventDefault();
-        // const { name, email, phone, contact, message } = this.state;
-        // axios.post("http://localhost:2000/personalData", {
-        //     name,
-        //     email,
-        //     phone,
-        //     contact
-        // })
-        //     .then(res => {
-
-        //     })
-        //     .catch(err => {
-        //         console.log(err);
-        //     });
+        const { name, email, phone, contact, message } = this.state;
+        axios.post("http://localhost:2000/personalData", {
+            name,
+            email,
+            phone,
+            contact,
+            message
+        })
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            });
     };
 
     render () {

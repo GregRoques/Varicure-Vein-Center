@@ -3,7 +3,8 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
 
-const routing = require("./routes/routing");
+const reviews = require("./routes/reviews");
+const myContacts = require("./routes/personalData");
 
 const app = express();
 
@@ -13,7 +14,8 @@ app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(routing);
+app.use(reviews);
+app.use(myContacts);
 
 const PORT = 2000;
 app.listen(PORT, () => {
