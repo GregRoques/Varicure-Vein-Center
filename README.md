@@ -35,3 +35,9 @@
 * npm i mysql2
 * npm i helmet
 * npm i cors
+
+## Images
+
+![home page](/nonessential/ReadMePics/1.png)
+
+![contact page](/nonessential/ReadMePics/2.jpg)

@@ -43,7 +43,7 @@ class Header extends Component {
                         : <div className= { cssHeader.headerContainerText}>
                             <Link className = { cssHeader.textSpace } to="/services"> Services </Link>
                             <Link className = { cssHeader.textSpace } to="/contact"> Contact </Link>
-                            <span onClick={""}>EN</span>&#160;/&#160;<span className={cssHeader.EnSp} onClick={""}>ES</span>
+                            <span>Español</span>
                         </div>
                     }
                 </div>

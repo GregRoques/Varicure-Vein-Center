@@ -20,14 +20,12 @@
     bottom:25%;
     left: 3%;
     width:35%;
-    /* padding:15px; */
-    /* background-color: rgb(255,255,255,0.35); */
+    text-shadow: 1px 1px 1px black; 
     border-radius: 15px;
     z-index: 5;
     font-family: 'Nunito', sans-serif;
     text-align: left;
     color: white;
-    /* -webkit-text-stroke: .75px black; */
     font-size: 28px;
     font-style: italic;
     opacity: 0;
