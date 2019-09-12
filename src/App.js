@@ -6,6 +6,7 @@ import axios from "axios";
 import Home from "./Pages/Home/Home";
 import Services from "./Pages/About/About";
 import Contact from "./Pages/Contact/Contact";
+import Admin from "./Pages/Admin/Login";
 
 class App extends Component {
     state ={
@@ -39,16 +40,18 @@ class App extends Component {
     render () {
         return (
             <div className = { cssApp.body }>
-                <Layout>
-                    <Switch>
+                <Switch>
+                    <Route exact path = "/admin-login" component= { Admin } />
+                    <Layout>
                         <Route
                             exact path= "/"
                             render={() => <Home {...this.state.customerReview} />} />
                         <Route exact path= "/services" component= { Services } />
                         <Route exact path= "/contact" component= { Contact } />
-                        <Route component = { this.NoPage } />
-                    </Switch>
-                </Layout>
+                        <Route component= { this.NoPage } />
+                    </Layout>
+                    
+                </Switch>
             </div>
         );
     }

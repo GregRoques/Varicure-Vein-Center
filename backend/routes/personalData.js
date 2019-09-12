@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require("../util/database");
 const nodemailer = require("nodemailer");
 const sendgridTransport = require("nodemailer-sendgrid-transport");
-const myKey = require("..util/sendgridApi.js");
+const myKey = require("../util/sendgridApi.js");
 
 const transporter = nodemailer.createTransport(sendgridTransport({
     auth: {

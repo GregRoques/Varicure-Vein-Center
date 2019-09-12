@@ -2,15 +2,14 @@
 
 ## Contents
     * Description
-    * Features
     * Technologies
     * Packages
-    * Functionality
-    * Testing
+    * Challenges
+    * MVP
+    * Stretch Goals
+    * Images
 
 ## Description
-
-## Features
 
 ## Technologies
 * HTML/CSS/JavaScript
@@ -26,6 +25,7 @@
 ### Front End
 * npx i create-react-app
 * npm i react-router-dom
+* npm i redux react-redux redux-devtools-extension redux-thunk
 * npm i emotions
 * npm i axios
 
@@ -40,6 +40,14 @@
 
 ### Testing
 * npm i cypress --save-dev
+
+## MVP
+* website featuring company contact information (and email form) and information about services offered, caregivers, etc.
+* Ability to toggle between English and Spanish translations
+* ability for site admins log into private page with the option to: download customer contact information for integration with contact and Email lists, add customer reviews to homepage with review links (Yelp, FB, etc.), and add aditional admins and update password.
+
+## Stretch Goals
+* Add online booking option for site visitors and integrate with company calendar.
 
 ## Images
 
