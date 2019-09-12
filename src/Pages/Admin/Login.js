@@ -19,9 +19,10 @@ class Login extends Component {
 
     render () {
         return (
-            <div>
+            <div className={ cssLogin.loginBody}>
                 <div className={cssLogin.logInPosition}>
                     <form className={cssLogin.logInForm} onSubmit={e => this.onSubmitHandler(e)}>
+                        <img className={cssLogin.logo} alt="VeriCure-logo" src="/logos/smallLogo.png"/><br/>
                         <input
                             className={cssLogin.inputText}
                             type="email"
@@ -29,7 +30,7 @@ class Login extends Component {
                             id = "email"
                             onChange={this.changedHandler}
                             value={this.state.email}
-                        />
+                        /> <br/>
                         <input
                             className={cssLogin.inputText}
                             type="password"
@@ -37,7 +38,7 @@ class Login extends Component {
                             id = "password"
                             onChange={this.changedHandler}
                             value={this.state.password}
-                        />
+                        /> <br/>
                         <button className={cssLogin.inputSubmit} type="submit">Submit</button>
                     </form>
                 </div>
