@@ -31,7 +31,7 @@ class Message extends Component {
             services
         })
             .then(res => {
-                console.log(res);
+                res.data === "Yes" ? console.log("Your Email Has Been Sent!") : console.log("Something went wrong. Please try again later!");
             })
             .catch(err => {
                 console.log(err);

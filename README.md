@@ -36,6 +36,10 @@
 * npm i helmet
 * npm i cors
 * npm i nodemailer 
+* npm i nodemailer-sendgrid-transport (supports integrating nodemailer with sendgrid.com account)
+
+### Testing
+* npm i cypress --save-dev
 
 ## Images
 

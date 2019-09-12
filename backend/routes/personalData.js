@@ -1,8 +1,24 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../util/database");
-// const nodemailer = require("nodemailer");
-// https://www.w3schools.com/nodejs/nodejs_email.asp
+const nodemailer = require("nodemailer");
+const sendgridTransport = require("nodemailer-sendgrid-transport");
+
+const transporter = nodemailer.createTransport(sendgridTransport({
+    auth: {
+        api_key: "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"
+    }
+}));
+
+const DataError = props => {
+    transporter.sendMail({
+        to: "LilNacheauxNOLA@gmail.com",
+        from: "LilNacheauxNOLA@gmail.com",
+        subject: "Error saving user data to backend",
+        html: `<b>Date:</b> ${new Date().toISOString().slice(0, 10)}<br/><br/>
+        ${props ? props.name + ", " + props.email + ", " + props.phone : null}`
+    });
+};
 
 const phoneFormat = ph => {
     if (ph.length >= 10) {
@@ -17,6 +33,27 @@ const phoneFormat = ph => {
 const yearMonth = new Date().toISOString().slice(0, 7);
 
 router.post("/personalData", (req, res, next) => {
+    const { name, email, phone, contact, message, services } = req.body;
+    const phoneEdit = phoneFormat(phone);
+
+    transporter.sendMail({
+        to: "LilNacheauxNOLA@gmail.com",
+        from: email,
+        subject: `${name} has a question about ${services}`,
+        html: `<b>From:</b> ${name} <br/> 
+        <b>Email:</b> ${email} <br/>
+        ${phoneEdit.length > 2 ? "<b>Phone:</b> " + phoneEdit + "<br/><b>Preferred Contact:</b> " + contact + "<br/>" : null}
+        <b>Date:</b> ${new Date().toISOString().slice(0, 10)} <br/><br/>
+        ${message}`
+    }).then(() => {
+        res.json("Yes");
+        next();
+    }).catch(() => {
+        res.json("No");
+    });
+});
+
+router.post("/personalData", (req, res, next) => {
     const { email } = req.body;
     const isEmailAlready = `SELECT email FROM personalData WHERE email="${email}"`;
     db.execute(isEmailAlready).then(results => {
@@ -24,14 +61,14 @@ router.post("/personalData", (req, res, next) => {
             next();
         } else {
             const updateDate = `UPDATE personalData SET date="${yearMonth}" WHERE email="${email}"`;
-            db.execute(updateDate).then(results2 => {
+            db.execute(updateDate).then(() => {
                 console.log("Updated date where email already exists.");
-            }).catch(err2 => {
-                throw err2;
+            }).catch(() => {
+                DataError();
             });
         }
-    }).catch(err => {
-        throw err;
+    }).catch(() => {
+        DataError();
     });
 });
 
@@ -40,10 +77,10 @@ router.post("/personalData", (req, res) => {
     const phoneEdit = phoneFormat(phone);
 
     const addNewInfo = `INSERT INTO personalData (email, name, phone, preference, date) VALUES ("${email}", "${name}", "${phoneEdit}", "${contact}", "${yearMonth}")`;
-    db.execute(addNewInfo).then(result => {
+    db.execute(addNewInfo).then(() => {
         console.log("Update Successful");
-    }).catch(err => {
-        throw err;
+    }).catch(() => {
+        DataError(name, email, phone);
     });
 });
 
