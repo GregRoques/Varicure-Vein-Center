@@ -50,7 +50,6 @@ class App extends Component {
                         <Route exact path= "/contact" component= { Contact } />
                         <Route component= { this.NoPage } />
                     </Layout>
-                    
                 </Switch>
             </div>
         );
