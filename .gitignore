@@ -2,6 +2,7 @@
 
 # dependencies
 /backend/node_modules
+/backend/util/sendgridApi.js
 /node_modules
 /.pnp
 .pnp.js
