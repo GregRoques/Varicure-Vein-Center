@@ -36,6 +36,7 @@
 * npm i cors
 * npm i helmet
 * npm i bcrypt
+* npm i rand-token
 * npm i nodemailer 
 * npm i nodemailer-sendgrid-transport (supports integrating nodemailer with sendgrid.com account)
 

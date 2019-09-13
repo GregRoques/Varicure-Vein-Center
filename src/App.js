@@ -6,7 +6,7 @@ import axios from "axios";
 import Home from "./Pages/Home/Home";
 import Services from "./Pages/About/About";
 import Contact from "./Pages/Contact/Contact";
-import Admin from "./Pages/Admin/Login";
+import Admin from "./Pages/Admin/Admin";
 
 class App extends Component {
     state ={
