@@ -5,6 +5,7 @@ const helmet = require("helmet");
 
 const reviews = require("./routes/reviews");
 const myContacts = require("./routes/personalData");
+const login = require("./routes/login");
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(bodyParser.json());
 
 app.use(reviews);
 app.use(myContacts);
+app.use(login);
 
 const PORT = 2000;
 app.listen(PORT, () => {

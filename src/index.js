@@ -8,10 +8,12 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
+import RootReducer from "./Redux/RootReducers";
 
 // need to eventually add ReactGA and history for Google Analytics tracking
 
 const theStore = createStore(
+    RootReducer,
     composeWithDevTools(
         applyMiddleware(thunk)
     )
