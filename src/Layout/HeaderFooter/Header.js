@@ -15,7 +15,7 @@ class Header extends Component {
         window.addEventListener("scroll", this.logoScroll);
         window.pageYOffset > 25 && window.location.pathname !== "/home" ? this.setState({ isScrolled: false }) : this.setState({ isScrolled: true });
         window.addEventListener("resize", this.logoResize);
-        window.innerWidth < 600 ? this.setState({ isResized: false }) : this.setState({ isResized: true });
+        window.innerWidth < 620 ? this.setState({ isResized: false }) : this.setState({ isResized: true });
     };
 
     logoScroll = () => {
@@ -23,7 +23,7 @@ class Header extends Component {
     };
 
     logoResize = () => {
-        window.innerWidth < 600 ? this.setState({ isResized: false }) : this.setState({ isResized: true });
+        window.innerWidth < 620 ? this.setState({ isResized: false }) : this.setState({ isResized: true });
     };
 
     render () {
@@ -43,9 +43,15 @@ class Header extends Component {
                             </button>
                         </div>
                         : <div className= { cssHeader.headerContainerText}>
-                            <Link className = { cssHeader.textSpace } to="/services"> Services </Link>
-                            <Link className = { cssHeader.textSpace } to="/contact"> Contact </Link>
-                            <span onClick={() => this.props.translate(!this.props.isEnglish)}>Español</span>
+                            <Link className = { cssHeader.textSpace } to="/services">
+                                { this.props.isEnglish ? "Services" : "Servicios" }
+                            </Link>
+                            <Link className = { cssHeader.textSpace } to="/contact">
+                                { this.props.isEnglish ? "Contact" : "Contacto" }
+                            </Link>
+                            <span onClick={() => this.props.translate(!this.props.isEnglish)}>
+                                { this.props.isEnglish ? "¿Español?" : "English?" }
+                            </span>
                         </div>
                     }
                 </div>
