@@ -50,7 +50,7 @@ class Header extends Component {
                                 { this.props.isEnglish ? "Contact" : "Contacto" }
                             </Link>
                             <span onClick={() => this.props.translate(!this.props.isEnglish)}>
-                                { this.props.isEnglish ? "¿Español?" : "English?" }
+                                { this.props.isEnglish ? "Español" : "English" }
                             </span>
                         </div>
                     }
