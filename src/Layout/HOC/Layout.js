@@ -4,16 +4,17 @@ import Footer from "../HeaderFooter/Footer";
 import Header from "../HeaderFooter/Header";
 
 const Layout = props => {
-    const currentRoute = window.location.pathname === "/contact";
+    const loginOmit = window.location.pathname === "/admin-login";
+    const contactOmit = window.location.pathname === "/contact";
     return (
         <div>
-            <Header />
+            { !loginOmit ? <Header /> : null }
             <Aux>
-                {props.children}
+                { props.children }
             </Aux>
-            { !currentRoute ? <Footer /> : null }
+            { !contactOmit && !loginOmit ? <Footer /> : null }
         </div>
     );
 };
 
-export default Layout;
+export default (Layout);

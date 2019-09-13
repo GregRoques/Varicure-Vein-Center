@@ -5,7 +5,7 @@ import Hours from "./Components/Hours";
 import Map from "./Components/Map";
 import Message from "./Components/Message";
 
-const Contact = () => {
+const Contact = props => {
     return (
         <div className={ cssContact.body }>
             <div className={ cssContact.grid }>

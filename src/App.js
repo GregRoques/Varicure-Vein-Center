@@ -40,17 +40,17 @@ class App extends Component {
     render () {
         return (
             <div className = { cssApp.body }>
-                <Switch>
-                    <Route exact path = "/admin-login" component= { Admin } />
-                    <Layout>
+                <Layout>
+                    <Switch>
                         <Route
                             exact path= "/"
                             render={() => <Home {...this.state.customerReview} />} />
                         <Route exact path= "/services" component= { Services } />
                         <Route exact path= "/contact" component= { Contact } />
+                        <Route exact path = "/admin-login" component= { Admin } />
                         <Route component= { this.NoPage } />
-                    </Layout>
-                </Switch>
+                    </Switch>
+                </Layout>
             </div>
         );
     }

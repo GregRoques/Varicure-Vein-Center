@@ -1,7 +1,7 @@
 import * as actionType from "../Actions/Language";
 
 const initialState = {
-    english: true
+    isEnglish: true
 };
 
 const translationReducer = (state = initialState, action) => {
@@ -9,7 +9,7 @@ const translationReducer = (state = initialState, action) => {
         case actionType.CHANGE_LANGUAGE:
             return {
                 ...state,
-                english: action.translate
+                isEnglish: action.payload
             };
         default:
             return state;

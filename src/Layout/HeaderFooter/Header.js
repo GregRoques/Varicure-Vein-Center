@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import cssHeader from "./header.module.css";
 import "./hamburgers.css";
+import { setLanguage } from "../../Redux/Actions/Language";
 
 class Header extends Component {
     state = {
@@ -43,7 +45,7 @@ class Header extends Component {
                         : <div className= { cssHeader.headerContainerText}>
                             <Link className = { cssHeader.textSpace } to="/services"> Services </Link>
                             <Link className = { cssHeader.textSpace } to="/contact"> Contact </Link>
-                            <span>Español</span>
+                            <span onClick={() => this.props.translate(!this.props.isEnglish)}>Español</span>
                         </div>
                     }
                 </div>
@@ -53,4 +55,16 @@ class Header extends Component {
     }
 };
 
-export default Header;
+const mapStateToProps = state => {
+    return {
+        isEnglish: state.isEnglish.isEnglish
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        translate: (inverse) => dispatch(setLanguage(inverse))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
