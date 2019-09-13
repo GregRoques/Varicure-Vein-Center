@@ -33,8 +33,9 @@
 * npx i express
 * npm i body-parser
 * npm i mysql2
-* npm i helmet
 * npm i cors
+* npm i helmet
+* npm i bcrypt
 * npm i nodemailer 
 * npm i nodemailer-sendgrid-transport (supports integrating nodemailer with sendgrid.com account)
 
