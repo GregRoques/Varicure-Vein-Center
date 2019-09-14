@@ -28,6 +28,8 @@
 * npm i redux react-redux redux-devtools-extension redux-thunk
 * npm i emotions
 * npm i axios
+* npm i history
+* npm i ReactGA (for Google Analytics)
 
 ### backend End
 * npx i express
