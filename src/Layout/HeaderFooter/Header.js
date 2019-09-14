@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import cssHeader from "./header.module.css";
-import "./hamburgers.css";
+import cssHeader from "./CSS/header.module.css";
+import "./CSS/hamburgers.css";
 import { setLanguage } from "../../Redux/Actions/Language";
 
 class Header extends Component {

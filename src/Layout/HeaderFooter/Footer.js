@@ -1,5 +1,5 @@
 import React from "react";
-import cssFooter from "./footer.module.css";
+import cssFooter from "./CSS/footer.module.css";
 import { mapSelector } from "../../Functions/MapSelector";
 
 const dayNum = (new Date()).getDay();
