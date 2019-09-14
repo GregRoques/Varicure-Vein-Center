@@ -1,5 +1,5 @@
 import React from "react";
-import cssMap from "./map.module.css";
+import cssMap from "./CSS/map.module.css";
 
 const map = () => {
     return (

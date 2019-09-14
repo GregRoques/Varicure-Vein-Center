@@ -1,5 +1,5 @@
 import React from "react";
-import cssHours from "./hours.module.css";
+import cssHours from "./CSS/hours.module.css";
 
 const Hours = () => {
     const dayNum = (new Date()).getDay();

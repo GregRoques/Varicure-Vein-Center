@@ -1,5 +1,5 @@
 import React from "react";
-import cssTop from "./contactTop.module.css";
+import cssTop from "./CSS/contactTop.module.css";
 
 const ContactTop = () => {
     return (
