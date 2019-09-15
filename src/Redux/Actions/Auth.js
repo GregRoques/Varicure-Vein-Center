@@ -5,11 +5,12 @@ export const AUTH_SUCCESS = "AUTH_SUCCESS";
 export const AUTH_FAIL = "AUTH_FAIL";
 export const AUTH_LOGOUT = "AUTH_LOGOUT";
 
-export const authSuccess = (idToken, userId) => {
+export const authSuccess = (idToken, userId, email) => {
     return {
         type: AUTH_SUCCESS,
         idToken,
-        userId
+        userId,
+        email
     };
 };
 
@@ -46,21 +47,25 @@ export const auth = (email, password) => {
             password
         })
             .then(response => {
-                var currentDate = new Date();
-                var currentHour = currentDate.getHours();
-                var currentMinute = currentDate.getMinutes();
+                const { userId, idToken, email } = response.data;
+
+                const currentDate = new Date();
+                const currentHour = currentDate.getHours();
+                const currentMinute = currentDate.getMinutes();
 
                 const logOutTime = (currentHour >= 12 ? (currentHour - 12) + 1 : currentHour + 1).toString() + ":" +
                 ((currentMinute).toString()).padStart(2, "0") + (currentHour > 12 ? "pm" : "am");
+                const expiresIn = 3600;
+                const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
 
-                const expirationDate = new Date(new Date().getTime() + 3600000);
-                localStorage.setItem("token", response.data.idToken);
-                localStorage.setItem("userId", response.data.localId);
+                localStorage.setItem("token", idToken);
+                localStorage.setItem("email", email);
+                localStorage.setItem("userId", userId);
                 localStorage.setItem("expirationDate", expirationDate);
                 localStorage.setItem("logOutTime", logOutTime);
 
-                dispatch(authSuccess(response.data.idToken, response.data.localId));
-                dispatch(checkAuthTimeOut(response.data.expiresIn));
+                dispatch(authSuccess(idToken, userId, email));
+                dispatch(checkAuthTimeOut(expiresIn));
             })
             .catch(error => {
                 dispatch(authFail(error.response.data.error.message));
@@ -79,7 +84,8 @@ export const authCheckState = () => {
                 dispatch(logOut());
             } else {
                 const userId = localStorage.getItem("userId");
-                dispatch(authSuccess(token, userId));
+                const email = localStorage.getItem("email");
+                dispatch(authSuccess(token, userId, email));
                 dispatch(checkAuthTimeOut((expirationDate.getTime() - (new Date().getTime())) / 1000));
             }
         }

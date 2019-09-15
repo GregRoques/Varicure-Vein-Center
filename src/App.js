@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
-import Layout from "./Layout/HOC/Layout";
 import cssApp from "./app.module.css";
 import axios from "axios";
+
+import { connect } from "react-redux";
+import { authCheckState } from "./Redux/Actions/Auth";
+
+import Layout from "./Layout/HOC/Layout";
 import Home from "./Pages/Home/Home";
 import Services from "./Pages/About/About";
 import Contact from "./Pages/Contact/Contact";
@@ -11,6 +15,11 @@ import Admin from "./Pages/Admin/Admin";
 class App extends Component {
     state ={
         customerReview: null
+    };
+
+    componentDidMount () {
+        this.props.onTryAutoSignUp();
+        this.userReviews();
     };
 
     userReviews = () => {
@@ -28,10 +37,6 @@ class App extends Component {
                 console.log(err);
             });
     };
-
-    componentDidMount () {
-        this.userReviews();
-    }
 
     NoPage = () => {
         return <Redirect push to= { Home }/>;
@@ -56,4 +61,10 @@ class App extends Component {
     }
 };
 
-export default withRouter(App);
+const mapDispatchToProps = dispatch => {
+    return {
+        onTryAutoSignUp: () => dispatch(authCheckState())
+    };
+};
+
+export default withRouter(connect(null, mapDispatchToProps)(App));

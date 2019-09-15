@@ -23,7 +23,7 @@ router.post("/login", (req, res) => {
                 res.json({
                     userId,
                     email,
-                    idtoken: token
+                    idToken: token
                 });
             } else {
                 res.json({

@@ -3,6 +3,7 @@ import * as actionType from "../Actions/Auth";
 const initialState = {
     idToken: null,
     userId: null,
+    email: null,
     error: null
 };
 
@@ -13,6 +14,7 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 idToken: action.idToken,
                 userId: action.userId,
+                email: action.email,
                 error: null
             };
         case actionType.AUTH_FAIL:
@@ -24,7 +26,8 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 idToken: null,
-                userId: null
+                userId: null,
+                email: null
             };
         default:
             return state;
