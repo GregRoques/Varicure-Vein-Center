@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-// import { connect } from "react-redux";
-// import * as actions from "../../Redux/Reducers/Auth";
+import { connect } from "react-redux";
+import * as actions from "../../Redux/Actions/Auth";
 import cssLogin from "./AdminCSS/login.module.css";
 
 class Login extends Component {
@@ -17,8 +17,8 @@ class Login extends Component {
 
     onSubmitHandler = e => {
         e.preventDefault();
-        // const { email, password } = this.state;
-        // this.props.onAuth(email, password);
+        const { email, password } = this.state;
+        this.props.onAuth(email, password);
     };
 
     render () {
@@ -51,12 +51,12 @@ class Login extends Component {
     }
 };
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         onAuth: (email, password) => dispatch(actions.auth(email, password))
-//     };
-// };
+const mapDispatchToProps = dispatch => {
+    return {
+        onAuth: (email, password) => dispatch(actions.auth(email, password))
+    };
+};
 
-// export default connect(null, mapDispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(Login);
 
-export default Login;
+// export default Login;
