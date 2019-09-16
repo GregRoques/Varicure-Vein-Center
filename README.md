@@ -46,9 +46,9 @@
 * npm i cypress --save-dev
 
 ## MVP
-* website featuring company contact information (and email form) and information about services offered, caregivers, etc.
-* Ability to toggle between English and Spanish translations
-* ability for site admins log into private page with the option to: download customer contact information for integration with contact and Email lists, add customer reviews to homepage with review links (Yelp, FB, etc.), and add aditional admins and update password.
+* Website featuring company contact information (and email form) in addition to information about services offered and caregiver bios.
+* Ability to toggle between English and Spanish translations.
+* Ability for site admins to log into a private page with the option to: 1) download customer contact information for integration with contact and MailChimp lists; 2) add customer reviews to homepage with review links (Yelp, FB, etc.); and, 3) add aditional admins and update password.
 
 ## Stretch Goals
 * Add online booking option for site visitors and integrate with company calendar.
