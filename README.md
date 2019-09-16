@@ -26,10 +26,10 @@
 * npx i create-react-app
 * npm i react-router-dom
 * npm i redux react-redux redux-devtools-extension redux-thunk
-* npm i emotions
 * npm i axios
-* npm i history
-* npm i ReactGA (for Google Analytics)
+* npm i emotions (CSS styling with javascript)
+* npm i history (needed for Google Analytics)
+* npm i ReactGA (React Google Analytics package)
 
 ### backend End
 * npx i express
@@ -57,7 +57,6 @@
 
 ### Home Page
 ![home page](/nonessential/ReadMePics/1.png)
-
 
 ### Contact Page
 ![contact page](/nonessential/ReadMePics/2.jpg)
