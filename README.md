@@ -10,6 +10,7 @@
     * Images
 
 ## Description
+Company website featuring the ability for owners to update via an admin page.
 
 ## Technologies
 * HTML/CSS/JavaScript
