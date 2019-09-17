@@ -36,7 +36,7 @@ class About extends Component {
                         <this.options props={ options } />
                     </ul>
                 </div>
-                <div>
+                <div key= {this.state.selected }>
                     <this.state.selected />
                 </div>
             </div>
