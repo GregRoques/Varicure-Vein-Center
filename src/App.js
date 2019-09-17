@@ -8,7 +8,7 @@ import { authCheckState } from "./Redux/Actions/Auth";
 
 import Layout from "./Layout/HOC/Layout";
 import Home from "./Pages/Home/Home";
-import Services from "./Pages/About/About";
+import Services from "./Pages/Services/Services";
 import Contact from "./Pages/Contact/Contact";
 import Admin from "./Pages/Admin/Admin";
 
