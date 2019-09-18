@@ -1,6 +1,7 @@
 import React from "react";
 import { css } from "emotion";
 import cssHome from "./home.module.css";
+import Footer from "../../Layout/HeaderFooter/Footer";
 
 const Home = props => {
     const UserReview = () => {
@@ -22,6 +23,7 @@ const Home = props => {
     return (
         <div className={ cssJoin.join(" ")}>
             <UserReview />
+            <Footer/>
         </div>
     );
 };

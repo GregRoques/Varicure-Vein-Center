@@ -59,6 +59,29 @@ class Services extends Component {
                             );
                         })}
                     </div>
+                    <div className={cssServices.quoteGrid}>
+                        <div className={cssServices.quoteMark}/>
+                        <div className={cssServices.quoteText}>
+                        I missed the last bus
+                        I'll take the next train
+                        I try, but you see
+                        It's hard to explain
+                        I said the right things
+                        But act the wrong way
+                        I like it right here
+                        But I cannot stay
+                        I watched the TV
+                        Forget what I'm told
+                        Well I am too young
+                        And they are too old
+                        The joke is on you
+                        This place is a zoo
+                        You're right, it's true
+                        </div>
+
+                    </div>
+                </div>
+                <div className={cssServices.currentSelection}>
                     <div key= {this.state.selected } className={cssServices.fadeIn}>
                         { options.map((option, i) => {
                             return (
