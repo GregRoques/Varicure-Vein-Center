@@ -15,24 +15,30 @@ class Services extends Component {
         });
     }
 
-    Options = ({ option }) => {
+    Options = ({ option, listNum }) => {
         return (
             <Fragment>
                 <ul>
-                    <li onClick={option => this.display(option)}>
-                        {this.state.selected === option ? `<b>${option}</b>` : option }
+                    <li id={`options${listNum}`} onClick={() => this.info(option)}>
+                        {this.state.selected === option ? <b>{option}</b> : option }
                     </li>
                 </ul>
             </Fragment>
         );
     };
 
-    Display = ({ option, component }) => {
+    Display = ({ option, component, displayNum }) => {
         return (
-            <div>
+            <div id={`display${displayNum}`}>
                 { this.state.selected === option ? component : null}
             </div>
         );
+    };
+
+    info = option => {
+        this.setState({
+            selected: option
+        });
     };
 
     render () {
@@ -42,12 +48,12 @@ class Services extends Component {
         return (
             <div className={cssServices.body}>
                 <div className={cssServices.grid}>
-                    <div className={cssServices.fadeIn}>
+                    <div className={cssServices.selector}>
                         { options.map((option, i) => {
                             return (
                                 <this.Options
                                     option={ option }
-                                    key={ i }
+                                    listNum={ i }
                                 />
                             );
                         })}
@@ -57,7 +63,7 @@ class Services extends Component {
                             return (
                                 <this.Display
                                     option={ option }
-                                    key={ i }
+                                    displayNum = { i }
                                     component = { components[i] }
                                 />
                             );

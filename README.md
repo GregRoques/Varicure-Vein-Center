@@ -28,7 +28,7 @@ Company website featuring the ability for owners to update via an admin page.
 * npm i react-router-dom
 * npm i redux react-redux redux-devtools-extension redux-thunk
 * npm i axios
-* npm i emotions (CSS styling with javascript)
+* npm i emotions (CSS styling with JavaScript)
 * npm i history (needed for Google Analytics)
 * npm i ReactGA (React Google Analytics package)
 
