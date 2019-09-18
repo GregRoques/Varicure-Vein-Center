@@ -23,7 +23,7 @@ class App extends Component {
     };
 
     userReviews = () => {
-        const number = Math.floor(Math.random() * 2);
+        const number = Math.floor(Math.random() * 3);
         axios.get("http://localhost:2000/reviews")
             .then(res => {
                 this.setState({

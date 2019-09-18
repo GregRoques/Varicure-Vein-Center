@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import cssServices from "./services.module.css";
 import Staff from "./Components/Staff";
+import FAQ from "./Components/FAQ";
 import Treatments from "./Components/Treatments";
 import Results from "./Components/Results";
 
@@ -42,8 +43,8 @@ class Services extends Component {
     };
 
     render () {
-        const options = ["Treatments", "Results", "Staff"];
-        const components = [<Treatments/>, <Results/>, <Staff/>];
+        const options = ["Treatments", "Results", "FAQ", "Staff"];
+        const components = [<Treatments/>, <Results/>, <FAQ/>, <Staff/>];
 
         return (
             <div className={cssServices.body}>

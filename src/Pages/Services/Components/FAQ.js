@@ -1,11 +1,11 @@
 import React from "react";
 
-const Treatments = props => {
+const FAQ = props => {
     return (
         <div>
-            Treatments
+            FAQ
         </div>
     );
 };
 
-export default Treatments;
+export default FAQ;
