@@ -22,7 +22,10 @@ class App extends Component {
             social: null
         },
         customerReviews2: {
-
+            review: "If you are  looking for a doctor who really disappears the varicose veins, he's here.",
+            url: "https://www.yelp.com/biz/varicure-vein-center-miami-2?hrid=dhHIlSW5ubXMfrOSGawJdw&utm_campaign=www_review_share_popup&utm_medium=copy_link&utm_source=(direct)",
+            name: "Rosi S.",
+            social: "yelp"
         }
     };
 

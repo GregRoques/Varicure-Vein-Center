@@ -7,7 +7,7 @@ import Results from "./Components/Results";
 
 class Services extends Component {
     state = {
-        selected: "Treatments"
+        selected: "Staff"
     }
 
     selected = props => {
