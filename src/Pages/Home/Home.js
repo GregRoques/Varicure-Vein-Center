@@ -5,13 +5,9 @@ import Footer from "../../Layout/HeaderFooter/Footer";
 
 const Home = props => {
     const UserReview = () => {
-        return props.review && props.name ? (
+        return (
             <div className={ cssHome.userReview }>
-                "{props.review}" <div className ={ cssHome.indent }>– {props.url ? <a href={props.url} className={cssHome.underline} rel="noopener noreferrer" target="_blank">{props.name} <img alt={props.social} src={"/icons/" + props.social + ".png"} /></a> : props.name }</div>
-            </div>
-        ) : (
-            <div className={ cssHome.userReview }>
-                We Take Care of the Spiders
+                "{props.review}" {props.url && props.name ? <div className ={ cssHome.indent }>–<a href={props.url} rel="noopener noreferrer" target="_blank">{props.name} <img alt={props.social} src={"/icons/" + props.social + ".png"} /></a> </div> : null }
             </div>
         );
     };

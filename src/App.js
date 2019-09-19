@@ -14,7 +14,16 @@ import Admin from "./Pages/Admin/Admin";
 
 class App extends Component {
     state ={
-        customerReview: null
+        customerReviews1: {
+            homePagePic: 0,
+            review: "We Take Care of the Spiders",
+            url: null,
+            name: null,
+            social: null
+        },
+        customerReviews2: {
+
+        }
     };
 
     componentDidMount () {
@@ -26,10 +35,14 @@ class App extends Component {
         const number = Math.floor(Math.random() * 3);
         axios.get("http://localhost:2000/reviews")
             .then(res => {
+                console.log(res);
                 this.setState({
-                    customerReview: {
-                        ...res.data,
-                        homePagePic: number
+                    customerReviews1: {
+                        homePagePic: number,
+                        ...res.data[0]
+                    },
+                    customerReviews2: {
+                        ...res.data[1]
                     }
                 });
             })
@@ -49,8 +62,10 @@ class App extends Component {
                     <Switch>
                         <Route
                             exact path= "/"
-                            render={() => <Home {...this.state.customerReview} />} />
-                        <Route exact path= "/services" component= { Services } />
+                            render={() => <Home { ...this.state.customerReviews1 } />} />
+                        <Route
+                            exact path= "/services"
+                            render={() => <Services { ...this.state.customerReviews2 } />}/>
                         <Route exact path= "/contact" component= { Contact } />
                         <Route exact path = "/admin-login" component= { Admin } />
                         <Route component= { this.NoPage } />

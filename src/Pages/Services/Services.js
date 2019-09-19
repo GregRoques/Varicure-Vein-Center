@@ -45,7 +45,8 @@ class Services extends Component {
     render () {
         const options = ["Treatments", "Results", "FAQ", "Staff"];
         const components = [<Treatments/>, <Results/>, <FAQ/>, <Staff/>];
-
+        const { review, url, name, social } = this.props;
+        console.log(this.props.data);
         return (
             <div className={cssServices.body}>
                 <div className={cssServices.grid}>
@@ -62,23 +63,11 @@ class Services extends Component {
                     <div className={cssServices.quoteGrid}>
                         <div className={cssServices.quoteMark}/>
                         <div className={cssServices.quoteText}>
-                        I missed the last bus
-                        I'll take the next train
-                        I try, but you see
-                        It's hard to explain
-                        I said the right things
-                        But act the wrong way
-                        I like it right here
-                        But I cannot stay
-                        I watched the TV
-                        Forget what I'm told
-                        Well I am too young
-                        And they are too old
-                        The joke is on you
-                        This place is a zoo
-                        You're right, it's true
+                            <div>
+                                "{review}"<br/>
+                                <div className ={ cssServices.indent }>–<a href={url} rel="noopener noreferrer" target="_blank">{name} <img alt={social} src={"/icons/" + social + ".png"} /></a> </div>
+                            </div>
                         </div>
-
                     </div>
                 </div>
                 <div className={cssServices.currentSelection}>

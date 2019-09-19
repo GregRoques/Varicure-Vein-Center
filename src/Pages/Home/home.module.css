@@ -32,21 +32,6 @@
     animation: container 2s .75s forwards;
 }
 
-.indent{
-    text-indent: 15px;
-    display: inline-block;
-}
-
-.indent img {
-    height:20px;
-    width:auto;
-}
-
-.userReview .indent> a{
-    text-decoration: none;
-    color:white;
-}
-
 @keyframes container {
     0%{
         opacity:0;
@@ -72,6 +57,21 @@
         opacity:1;
         transform: scale(1)
     }
+}
+
+.indent{
+    text-indent: 15px;
+    display: inline-block;
+}
+
+.indent img {
+    height:20px;
+    width:auto;
+}
+
+.userReview .indent> a{
+    text-decoration: none;
+    color:white;
 }
 
 .indent  a {
