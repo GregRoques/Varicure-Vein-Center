@@ -5,7 +5,7 @@ class Treatments extends Component {
 
     treatmentList = props => {
         return (
-            <div>
+            <div id={`treatment${props.key}`}>
                 <h3>What is {props.treament}?</h3>
                 <p>{props.whatItIs}</p><br/>
 
