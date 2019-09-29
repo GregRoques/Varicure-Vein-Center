@@ -10,7 +10,7 @@ import thunk from "redux-thunk";
 import RootReducer from "./Redux/RootReducers";
 import { createBrowserHistory } from "history";
 
-// need to eventually add ReactGA for Google Analytics tracking
+// need to eventually add ReactGA and Facebook Pixel for Google Analytics tracking
 
 const history = createBrowserHistory();
 

@@ -9,7 +9,7 @@ let time;
 
 if (dayNum === 5) {
     time = "9a – 3p";
-} else if (dayNum === 6 || dayNum === 7) {
+} else if (dayNum === 6 || dayNum === 0) {
     time = "Closed";
 } else {
     time = "9a – 5p";
