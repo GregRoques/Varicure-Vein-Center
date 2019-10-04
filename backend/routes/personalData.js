@@ -14,8 +14,8 @@ const transporter = nodemailer.createTransport(sendgridTransport({
 
 const DataError = props => {
     transporter.sendMail({
-        to: "LilNacheauxNOLA@gmail.com",
-        from: "LilNacheauxNOLA@gmail.com",
+        to: "varicuremarketing@gmail.com",
+        from: "varicuremarketing@gmail.com",
         subject: "Error saving user data to backend",
         html: `<b>Date:</b> ${new Date().toISOString().slice(0, 10)}<br/><br/>
         ${props ? props.name + ", " + props.email + ", " + props.phone : null}`
@@ -39,7 +39,7 @@ router.post("/personalData", (req, res, next) => {
     const phoneEdit = phoneFormat(phone);
 
     transporter.sendMail({
-        to: "LilNacheauxNOLA@gmail.com",
+        to: "varicuremarketing@gmail.com",
         from: email,
         subject: `${name} has a question about ${services}`,
         html: `<b>From:</b> ${name} <br/> 
