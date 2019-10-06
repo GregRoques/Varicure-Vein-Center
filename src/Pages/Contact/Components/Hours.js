@@ -8,7 +8,7 @@ const Hours = () => {
             <div className={ cssHours.weekDays }>
                 <div className={ cssHours.header }>Hours</div>
                 <div className= { dayNum === 1 || dayNum === 2 || dayNum === 3 || dayNum === 4 ? cssHours.highlightDate : null } >
-                Monday – Thursday <br/> 9 a.m. – 5 p.m.
+                Monday – Thursday <br/> 8 a.m. – 6 p.m.
                 </div> <br/>
                 <div className= { dayNum === 5 ? cssHours.highlightDate : null }>
                 Friday <br/>

@@ -12,7 +12,7 @@ if (dayNum === 5) {
 } else if (dayNum === 6 || dayNum === 0) {
     time = "Closed";
 } else {
-    time = "9a – 5p";
+    time = "8a – 6p";
 };
 
 const Footer = () => {
