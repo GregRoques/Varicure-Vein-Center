@@ -7,7 +7,6 @@
 }
 
 .grid {
-    height: 300px;
     display: grid;
     position: relative;
     grid-template-columns: 225px 80%;
@@ -16,7 +15,6 @@
 
 .selector {
     height:100%;
-    width: 100%;
     position: relative;
     top: 125px;
     left: 25px;
@@ -70,7 +68,7 @@
 .currentSelection{
     position:relative;
     margin: auto;
-    width: 100vw;
+    width: 100%;
     height:auto;
 }
 

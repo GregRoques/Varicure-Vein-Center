@@ -45,7 +45,6 @@ class Services extends Component {
     render () {
         const options = ["Treatments", "Results", "FAQ", "Staff"];
         const components = [<Treatments/>, <Results/>, <FAQ/>, <Staff/>];
-        const { review, url, name, social } = this.props;
         console.log(this.props.data);
         return (
             <div className={cssServices.body}>
@@ -60,27 +59,19 @@ class Services extends Component {
                             );
                         })}
                     </div>
-                    <div className={cssServices.quoteGrid}>
-                        <div className={cssServices.quoteMark}/>
-                        <div className={cssServices.quoteText}>
-                            <div>
-                                "{review}"<br/>
-                                <div className ={ cssServices.indent }>–<a href={url} rel="noopener noreferrer" target="_blank">{name} <img alt={social} src={"/icons/" + social + ".png"} /></a> </div>
-                            </div>
+                    <div className={cssServices.currentSelection}>
+                        <div key= {this.state.selected } className={cssServices.fadeIn}>
+                            { options.map((option, i) => {
+                                return (
+                                    <this.Display
+                                        option={ option }
+                                        displayNum = { i }
+                                        component = { components[i] }
+                                        props = { option === "Staff" ? this.props : null}
+                                    />
+                                );
+                            })}
                         </div>
-                    </div>
-                </div>
-                <div className={cssServices.currentSelection}>
-                    <div key= {this.state.selected } className={cssServices.fadeIn}>
-                        { options.map((option, i) => {
-                            return (
-                                <this.Display
-                                    option={ option }
-                                    displayNum = { i }
-                                    component = { components[i] }
-                                />
-                            );
-                        })}
                     </div>
                 </div>
             </div>
