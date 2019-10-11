@@ -54,11 +54,11 @@ class Results extends Component {
     render () {
         return (
             <div className="fadeIn">
-                <Slider
+                {/* <Slider
                     currentNum = {this.state.imageNum}
                     clickL = {this.leftClick}
                     clickR = {this.rightClick}
-                />
+                /> */}
             </div>
         );
     }
