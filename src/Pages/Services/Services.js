@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from "react";
 import cssServices from "./services.module.css";
+import { connect } from "react-redux";
+
 import Staff from "./Components/Staff";
 import FAQ from "./Components/FAQ";
 import Treatments from "./Components/Treatments";
@@ -10,17 +12,11 @@ class Services extends Component {
         selected: "Staff"
     }
 
-    selected = props => {
-        this.setState({
-            selected: props
-        });
-    }
-
     Options = ({ option, listNum }) => {
         return (
             <Fragment>
                 <ul>
-                    <li id={`options${listNum}`} onClick={() => this.info(option)}>
+                    <li id={`options${listNum}`} key={listNum} onClick={() => this.info(option)}>
                         {this.state.selected === option ? <b>{option}</b> : option }
                     </li>
                 </ul>
@@ -44,8 +40,7 @@ class Services extends Component {
 
     render () {
         const options = ["Treatments", "Results", "FAQ", "Staff"];
-        const components = [<Treatments/>, <Results/>, <FAQ/>, <Staff/>];
-        console.log(this.props.data);
+        const components = [<Treatments/>, <Results/>, <FAQ props={this.props.isEnglish}/>, <Staff/>];
         return (
             <div className={cssServices.body}>
                 <div className={cssServices.grid}>
@@ -67,7 +62,6 @@ class Services extends Component {
                                         option={ option }
                                         displayNum = { i }
                                         component = { components[i] }
-                                        props = { option === "Staff" ? this.props : null}
                                     />
                                 );
                             })}
@@ -79,4 +73,10 @@ class Services extends Component {
     };
 };
 
-export default Services;
+const mapStateToProps = state => {
+    return {
+        isEnglish: state.isEnglish.isEnglish
+    };
+};
+
+export default connect(mapStateToProps, null)(Services);

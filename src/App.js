@@ -20,12 +20,6 @@ class App extends Component {
             url: null,
             name: null,
             social: null
-        },
-        customerReviews2: {
-            review: "If you are  looking for a doctor who really disappears the varicose veins, he's here.",
-            url: "https://www.yelp.com/biz/varicure-vein-center-miami-2?hrid=dhHIlSW5ubXMfrOSGawJdw&utm_campaign=www_review_share_popup&utm_medium=copy_link&utm_source=(direct)",
-            name: "Rosi S.",
-            social: "yelp"
         }
     };
 
@@ -38,14 +32,10 @@ class App extends Component {
         const number = Math.floor(Math.random() * 3);
         axios.get("http://localhost:2000/reviews")
             .then(res => {
-                console.log(res);
                 this.setState({
                     customerReviews1: {
                         homePagePic: number,
                         ...res.data[0]
-                    },
-                    customerReviews2: {
-                        ...res.data[1]
                     }
                 });
             })
@@ -66,9 +56,7 @@ class App extends Component {
                         <Route
                             exact path= "/"
                             render={() => <Home { ...this.state.customerReviews1 } />} />
-                        <Route
-                            exact path= "/services"
-                            render={() => <Services { ...this.state.customerReviews2 } />}/>
+                        <Route exact path= "/services" component = { Services }/>
                         <Route exact path= "/contact" component= { Contact } />
                         <Route exact path = "/admin-login" component= { Admin } />
                         <Route component= { this.NoPage } />
