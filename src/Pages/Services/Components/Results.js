@@ -7,7 +7,7 @@ class Results extends Component {
     state = {
         imageNum: i
     }
-
+    // https://reactjsexample.com/a-react-component-for-building-content-galleries-and-carousels/
     // Slider = ({ currentNum, clickL, clickR }) => {
     //     return (
     //         <div>
