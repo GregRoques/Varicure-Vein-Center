@@ -29,8 +29,9 @@ class App extends Component {
     };
 
     userReviews = () => {
+        const language = this.props.isEnglish ? "e" : "spanish";
         const number = Math.floor(Math.random() * 3);
-        axios.get("http://localhost:2000/reviews")
+        axios.get(`http://localhost:2000/reviews?${language}`)
             .then(res => {
                 this.setState({
                     customerReviews1: {
@@ -67,10 +68,16 @@ class App extends Component {
     }
 };
 
+const mapStateToProps = state => {
+    return {
+        isEnglish: state.isEnglish.isEnglish
+    };
+};
+
 const mapDispatchToProps = dispatch => {
     return {
         onTryAutoSignUp: () => dispatch(authCheckState())
     };
 };
 
-export default withRouter(connect(null, mapDispatchToProps)(App));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

@@ -26,6 +26,10 @@ class Header extends Component {
         window.innerWidth < 620 ? this.setState({ isResized: false }) : this.setState({ isResized: true });
     };
 
+    languageToggler = () => {
+        this.props.isEnglish === "e" ? this.props.translate("s") : this.props.translate("e");
+    }
+
     render () {
         return (
             <div className={ cssHeader.headerPosition}>
@@ -49,8 +53,8 @@ class Header extends Component {
                             <Link className = { cssHeader.textSpace } to="/contact">
                                 { this.props.isEnglish ? "Contact" : "Contacto" }
                             </Link>
-                            <span onClick={() => this.props.translate(!this.props.isEnglish)}>
-                                { this.props.isEnglish ? "Español" : "English" }
+                            <span onClick={() => this.languageToggler()}>
+                                { this.props.isEnglish === "e" ? "English" : "Español" }
                             </span>
                         </div>
                     }

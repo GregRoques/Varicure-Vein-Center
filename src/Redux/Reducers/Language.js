@@ -1,7 +1,7 @@
 import * as actionType from "../Actions/Language";
 
 const initialState = {
-    isEnglish: true
+    isEnglish: "e"
 };
 
 const translationReducer = (state = initialState, action) => {
