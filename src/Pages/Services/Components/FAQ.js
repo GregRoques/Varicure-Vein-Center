@@ -12,7 +12,7 @@ class FAQ extends Component {
     };
 
     getFAQ = () => {
-        const language = this.props.props ? "e" : "s";
+        const language = this.props.isEnglish ? "e" : "s";
         axios.get(`http://localhost:2000/faq/?${language}`)
             .then(res => {
                 this.setState({

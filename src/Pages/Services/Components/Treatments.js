@@ -1,7 +1,35 @@
 import React, { Component, Fragment } from "react";
+import axios from "axios";
 
 class Treatments extends Component {
-    state = { };
+    state = {
+        treament: [],
+        WhatItIs: [],
+        usedFor: [],
+        toExpect: [],
+        recovery: []
+    };
+
+    componentDidMount () {
+        this.getTreatments();
+    };
+
+    getTreatments = () => {
+        const language = this.props.isEnglish ? "e" : "s";
+        axios.get(`http://localhost:2000/treatments/?${language}`)
+            .then(res => {
+                this.setState({
+                    treament: [...res.treament],
+                    WhatItIs: [...res.WhatItIs],
+                    usedFor: [...res.usedFor],
+                    toExpect: [...res.toExpect],
+                    recovery: [...res.recovery]
+                });
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    };
 
     treatmentList = props => {
         return (
@@ -21,10 +49,10 @@ class Treatments extends Component {
                     </ul>
                 </Fragment><br/>
 
-                <h3>What to expect during a {props.during}</h3>
+                <h3>What to expect during a {props.treatment}</h3>
                 <p>{props.toExpect}</p><br/>
 
-                <h3>What to expect after my {props.during}</h3>
+                <h3>What to expect after my {props.treatment}</h3>
                 <p>{props.recovery}</p><br/>
             </div>
         );

@@ -40,7 +40,7 @@ class Services extends Component {
 
     render () {
         const options = ["Treatments", "Results", "FAQ", "Staff"];
-        const components = [<Treatments/>, <Results/>, <FAQ props={this.props.isEnglish}/>, <Staff/>];
+        const components = [<Treatments isEnglish={this.props.isEnglish}/>, <Results isEnglish={this.props.isEnglish}/>, <FAQ isEnglish={this.props.isEnglish}/>, <Staff isEnglish={this.props.isEnglish}/>];
         return (
             <div className={cssServices.body}>
                 <div className={cssServices.grid}>
