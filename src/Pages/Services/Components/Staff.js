@@ -3,8 +3,9 @@ import axios from "axios";
 
 class FAQ extends Component {
     state = {
-        question: [],
-        answer: []
+        name: null,
+        title: null,
+        bio: null
     };
 
     componentDidMount () {
@@ -16,20 +17,20 @@ class FAQ extends Component {
         axios.get(`http://localhost:2000/bio/?${language}`)
             .then(res => {
                 this.setState({
-                    question: [...res.question],
-                    answer: [...res.answer]
+                    name: res.name,
+                    title: res.title,
+                    bio: res.bio
                 });
             })
             .catch(err => {
                 console.log(err);
                 this.setState({
-                    question: "Loading Error",
-                    answer: "Please try back again later."
+                    bio: "Loading error, please check back later."
                 });
             });
     };
 
-    FAQs = props => {
+    Bio = props => {
         return (
             <div id={`Bio${props.key}`}>
                 <h3>{ props.question }</h3>
@@ -39,14 +40,13 @@ class FAQ extends Component {
     };
 
     render () {
-        console.log();
         return (
             <div>
                 <h1>Staff</h1>
                 <div>
                     { (this.state).map((fact, i) => {
                         return (
-                            <this.FAQs
+                            <this.Bio
                                 key={ i }
                                 question={ fact.question }
                                 answer={ fact.answer }

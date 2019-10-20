@@ -4,7 +4,7 @@ import axios from "axios";
 class Treatments extends Component {
     state = {
         treament: [],
-        WhatItIs: [],
+        whatItIs: [],
         usedFor: [],
         toExpect: [],
         recovery: []
@@ -20,7 +20,7 @@ class Treatments extends Component {
             .then(res => {
                 this.setState({
                     treament: [...res.treament],
-                    WhatItIs: [...res.WhatItIs],
+                    whatItIs: [...res.WhatItIs],
                     usedFor: [...res.usedFor],
                     toExpect: [...res.toExpect],
                     recovery: [...res.recovery]
