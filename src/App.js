@@ -32,6 +32,9 @@ class App extends Component {
     componentDidUpdate (prevProps) {
         if (prevProps.isEnglish !== this.props.isEnglish) {
             this.userReviews(this.props.isEnglish, false);
+            this.setState({
+                language: this.props.isEnglish
+            });
         }
     }
 

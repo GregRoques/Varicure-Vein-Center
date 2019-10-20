@@ -10,6 +10,12 @@ class FAQ extends Component {
         this.getFAQ();
     };
 
+    componentDidUpdate (prevProps) {
+        if (prevProps.isEnglish !== this.props.isEnglish) {
+            this.getFAQ();
+        }
+    }
+
     getFAQ = () => {
         const language = this.props.isEnglish;
         axios.get(`http://localhost:2000/faq/${language}`)

@@ -12,6 +12,12 @@ class FAQ extends Component {
         this.getBio();
     };
 
+    componentDidUpdate (prevProps) {
+        if (prevProps.isEnglish !== this.props.isEnglish) {
+            this.getBio();
+        }
+    }
+
     getBio = () => {
         const language = this.props.isEnglish;
         axios.get(`http://localhost:2000/staff/${language}`)
