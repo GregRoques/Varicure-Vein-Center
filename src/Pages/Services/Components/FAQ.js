@@ -3,8 +3,7 @@ import axios from "axios";
 
 class FAQ extends Component {
     state = {
-        question: [],
-        answer: []
+        QnA: {}
     };
 
     componentDidMount () {
@@ -12,12 +11,11 @@ class FAQ extends Component {
     };
 
     getFAQ = () => {
-        const language = this.props.isEnglish ? "e" : "s";
-        axios.get(`http://localhost:2000/faq/?${language}`)
+        const language = this.props.isEnglish;
+        axios.get(`http://localhost:2000/faq/${language}`)
             .then(res => {
                 this.setState({
-                    question: [...res.question],
-                    answer: [...res.answer]
+                    QnA: [...res.data]
                 });
             })
             .catch(err => {
@@ -39,17 +37,18 @@ class FAQ extends Component {
     };
 
     render () {
-        console.log();
+        console.log(Object.keys(this.state.QnA));
         return (
             <div>
                 <h1>FAQ</h1>
                 <div>
-                    { Object.values(this.state).map((fact, i) => {
+                    { Object.keys(this.state.QnA).map((num, i) => {
+                        const { question, answer } = this.state.QnA[num];
                         return (
                             <this.FAQs
                                 key={ i }
-                                question={ fact.question }
-                                answer={ fact.answer }
+                                question = { question }
+                                answer = { answer }
                             />
                         );
                     }) }

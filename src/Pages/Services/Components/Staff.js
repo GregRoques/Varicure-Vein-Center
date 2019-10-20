@@ -3,7 +3,7 @@ import axios from "axios";
 
 class FAQ extends Component {
     state = {
-        name: [],
+        name: null,
         title: null,
         bio: null
     };
@@ -31,12 +31,13 @@ class FAQ extends Component {
     };
 
     render () {
+        const { name, title, bio } = this.state;
         return (
             <div>
                 <h1>Staff</h1>
                 <div>
-                    <h3>{ this.state.name }, { this.state.title }</h3>
-                    <p>{this.state.bio}</p><br/>
+                    <h3>{ name }, { title }</h3>
+                    <p>{ bio }</p><br/>
                 </div>
             </div>
         );
