@@ -13,24 +13,34 @@ import Contact from "./Pages/Contact/Contact";
 import Admin from "./Pages/Admin/Admin";
 
 class App extends Component {
-    state ={
+    state = {
         customerReviews1: {
             homePagePic: 0,
             review: "We Take Care of the Spiders",
             url: null,
             name: null,
             social: null
-        }
+        },
+        language: "e"
     };
 
     componentDidMount () {
+        this.userReviews(this.props.isEnglish, true);
         this.props.onTryAutoSignUp();
-        this.userReviews();
     };
 
-    userReviews = () => {
-        const language = this.props.isEnglish ? "e" : "s";
-        const number = Math.floor(Math.random() * 3);
+    componentDidUpdate (prevProps) {
+        if (prevProps.isEnglish !== this.props.isEnglish) {
+            this.userReviews(this.props.isEnglish, false);
+        }
+    }
+
+    userReviews = (isEnglish, isNew) => {
+        const language = isEnglish;
+        const newPic = isNew;
+        let number;
+        newPic ? number = Math.floor(Math.random() * 3) : number = this.state.customerReviews1.homePagePic;
+        console.log(newPic, number)
         axios.get(`http://localhost:2000/reviews/${language}`)
             .then(res => {
                 this.setState({
