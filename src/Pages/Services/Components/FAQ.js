@@ -44,7 +44,7 @@ class FAQ extends Component {
             <div>
                 <h1>FAQ</h1>
                 <div>
-                    { (this.state).map((fact, i) => {
+                    { Object.values(this.state).map((fact, i) => {
                         return (
                             <this.FAQs
                                 key={ i }

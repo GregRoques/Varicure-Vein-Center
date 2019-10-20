@@ -5,7 +5,6 @@ const db = require("../util/database");
 router.get("/reviews/:hash", (req, res) => {
     const count = `SELECT count( id ) FROM Reviews`;
     const language = req.params.hash;
-    console.log(language);
     db.execute(count)
         .then(results => {
             const max = (Object.values(results[0][0])[0]);

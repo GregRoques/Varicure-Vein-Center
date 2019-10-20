@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 import cssServices from "./services.module.css";
-import { connect } from "react-redux";
 
 import Staff from "./Components/Staff";
 import FAQ from "./Components/FAQ";
@@ -40,7 +39,7 @@ class Services extends Component {
 
     render () {
         const options = ["Treatments", "Results", "FAQ", "Staff"];
-        const components = [<Treatments isEnglish={this.props.isEnglish}/>, <Results isEnglish={this.props.isEnglish}/>, <FAQ isEnglish={this.props.isEnglish}/>, <Staff isEnglish={this.props.isEnglish}/>];
+        const components = [<Treatments isEnglish={this.props[0]}/>, <Results isEnglish={this.props[0]}/>, <FAQ isEnglish={this.props[0]}/>, <Staff isEnglish={this.props[0]}/>];
         return (
             <div className={cssServices.body}>
                 <div className={cssServices.grid}>
@@ -73,10 +72,4 @@ class Services extends Component {
     };
 };
 
-const mapStateToProps = state => {
-    return {
-        isEnglish: state.isEnglish.isEnglish
-    };
-};
-
-export default connect(mapStateToProps, null)(Services);
+export default Services;

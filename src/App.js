@@ -40,7 +40,6 @@ class App extends Component {
         const newPic = isNew;
         let number;
         newPic ? number = Math.floor(Math.random() * 3) : number = this.state.customerReviews1.homePagePic;
-        console.log(newPic, number)
         axios.get(`http://localhost:2000/reviews/${language}`)
             .then(res => {
                 this.setState({
@@ -67,7 +66,9 @@ class App extends Component {
                         <Route
                             exact path= "/"
                             render={() => <Home { ...this.state.customerReviews1 } />} />
-                        <Route exact path= "/services" component = { Services }/>
+                        <Route
+                            exact path= "/services"
+                            render={() => <Services { ...this.state.language} />} />
                         <Route exact path= "/contact" component= { Contact } />
                         <Route exact path = "/admin-login" component= { Admin } />
                         <Route component= { this.NoPage } />
