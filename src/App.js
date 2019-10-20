@@ -29,9 +29,9 @@ class App extends Component {
     };
 
     userReviews = () => {
-        const language = this.props.isEnglish ? "e" : "spanish";
+        const language = this.props.isEnglish ? "e" : "s";
         const number = Math.floor(Math.random() * 3);
-        axios.get(`http://localhost:2000/reviews?${language}`)
+        axios.get(`http://localhost:2000/reviews/${language}`)
             .then(res => {
                 this.setState({
                     customerReviews1: {

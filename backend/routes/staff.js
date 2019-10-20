@@ -4,7 +4,7 @@ const db = require("../util/database");
 
 router.get("/staff/:hash", (req, res) => {
     const language = req.param.hash;
-    const theStaff = `Select question, answer FROM staff WHERE language='${language}`;
+    const theStaff = `Select question, answer FROM staff WHERE language='${language}'`;
     db.execute(theStaff)
         .then(results => {
             const staffReturn = (Object.values(results));
