@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import cssServices from "./services.module.css";
 
 import Staff from "./Components/Staff";
@@ -13,22 +13,15 @@ class Services extends Component {
 
     Options = ({ option, listNum }) => {
         return (
-            <Fragment>
-                <ul>
-                    <li id={`options${listNum}`} key={listNum} onClick={() => this.info(option)}>
-                        {this.state.selected === option ? <b>{option}</b> : option }
-                    </li>
-                </ul>
-            </Fragment>
+            <span key={ listNum } onClick={() => this.info(option)}>
+                { this.state.selected === option ? <b>{ option }</b> : option }
+            </span>
         );
     };
 
-    Display = ({ option, component, displayNum }) => {
-        return (
-            <div id={`display${displayNum}`}>
-                { this.state.selected === option ? component : null}
-            </div>
-        );
+    Display = ({ option }) => {
+        const components = [<Treatments isEnglish={this.props[0]}/>, <Results isEnglish={this.props[0]}/>, <FAQ isEnglish={this.props[0]}/>, <Staff isEnglish={this.props[0]}/>];
+        return components[option];
     };
 
     info = option => {
@@ -39,32 +32,23 @@ class Services extends Component {
 
     render () {
         const options = ["Treatments", "Results", "FAQ", "Staff"];
-        const components = [<Treatments isEnglish={this.props[0]}/>, <Results isEnglish={this.props[0]}/>, <FAQ isEnglish={this.props[0]}/>, <Staff isEnglish={this.props[0]}/>];
         return (
             <div className={cssServices.body}>
-                <div className={cssServices.grid}>
-                    <div className={cssServices.selector}>
-                        { options.map((option, i) => {
-                            return (
-                                <this.Options
-                                    option={ option }
-                                    listNum={ i }
-                                />
-                            );
-                        })}
-                    </div>
-                    <div className={cssServices.currentSelection}>
-                        <div key= {this.state.selected } className={cssServices.fadeIn}>
-                            { options.map((option, i) => {
-                                return (
-                                    <this.Display
-                                        option={ option }
-                                        displayNum = { i }
-                                        component = { components[i] }
-                                    />
-                                );
-                            })}
-                        </div>
+                <div className={cssServices.selector}>
+                    { options.map((option, i) => {
+                        return (
+                            <this.Options
+                                option={ option }
+                                listNum={ i }
+                            />
+                        );
+                    })}
+                </div>
+                <div className={cssServices.currentSelection}>
+                    <div key= {this.state.selected } className={cssServices.fadeIn}>
+                        <this.Display
+                            option={ options.indexOf(this.state.selected) }
+                        />
                     </div>
                 </div>
             </div>
