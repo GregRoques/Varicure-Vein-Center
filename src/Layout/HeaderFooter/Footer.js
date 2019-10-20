@@ -15,10 +15,11 @@ if (dayNum === 5) {
     time = "8a – 6p";
 };
 
-const Footer = () => {
+const Footer = props => {
+    const cssJoin = [props.background, cssFooter.grid];
     return (
         <div className={ cssFooter.footerContainer }>
-            <div className={cssFooter.grid}>
+            <div className={cssJoin.join(" ")}>
                 <div>
                     <a href="tel:305-284-8090">(305) 284-8090</a>
                 </div>
