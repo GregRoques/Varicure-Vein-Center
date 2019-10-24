@@ -35,7 +35,7 @@ const phoneFormat = ph => {
 const yearMonth = new Date().toISOString().slice(0, 7);
 
 router.post("/personalData", (req, res, next) => {
-    const { name, email, phone, contact, message, services } = req.body;
+    const { name, email, phone, contact, message, services, updates } = req.body;
     const phoneEdit = phoneFormat(phone);
 
     transporter.sendMail({
@@ -49,7 +49,9 @@ router.post("/personalData", (req, res, next) => {
         ${message}`
     }).then(() => {
         res.json("Yes");
-        next();
+        if (updates === "yes") {
+            next();
+        }
     }).catch(() => {
         res.json("No");
     });
@@ -84,6 +86,19 @@ router.post("/personalData", (req, res) => {
     }).catch(() => {
         DataError(name, email, phone);
     });
+});
+
+router.get("/personalData/Excel", (req, res) => {
+    const { startDate, endDate } = req.query;
+    const excelDocQuery = `SELECT * FROM personalData WHERE date BETWEEN '${startDate}' AND '${endDate}' ORDER BY date DESC`;
+    db.execute(excelDocQuery)
+        .then(results => {
+            const toExcel = results[0];
+            res.json(toExcel);
+        })
+        .catch(err => {
+            throw err;
+        });
 });
 
 module.exports = router;

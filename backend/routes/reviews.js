@@ -24,4 +24,77 @@ router.get("/reviews/:hash", (req, res) => {
         });
 });
 
+router.get("/reviews/allreviews", (req, res) => {
+    const language = req.params.language;
+    const selectReviews = `SELECT id, review, name, url, social FROM review WHERE language='${language}'`;
+    db.execute(selectReviews)
+        .then(results => {
+            const myReviews = results[0];
+            res.json(myReviews);
+        })
+        .catch(err => {
+            throw err;
+        });
+});
+
+router.post("reviews/addreview", (req, res, next) => {
+    const { review, name, url, social, language } = req.query;
+    const addReview = `INSERT INTO review (review, name, url, social) VALUES ('${review}', '${name}','${url}', '${social}', '${language}')`;
+    db.execute(addReview).then(() => {
+        const selectReviews = `SELECT id, review, name, url, social FROM review WHERE language='${language}'`;
+        db.execute(selectReviews).then(results => {
+            const myReviews = results[0];
+            res.json(myReviews);
+        }).catch(err => {
+            if (err) {
+                throw err;
+            }
+        });
+    }).catch(err => {
+        if (err) {
+            throw err;
+        }
+    });
+});
+
+router.post("reviews/updatereview", (req, res) => {
+    const { review, name, url, social, language, id } = req.query;
+    const updateReview = `UPDATE review SET review="${review}", name="${name}", url="${url}", social="${social}" WHERE id="${id}"`;
+    db.execute(updateReview).then(() => {
+        const selectReviews = `SELECT id, review, name, url, social FROM review WHERE language='${language}'`;
+        db.execute(selectReviews).then(results => {
+            const myReviews = results[0];
+            res.json(myReviews);
+        }).catch(err => {
+            if (err) {
+                throw err;
+            }
+        });
+    }).catch(err => {
+        if (err) {
+            throw err;
+        }
+    });
+});
+
+router.post("reviews/deletereview", (req, res) => {
+    const { id, language } = req.query;
+    const deleteReview = `DELETE * FROM reviews WHERE id="${id}"`;
+    db.execute(deleteReview).then(() => {
+        const selectReviews = `SELECT id, review, name, url, social FROM review WHERE language='${language}'`;
+        db.execute(selectReviews).then(results => {
+            const myReviews = results[0];
+            res.json(myReviews);
+        }).catch(err => {
+            if (err) {
+                throw err;
+            }
+        });
+    }).catch(err => {
+        if (err) {
+            throw err;
+        }
+    });
+});
+
 module.exports = router;

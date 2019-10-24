@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import Login from "./Login";
+import UpdateHOC from "./UpdateHOC";
 
 class Admin extends Component {
     render () {
@@ -14,7 +15,7 @@ class Admin extends Component {
         } else {
             return (
                 <div>
-                    Not Quite Here Yet.
+                    <UpdateHOC/>
                 </div>
             );
         }
