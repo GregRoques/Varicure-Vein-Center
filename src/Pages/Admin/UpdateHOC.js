@@ -10,13 +10,12 @@ import { logOut } from "../../Actions/Auth";
 class Entries extends Component {
     state = {
         currentCategory: "Contacts",
-        language: "e",
-        isModalOpen: false
+        language: "e"
     }
 
     categoryHandler = e => {
         this.setState({
-            category: e.target.value
+            currentCategory: e.target.value
         });
     };
 
@@ -27,30 +26,13 @@ class Entries extends Component {
     };
 
     Display = option => {
-        const displayProps = [
-            this.state.language,
-            this.state.isModalOpen,
-            this.closeModal
-        ];
-        return option === "Personal Data" ? <PersonalData props={[...displayProps]}/>
-            : option === "Treatments" ? <Treatments props={[...displayProps]}/>
-                : option === "Reviews" ? <Review props={[...displayProps]}/>
-                    : option === "FAQs" ? <FAQ props={[...displayProps]}/>
-                        : option === "Staff" ? <Staff props={[...displayProps]}/>
+        return option === "Personal Data" ? <PersonalData />
+            : option === "Treatments" ? <Treatments />
+                : option === "Reviews" ? <Review />
+                    : option === "FAQs" ? <FAQ />
+                        : option === "Staff" ? <Staff />
                             : null;
     };
-
-    openModal = () => {
-        this.setState({
-            isModalOpen: true
-        });
-    }
-
-    closeModal = () => {
-        this.setState({
-            isModalOpen: false
-        });
-    }
 
     render () {
         return (
@@ -70,13 +52,9 @@ class Entries extends Component {
                         <option selected value="e">English</option>
                         <option value="s">Spanish</option>
                     </select>
-                </div>
-                <this.Display option={this.state.currentCategory}/>
-                <div className={updateHocCSS.buttonPosition}>
-                    <button className={updateHocCSS.publishButtons} onClick={() => this.submitHandler()}>Submit</button>
-                    { this.state.category !== "Personal Data" || this.state.category !== "Staff" ? <button className={updateHocCSS.publishButtons} onClick={() => this.openModal()}>Update Existing</button> : null }
                     <button className={updateHocCSS.publishButtons} onClick={() => this.props.LogOut()}>Log Out</button>
                 </div>
+                <this.Display option={this.state.currentCategory}/>
             </div>
         );
     }
@@ -85,14 +63,15 @@ class Entries extends Component {
 const mapStateToProps = state => {
     return {
         userId: state.auth.userId,
-        idToken: state.auth.idToken
+        idToken: state.auth.idToken,
+        language: state.isEnglish.isEnglish
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         LogOut: () => dispatch(logOut())
-    };
+    }; //need language dispatch
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Entries);

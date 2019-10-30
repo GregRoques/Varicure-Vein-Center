@@ -24,7 +24,7 @@ router.get("/reviews/:hash", (req, res) => {
         });
 });
 
-router.get("/reviews/allreviews", (req, res) => {
+router.get("/reviews/allreviews/:hash", (req, res) => {
     const language = req.params.language;
     const selectReviews = `SELECT id, review, name, url, social FROM review WHERE language='${language}'`;
     db.execute(selectReviews)
@@ -58,18 +58,10 @@ router.post("reviews/addreview", (req, res, next) => {
 });
 
 router.post("reviews/updatereview", (req, res) => {
-    const { review, name, url, social, language, id } = req.query;
+    const { review, name, url, social, id } = req.query;
     const updateReview = `UPDATE review SET review="${review}", name="${name}", url="${url}", social="${social}" WHERE id="${id}"`;
-    db.execute(updateReview).then(() => {
-        const selectReviews = `SELECT id, review, name, url, social FROM review WHERE language='${language}'`;
-        db.execute(selectReviews).then(results => {
-            const myReviews = results[0];
-            res.json(myReviews);
-        }).catch(err => {
-            if (err) {
-                throw err;
-            }
-        });
+    db.execute(updateReview).then(res => {
+        console.log(`Success: ${res}`);
     }).catch(err => {
         if (err) {
             throw err;
