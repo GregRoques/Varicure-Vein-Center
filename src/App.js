@@ -10,7 +10,7 @@ import Layout from "./Layout/HOC/Layout";
 import Home from "./Pages/Home/Home";
 import Services from "./Pages/Services/Services";
 import Contact from "./Pages/Contact/Contact";
-import Admin from "./Pages/Admin/Admin";
+// import Admin from "./Pages/Admin/Admin";
 
 class App extends Component {
     state = {
@@ -38,9 +38,7 @@ class App extends Component {
         }
     }
 
-    userReviews = (isEnglish, isNew) => {
-        const language = isEnglish;
-        const newPic = isNew;
+    userReviews = (language, newPic) => {
         let number;
         newPic ? number = Math.floor(Math.random() * 3) : number = this.state.customerReviews1.homePagePic;
         axios.get(`http://localhost:2000/reviews/${language}`)
@@ -69,11 +67,10 @@ class App extends Component {
                         <Route
                             exact path= "/"
                             render={() => <Home { ...this.state.customerReviews1 } />} />
-                        <Route
-                            exact path= "/services"
-                            render={() => <Services { ...this.state.language} />} />
                         <Route exact path= "/contact" component= { Contact } />
-                        <Route exact path = "/admin-login" component= { Admin } />
+                        <Route exact path= "/services" component= { Services } />
+                        <Route exact path= "/services/:param" component= { Services } />
+                        {/* <Route exact path = "/admin-login" component= { Admin } /> */}
                         <Route component= { this.NoPage } />
                     </Switch>
                 </Layout>

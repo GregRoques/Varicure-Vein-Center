@@ -1,14 +1,46 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import cssServices from "./services.module.css";
 
 import Staff from "./Components/Staff";
-import FAQ from "./Components/FAQ";
+import Faq from "./Components/FAQ";
 import Treatments from "./Components/Treatments";
 import Results from "./Components/Results";
 
 class Services extends Component {
     state = {
-        selected: "Staff"
+        selected: "Staff",
+        language: "e"
+    }
+
+    componentDidMount () {
+        if (window.location.pathname !== "/services") {
+            const serviceSelection = (window.location.pathname).split("/services/").pop();
+            const formattedSelection = serviceSelection.charAt(0).toUpperCase() + serviceSelection.substring(1);
+            if (formattedSelection === "Treatments" || formattedSelection === "Results" || formattedSelection === "Faq" || formattedSelection === "Staff") {
+                this.setState({
+                    selected: formattedSelection,
+                    language: this.props.isEnglish
+                });
+            } else {
+                window.history.pushState(null, null, `/services`);
+                this.setState({
+                    language: this.props.isEnglish
+                });
+            }
+        } else {
+            this.setState({
+                language: this.props.isEnglish
+            });
+        }
+    };
+
+    componentDidUpdate (prevProps) {
+        if (prevProps.isEnglish !== this.props.isEnglish) {
+            this.setState({
+                language: this.props.isEnglish
+            });
+        }
     }
 
     Options = ({ option, listNum }) => {
@@ -19,8 +51,9 @@ class Services extends Component {
         );
     };
 
-    Display = ({ option }) => {
-        const components = [<Treatments isEnglish={this.props[0]}/>, <Results isEnglish={this.props[0]}/>, <FAQ isEnglish={this.props[0]}/>, <Staff isEnglish={this.props[0]}/>];
+    Display = ({ option, language }) => {
+        const components = [<Treatments isEnglish={language}/>, <Results isEnglish={language}/>, <Faq isEnglish={language}/>, <Staff isEnglish={language}/>];
+        window.history.pushState(null, null, `/services/${this.state.selected}`);
         return components[option];
     };
 
@@ -31,7 +64,7 @@ class Services extends Component {
     };
 
     render () {
-        const options = ["Treatments", "Results", "FAQ", "Staff"];
+        const options = ["Treatments", "Results", "Faq", "Staff"];
         return (
             <div className={cssServices.body}>
                 <div className={cssServices.selector}>
@@ -47,6 +80,7 @@ class Services extends Component {
                 <div className={cssServices.currentSelection}>
                     <div key= {this.state.selected } className={cssServices.fadeIn}>
                         <this.Display
+                            language={this.state.language}
                             option={ options.indexOf(this.state.selected) }
                         />
                     </div>
@@ -56,4 +90,10 @@ class Services extends Component {
     };
 };
 
-export default Services;
+const mapStateToProps = state => {
+    return {
+        isEnglish: state.isEnglish.isEnglish
+    };
+};
+
+export default connect(mapStateToProps, null)(Services);
