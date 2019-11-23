@@ -4,11 +4,14 @@ import { Link } from "react-router-dom";
 import cssHeader from "./CSS/header.module.css";
 import "./CSS/hamburgers.css";
 import { setLanguage } from "../../Redux/Actions/Language";
+import Modal from "./Modal";
 
 class Header extends Component {
     state = {
         isScrolled: true,
-        isResized: true
+        isResized: true,
+        isOpen: false,
+        isFadeOut: false
     };
 
     componentDidMount () {
@@ -30,36 +33,50 @@ class Header extends Component {
         this.props.isEnglish === "e" ? this.props.translate("s") : this.props.translate("e");
     }
 
+    modalToggler = props => {
+        if (!props) {
+            const inverse = this.state.isOpen;
+            this.setState({ isOpen: !inverse });
+        } else {
+            // figure this out tomorrow
+        }
+    }
+
     render () {
         return (
-            <div className={ cssHeader.headerPosition}>
-                <div className={ cssHeader.headerContainer }>
-                    { !this.state.isScrolled || !this.state.isResized
-                        ? <Link to="/"><img alt="VeriCure Logo" className={ cssHeader.VCsmall } src="/logos/smallLogo.png"/></Link>
-                        : null
-                    }
-                    { !this.state.isResized
-                        ? <div className= { cssHeader.headerContainerSmallText}>
-                            <button className="hamburger hamburger--spin" type="button">
-                                <span className="hamburger-box">
-                                    <span className="hamburger-inner"></span>
+            <div>
+                <Modal
+                    isOpen={ this.state.isOpen }
+                    close={ this.modalToggler }
+                    isEnglish = { this.props.isEnglish }
+                    languageToggle={ this.languageToggler }
+                    isFadeOut = {this.state.isFadeOut}
+                />
+                <div className={ cssHeader.headerPosition}>
+                    <div className={ cssHeader.headerContainer }>
+                        { !this.state.isScrolled || !this.state.isResized
+                            ? <Link to="/"><img alt="VeriCure Logo" className={ cssHeader.VCsmall } src="/logos/smallLogo.png"/></Link>
+                            : null
+                        }
+                        { !this.state.isResized
+                            ? <div className= { cssHeader.headerContainerSmallText}>
+                                <img alt="hamburger" src="/icons/hamburger.png" onClick={() => this.modalToggler}/>
+                            </div>
+                            : <div className= { cssHeader.headerContainerText}>
+                                <Link className = { cssHeader.textSpace } to="/services">
+                                    { this.props.isEnglish ? "Services" : "Servicios" }
+                                </Link>
+                                <Link className = { cssHeader.textSpace } to="/contact">
+                                    { this.props.isEnglish ? "Contact" : "Contacto" }
+                                </Link>
+                                <span onClick={() => this.languageToggler()}>
+                                    { this.props.isEnglish === "e" ? "English" : "Español" }
                                 </span>
-                            </button>
-                        </div>
-                        : <div className= { cssHeader.headerContainerText}>
-                            <Link className = { cssHeader.textSpace } to="/services">
-                                { this.props.isEnglish ? "Services" : "Servicios" }
-                            </Link>
-                            <Link className = { cssHeader.textSpace } to="/contact">
-                                { this.props.isEnglish ? "Contact" : "Contacto" }
-                            </Link>
-                            <span onClick={() => this.languageToggler()}>
-                                { this.props.isEnglish === "e" ? "English" : "Español" }
-                            </span>
-                        </div>
-                    }
+                            </div>
+                        }
+                    </div>
+                    { this.state.isScrolled && this.state.isResized ? <Link to="/"><img alt="VeriCure Logo" className={ cssHeader.VClogo } src="/logos/siteLogo.png"/></Link> : null }
                 </div>
-                { this.state.isScrolled && this.state.isResized ? <Link to="/"><img alt="VeriCure Logo" className={ cssHeader.VClogo } src="/logos/siteLogo.png"/></Link> : null }
             </div>
         );
     }
