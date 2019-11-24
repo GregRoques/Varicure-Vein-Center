@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import cssHeader from "./CSS/header.module.css";
-import "./CSS/hamburgers.css";
 import { setLanguage } from "../../Redux/Actions/Language";
 import Modal from "./Modal";
 
@@ -33,12 +32,16 @@ class Header extends Component {
         this.props.isEnglish === "e" ? this.props.translate("s") : this.props.translate("e");
     }
 
-    modalToggler = props => {
+    modalToggler = async props => {
         if (!props) {
             const inverse = this.state.isOpen;
             this.setState({ isOpen: !inverse });
         } else {
-            // figure this out tomorrow
+            window.location.replace(props);
+            this.setState({ isOpen: false });
+            // setTimeout(() => {
+            //     this.setState({ isOpen: false, isFadeOut: false });
+            // }, 1500);
         }
     }
 
@@ -60,7 +63,7 @@ class Header extends Component {
                         }
                         { !this.state.isResized
                             ? <div className= { cssHeader.headerContainerSmallText}>
-                                <img alt="hamburger" src="/icons/hamburger.png" onClick={() => this.modalToggler}/>
+                                <img alt="hamburger" className={cssHeader.imageContain} src="/icons/hamburger.png" onClick={() => this.modalToggler()}/>
                             </div>
                             : <div className= { cssHeader.headerContainerText}>
                                 <Link className = { cssHeader.textSpace } to="/services">

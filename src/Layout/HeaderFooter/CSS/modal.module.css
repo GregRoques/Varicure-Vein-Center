@@ -1,21 +1,15 @@
-.modalPosition {
+.modalPositionOpen {
     position: fixed;
     display: flex;
     flex-direction: column;
-    z-index:100;
-}
-
-.modalContainerIn{
     width: 100%;
-    height: 100%;
-    top: 35px;
     background-color: rgb(19,163,153);
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    font-weight: 800;
+    z-index:200;
+    top: 45px;
     animation: openModal 1.5s forwards;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
 }
 
 @keyframes openModal{
@@ -26,21 +20,37 @@
         height: 100%
     }
 }
+/* .modalContainer > .parent::after {
+    content:"\A";
+    white-space:pre;
+    line-height: 72px;
+}
 
-.modalContainerOut{
+.modalContainer > .subService::after{
+    content:"\A";
+    white-space:pre;
+    line-height: 36px;
+}
+
+.modalContainer > .serviceParent::after{
+    content:"\A";
+    white-space:pre;
+    line-height: 18px;
+} */
+
+
+.modalPositionClose {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    height: 100%;
-    top: 35px;
     background-color: rgb(19,163,153);
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    font-weight: 800;
+    z-index:200;
+    top: 45px;
     animation: closeModal 1.5s forwards;
 }
 
-@keyframes openModal{
+@keyframes closeModal{
     0%{
         height: 100%
     }
@@ -48,3 +58,79 @@
         height: 35px;
     }
 }
+
+.modalContainer{
+    position: fixed;
+    width: 50%;
+    height: 65%;
+    color: white;
+    font-weight: 800;
+    font-size: 48px;
+    animation: textDisplay .5s forwards;
+    animation-delay: .5s;
+    opacity:0;
+}
+
+@keyframes textDisplay{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1
+    }
+}
+
+.modalContainer> .serviceParent::after{
+    content:"\A";
+    white-space: pre;
+    line-height: 36px;
+}
+
+.modalContainer> .subService::after{
+    content:"\A";
+    white-space: pre;
+    line-height: 36px;
+}
+
+.modalContainer> .subService + .parent::after{
+    content:"\A";
+    white-space: pre;
+    line-height: 72px;
+}
+
+.modalContainer> .parent::after{
+    content:"\A";
+    white-space: pre;
+    line-height: 72px;
+}
+
+.subService{
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.modalContainer>span{
+    position: relative;
+    text-decoration: none;
+}
+
+.modalContainer>span:before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(250,173,73);
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+  }
+
+  .modalContainer>span:hover:before{
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }

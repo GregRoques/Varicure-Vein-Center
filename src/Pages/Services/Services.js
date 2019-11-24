@@ -22,6 +22,7 @@ class Services extends Component {
                     selected: formattedSelection,
                     language: this.props.isEnglish
                 });
+                window.history.pushState(null, null, `/services`);
             } else {
                 window.history.pushState(null, null, `/services`);
                 this.setState({
@@ -53,7 +54,6 @@ class Services extends Component {
 
     Display = ({ option, language }) => {
         const components = [<Treatments isEnglish={language}/>, <Results isEnglish={language}/>, <Faq isEnglish={language}/>, <Staff isEnglish={language}/>];
-        window.history.pushState(null, null, `/services/${this.state.selected}`);
         return components[option];
     };
 
