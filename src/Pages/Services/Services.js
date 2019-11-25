@@ -14,30 +14,31 @@ class Services extends Component {
     }
 
     componentDidMount () {
+        this.getServiceLink();
+    };
+
+    componentDidUpdate (prevProps) {
         if (window.location.pathname !== "/services") {
-            const serviceSelection = (window.location.pathname).split("/services/").pop();
-            const formattedSelection = serviceSelection.charAt(0).toUpperCase() + serviceSelection.substring(1);
-            if (formattedSelection === "Treatments" || formattedSelection === "Results" || formattedSelection === "Faq" || formattedSelection === "Staff") {
-                this.setState({
-                    selected: formattedSelection,
-                    language: this.props.isEnglish
-                });
-                window.history.pushState(null, null, `/services`);
-            } else {
-                window.history.pushState(null, null, `/services`);
-                this.setState({
-                    language: this.props.isEnglish
-                });
-            }
-        } else {
+            this.getServiceLink();
+        }
+        if (prevProps.isEnglish !== this.props.isEnglish) {
             this.setState({
                 language: this.props.isEnglish
             });
         }
-    };
+    }
 
-    componentDidUpdate (prevProps) {
-        if (prevProps.isEnglish !== this.props.isEnglish) {
+    getServiceLink = () => {
+        const serviceSelection = (window.location.pathname).split("/services/").pop();
+        const formattedSelection = serviceSelection.charAt(0).toUpperCase() + serviceSelection.substring(1);
+        if (formattedSelection === "Treatments" || formattedSelection === "Results" || formattedSelection === "Faq" || formattedSelection === "Staff") {
+            this.setState({
+                selected: formattedSelection,
+                language: this.props.isEnglish
+            });
+            window.history.pushState(null, null, `/services`);
+        } else {
+            window.history.pushState(null, null, `/services`);
             this.setState({
                 language: this.props.isEnglish
             });

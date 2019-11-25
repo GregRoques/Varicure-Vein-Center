@@ -32,16 +32,18 @@ class Header extends Component {
         this.props.isEnglish === "e" ? this.props.translate("s") : this.props.translate("e");
     }
 
-    modalToggler = async props => {
+    modalToggler = (props) => {
         if (!props) {
             const inverse = this.state.isOpen;
-            this.setState({ isOpen: !inverse });
+            this.setState({
+                isOpen: !inverse,
+                isFadeOut: false
+            });
         } else {
-            window.location.replace(props);
-            this.setState({ isOpen: false });
-            // setTimeout(() => {
-            //     this.setState({ isOpen: false, isFadeOut: false });
-            // }, 1500);
+            this.setState({ isFadeOut: true });
+            setTimeout(() => {
+                this.modalToggler();
+            }, 1500);
         }
     }
 
@@ -57,13 +59,16 @@ class Header extends Component {
                 />
                 <div className={ cssHeader.headerPosition}>
                     <div className={ cssHeader.headerContainer }>
-                        { !this.state.isScrolled || !this.state.isResized
+                        { !this.state.isScrolled || !this.state.isResized || this.state.isOpen
                             ? <Link to="/"><img alt="VeriCure Logo" className={ cssHeader.VCsmall } src="/logos/smallLogo.png"/></Link>
                             : null
                         }
-                        { !this.state.isResized
+                        { !this.state.isResized || this.state.isOpen
                             ? <div className= { cssHeader.headerContainerSmallText}>
-                                <img alt="hamburger" className={cssHeader.imageContain} src="/icons/hamburger.png" onClick={() => this.modalToggler()}/>
+                                {!this.state.isOpen
+                                    ? <img alt="hamburger" className={cssHeader.imageContain} src="/icons/hamburger.png" onClick={() => this.modalToggler()}/>
+                                    : <span className={cssHeader.imageContain} onClick={() => this.modalToggler("close")}>X</span>
+                                }
                             </div>
                             : <div className= { cssHeader.headerContainerText}>
                                 <Link className = { cssHeader.textSpace } to="/services">
@@ -78,7 +83,7 @@ class Header extends Component {
                             </div>
                         }
                     </div>
-                    { this.state.isScrolled && this.state.isResized ? <Link to="/"><img alt="VeriCure Logo" className={ cssHeader.VClogo } src="/logos/siteLogo.png"/></Link> : null }
+                    { this.state.isScrolled && this.state.isResized && !this.state.isOpen ? <Link to="/"><img alt="VeriCure Logo" className={ cssHeader.VClogo } src="/logos/siteLogo.png"/></Link> : null }
                 </div>
             </div>
         );

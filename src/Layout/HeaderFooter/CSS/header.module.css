@@ -126,4 +126,17 @@
     top:10px;
     height:35px;
     background-image: contain;
+    cursor: pointer;
+    font-size:24px;
+    font-weight: bold;
+    animation: fadeIn .75s forwards;
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0
+    }
+    100%{
+        opacity: 1
+    }
 }
