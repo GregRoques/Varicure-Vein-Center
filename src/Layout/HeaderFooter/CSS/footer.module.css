@@ -11,6 +11,11 @@
     animation-fill-mode: forwards;
 }
 
+.footerContainer a{
+    text-decoration: none;
+    color: black
+}
+
 .grid {
     display: grid;
     text-align: center;
