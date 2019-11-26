@@ -1,67 +1,88 @@
-import React, { Component } from "react";
+// import React, { Component } from "react";
+// import { cssResults } from "";
 
-const photosLength = 8;
-let i = 1;
+// var photoArray = {};
 
-class Results extends Component {
-    state = {
-        imageNum: i
-    }
-    // https://reactjsexample.com/a-react-component-for-building-content-galleries-and-carousels/
-    // Slider = ({ currentNum, clickL, clickR }) => {
-    //     return (
-    //         <div>
-    //             <div className="artDirection">Results</div>
-    //             <div className='photoContent'>
-    //                 <div onClick={() => clickL()} className="picButtons buttonLeft">{`<`}</div>
-    //                 <div className='sliderContainer'>
-    //                     <img src={musicPhotos[currentNum]['image']} alt={musicPhotos['band']}/>
-    //                 </div>
-    //                 <div onClick={() => clickR()}  className="picButtons buttonRight">{`>`}</div>
-    //             </div>
-    //             <div className='picTextAlign'>
-    //                 <a rel="noopener noreferrer" target={musicPhotos[currentNum]['target']}  href={musicPhotos[currentNum]['website']} alt={musicPhotos[currentNum]['band']} >
-    //                     {musicPhotos[currentNum]['band']}
-    //                 </a>
-    //             </div>
-    //             <div className= "">
-    //                  Before & After
-    //             </div>
-    //         </div>
-    //     );
-    // }
+// class Results extends Component {
+//     state = {
+//         modalShow: false,
+//         modalPhoto: null
+//     }
 
-    leftClick = () => {
-        i--;
-        if (i < 1) {
-            i = photosLength;
-        }
-        this.setState({
-            imageNum: i
-        });
-    }
+//     pictureDisplayOn = (currentPhoto) => {
+//         this.setState(prevState => ({
+//             modalShow: !prevState.modalShow,
+//             modalPhoto: currentPhoto
+//         }));
+//     }
 
-    rightClick = () => {
-        i++;
-        if (i > photosLength) {
-            i = 1;
-        }
-        this.setState({
-            imageNum: i
-        });
-    }
+//     pictureDisplayOff = () => {
+//         this.setState(prevState => ({
+//             modalShow: !prevState.modalShow,
+//             modalPhoto: null
+//         }));
+//     }
 
-    render () {
-        return (
-            <div className="fadeIn">
-                {/* <Slider
-                    currentNum = {this.state.imageNum}
-                    clickL = {this.leftClick}
-                    clickR = {this.rightClick}
-                /> */}
-            </div>
-        );
-    }
-}
+//     clickL = (i, album) => {
+//         i--;
+//         if (i < 0) {
+//             i = photoArray[album].length - 1;
+//         }
 
-export default Results;
+//         this.setState({
+//             modalPhoto: i
+//         })
+//     }
+
+//     clickR = (i, album) => {
+//         i++;
+//         if (i > photoArray[album].length - 1) {
+//             i = 0;
+//         }
+
+//         this.setState({
+//             modalPhoto: i
+//         });
+//     }
+
+//     render () {
+//         let modalPhotoGallery = null;
+//         if (this.state.modalShow) {
+//             modalPhotoGallery = (
+//                 <div className= { cssResults.photoModal } >
+//                     <div className={ cssResults.closePhotoModal } onClick={()=> this.pictureDisplayOff()}>x</div>
+//                     <div className ={ cssResults.photoContent}>
+//                         <div className={ cssResults.imageGalleryButtons } onClick={()=>this.clickL(this.state.modalPhoto, currentPathname)}>{`<`}</div>
+//                         <div className={ cssResults.sliderContainer }>
+//                             <img alt={ currentPathname + this.state.modalPhoto } src={'/images/photography/' + photoArray[currentPathname][this.state.modalPhoto] }/>
+//                         </div>
+//                         <div className={ cssResults.imageGalleryButtons } onClick={()=>this.clickR(this.state.modalPhoto, currentPathname)}>{`>`}</div>
+//                     </div>
+//                     <div className ={ cssResults.pictureCounter }>
+//                         { this.state.modalPhoto + 1 }/{ photoArray[currentPathname].length }
+//                     </div>
+//                 </div>
+//             );
+//         }
+
+//         return (
+//             <div className = { cssResults.fadeIn }>
+//                 { modalPhotoGallery }
+//                 <h1 className = {cssResults.albumTitleText}>{currentPathname}</h1>
+//                 <div className = { cssResults.photoGalleryContainer }>
+//                     <div className = { cssResults.photoGrid }>
+//                         { photoArray[currentPathname] ? photoArray[currentPathname].map((image, i) => {
+//                             return (
+//                                 <div key={ i } className={cssResults.photoBox}>
+//                                     <img onClick={() => this.pictureDisplayOn(i) } alt={ currentPathname + i } src={'/images/photography/'+ image}/>
+//                                 </div>
+//                             );
+//                         }) : this.props.history.push(`/photography`)}
+//                     </div>
+//                 </div>
+//             </div>
+//         );
+//     }
+// }
+
+// export default Results;

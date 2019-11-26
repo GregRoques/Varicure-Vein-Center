@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import cssServices from "./services.module.css";
-
 import Staff from "./Components/Staff";
 import Faq from "./Components/FAQ";
 import Treatments from "./Components/Treatments";
@@ -47,8 +46,8 @@ class Services extends Component {
 
     Options = ({ option, listNum }) => {
         return (
-            <span key={ listNum } onClick={() => this.info(option)}>
-                { this.state.selected === option ? <b>{ option }</b> : option }
+            <span className={cssServices.optionText} key={ listNum } onClick={() => this.info(option)}>
+                { this.state.selected === option ? <span className={cssServices.optionTextSelected}>{ option }</span> : <span>{ option }</span> }
             </span>
         );
     };

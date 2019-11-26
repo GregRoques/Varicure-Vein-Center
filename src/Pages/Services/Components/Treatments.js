@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import axios from "axios";
 
 class Treatments extends Component {
@@ -38,16 +38,13 @@ class Treatments extends Component {
                 <p>{props.whatItIs}</p><br/>
 
                 <h3>What is {props.treatment} used to treat?</h3>
-                <Fragment>
-                    <ul>
-                        {(usedForArray).map((condition, i) => {
-                            return (
-                                <li id={`condition${i}`}>{condition}</li>
-                            );
-                        })}
-                    </ul>
-                </Fragment><br/>
-
+                <p>
+                    {(usedForArray).map((condition, i) => {
+                        return (
+                            <span id={`condition${i}`}>• {condition}</span>
+                        );
+                    })}
+                </p><br/>
                 <h3>What to expect during a {props.treatment}?</h3>
                 <p>{props.toExpect}</p><br/>
 

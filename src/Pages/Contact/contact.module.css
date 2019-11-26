@@ -35,3 +35,9 @@ hr {
     margin-bottom:25px;
     font-weight: bold;
 }
+
+.copyright a{
+    color:black;
+    text-decoration: underline;
+    color: blue;
+}
