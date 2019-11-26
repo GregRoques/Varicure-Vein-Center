@@ -61,8 +61,8 @@
 
 .modalContainer{
     position: fixed;
-    width: 50%;
-    height: 75%;
+    /* width: 50%; */
+    height: 85%;
     color: white;
     font-weight: 800;
     font-size: 48px;

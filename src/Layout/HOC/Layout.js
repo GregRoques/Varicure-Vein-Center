@@ -10,9 +10,9 @@ const Layout = props => {
     const home = window.location.pathname === "/";
     let backgroundColor = css`background-color: rgb(255,255,255,0.55);`;
     if (home) {
-        backgroundColor = css`background-color: rgb(255,255,255,0.55);`;
+        backgroundColor = css`background-color: rgb(255,255,255,0.55); color:black;`;
     } else {
-        backgroundColor = css`background-color: rgb(255,255,255);`;
+        backgroundColor = css`background-color: rgb(19,163,153); color:white;`;
     };
 
     return (

@@ -1,6 +1,5 @@
 .footerContainer {
     position: fixed;
-    padding: 5px;
     width: 100%;
     height: 25px;
     bottom: 2%;
@@ -9,16 +8,19 @@
     animation-duration:1s;
     animation-delay:0.5s;
     animation-fill-mode: forwards;
+    text-align: center;
 }
 
 .footerContainer a{
     text-decoration: none;
-    color: black
+    color:inherit;
+    text-align:center;
+    
 }
 
 .grid {
+    padding: 5px;
     display: grid;
-    text-align: center;
     font-size: 18px;
     grid-template-columns: auto auto auto;
 }
@@ -26,6 +28,10 @@
 .closed {
     font-weight: bold;
     color:red;
+}
+
+.address{
+    cursor: pointer;
 }
 
 @keyframes fadeIn{
@@ -37,3 +43,21 @@
     }
 }
 
+.visibleBig{
+    display: inline;
+}
+
+.visibleSmall{
+    display: none; 
+}
+
+@media screen and (max-width: 619px){
+    .visibleBig{
+        display: none;
+    }
+    
+    .visibleSmall{
+        display: inline;
+    }
+
+}

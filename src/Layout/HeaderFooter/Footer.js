@@ -21,13 +21,16 @@ const Footer = props => {
         <div className={ cssFooter.footerContainer }>
             <div className={cssJoin.join(" ")}>
                 <div>
-                    <a href="tel:305-284-8090">(305) 284-8090</a>
+                    <span className={ cssFooter.visibleBig } ><a href="tel:305-284-8090">(305) 284-8090</a></span>
+                    <span className={ cssFooter.visibleSmall }><a href="tel:305-284-8090">Call</a></span>
                 </div>
-                <div onClick ={() => mapSelector("www.google.com/maps/place/9595+N+Kendall+Dr,+Miami,+FL+33176/@25.6880755,-80.3506089,17z/data=!3m1!4b1!4m5!3m4!1s0x88d9c73c861e9189:0xeb40d00fad0dec28!8m2!3d25.6880755!4d-80.3484202")} >
-                    9595 N.Kendall Dr. • Miami
+                <div title="Open Map" className={ cssFooter.address } onClick ={() => mapSelector("www.google.com/maps/place/9595+N+Kendall+Dr,+Miami,+FL+33176/@25.6880755,-80.3506089,17z/data=!3m1!4b1!4m5!3m4!1s0x88d9c73c861e9189:0xeb40d00fad0dec28!8m2!3d25.6880755!4d-80.3484202")} >
+                    <span className={ cssFooter.visibleBig }>9595 N.Kendall Dr. • Miami</span>
+                    <span className={ cssFooter.visibleSmall }>Map</span>
                 </div>
                 <div>
-                    {today}: <span className={ time === "Closed" ? cssFooter.closed : null }>{time}</span>
+                    <span className={ cssFooter.visibleBig }> {today}: <span className={ time === "Closed" ? cssFooter.closed : null }>{time}</span></span>
+                    <span className={ cssFooter.visibleSmall }><a href="mailto:info@vericure.com">Email</a></span>
                 </div>
             </div>
         </div>

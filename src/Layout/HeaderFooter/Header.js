@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import cssHeader from "./CSS/header.module.css";
 import { setLanguage } from "../../Redux/Actions/Language";
 import Modal from "./Modal";
@@ -10,15 +10,31 @@ class Header extends Component {
         isScrolled: true,
         isResized: true,
         isOpen: false,
-        isFadeOut: false
+        isFadeOut: false,
+        isServicesLogo: false
     };
 
     componentDidMount () {
+        if (window.location.pathname.includes("/services")) {
+            this.setLogo();
+        };
         window.addEventListener("scroll", this.logoScroll);
         window.pageYOffset > 25 && window.location.pathname !== "/home" ? this.setState({ isScrolled: false }) : this.setState({ isScrolled: true });
         window.addEventListener("resize", this.logoResize);
         window.innerWidth < 620 ? this.setState({ isResized: false }) : this.setState({ isResized: true });
+        this.props.history.listen(location => {
+            this.setLogo();
+        });
     };
+
+    setLogo = () => {
+        if (this.props.history.location.pathname.includes("services") && this.state.isServicesLogo === false) {
+            this.setState({ isServicesLogo: true });
+        }
+        if (!this.props.history.location.pathname.includes("services") && this.state.isServicesLogo === true) {
+            this.setState({ isServicesLogo: false });
+        };
+    }
 
     logoScroll = () => {
         window.pageYOffset > 25 && window.location.pathname !== "/home" ? this.setState({ isScrolled: false }) : this.setState({ isScrolled: true });
@@ -59,7 +75,7 @@ class Header extends Component {
                 />
                 <div className={ cssHeader.headerPosition}>
                     <div className={ cssHeader.headerContainer }>
-                        { !this.state.isScrolled || !this.state.isResized || this.state.isOpen
+                        { !this.state.isScrolled || !this.state.isResized || this.state.isOpen || this.state.isServicesLogo
                             ? <Link to="/"><img alt="VeriCure Logo" className={ cssHeader.VCsmall } src="/logos/smallLogo.png"/></Link>
                             : null
                         }
@@ -83,7 +99,7 @@ class Header extends Component {
                             </div>
                         }
                     </div>
-                    { this.state.isScrolled && this.state.isResized && !this.state.isOpen ? <Link to="/"><img alt="VeriCure Logo" className={ cssHeader.VClogo } src="/logos/siteLogo.png"/></Link> : null }
+                    { this.state.isScrolled && this.state.isResized && !this.state.isOpen && !this.state.isServicesLogo ? <Link to="/"><img alt="VeriCure Logo" className={ cssHeader.VClogo } src="/logos/siteLogo.png"/></Link> : null }
                 </div>
             </div>
         );
@@ -102,4 +118,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
