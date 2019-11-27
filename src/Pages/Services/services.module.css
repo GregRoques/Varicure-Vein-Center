@@ -107,3 +107,20 @@ hr{
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
 }
+
+.staffBorder{
+    margin-bottom:8rem;
+}
+
+.image2Border{
+    margin-top: 3rem;
+}
+
+.doctor{
+    font-size: 36px;
+}
+
+.staffImages{
+    width: 400px;
+    height: auto;
+}

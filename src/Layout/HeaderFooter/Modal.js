@@ -28,7 +28,7 @@ const Modal = ({ isOpen, close, isEnglish, languageToggle, isFadeOut }) => {
                     <Link to= "/contact">{ isEnglish === "e" ? "Contact" : "Contacto" }</Link>
                 </span>
                 <span className={ cssModal.parent } onClick={ languageToggle }>
-                    { isEnglish === "e" ? "English" : "Español" }
+                    { isEnglish === "e" ? "Español" : "English" }
                 </span>
             </div>
         </div>

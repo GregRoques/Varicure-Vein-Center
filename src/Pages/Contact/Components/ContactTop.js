@@ -1,12 +1,21 @@
 import React from "react";
+import { connect } from "react-redux";
 import cssTop from "./CSS/contactTop.module.css";
 
-const ContactTop = () => {
+const ContactTop = props => {
     return (
         <div className={ cssTop.topImage }>
-            <div className= {cssTop.topImageText }>Contact</div>
+            <div className= {cssTop.topImageText }>
+                { props.isEnglish === "e" ? "Contact" : "Contacto" }
+            </div>
         </div>
     );
 };
 
-export default ContactTop;
+const mapStateToProps = state => {
+    return {
+        isEnglish: state.isEnglish.isEnglish
+    };
+};
+
+export default connect(mapStateToProps, null)(ContactTop);

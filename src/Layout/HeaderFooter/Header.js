@@ -88,13 +88,13 @@ class Header extends Component {
                             </div>
                             : <div className= { cssHeader.headerContainerText}>
                                 <Link className = { cssHeader.textSpace } to="/services">
-                                    { this.props.isEnglish ? "Services" : "Servicios" }
+                                    { this.props.isEnglish === "e" ? "Services" : "Servicios" }
                                 </Link>
                                 <Link className = { cssHeader.textSpace } to="/contact">
-                                    { this.props.isEnglish ? "Contact" : "Contacto" }
+                                    { this.props.isEnglish === "e" ? "Contact" : "Contacto" }
                                 </Link>
                                 <span onClick={() => this.languageToggler()}>
-                                    { this.props.isEnglish === "e" ? "English" : "Español" }
+                                    { this.props.isEnglish === "e" ? "Español" : "English" }
                                 </span>
                             </div>
                         }

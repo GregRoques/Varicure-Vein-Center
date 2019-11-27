@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import cssServices from "../services.module.css";
 import axios from "axios";
+import { css } from "emotion";
 
-class FAQ extends Component {
+class Staff extends Component {
     state = {
         name: null,
         title: null,
@@ -37,18 +38,37 @@ class FAQ extends Component {
             });
     };
 
+    isBio = () => {
+        return (
+            <div className={ cssServices.doctor }>
+                <img className={cssServices.staffImages} alt="Dr. Reuben Gurvich" title="Dr. Reuben Gurvich" src="/Reuben.jpg"/>
+                <h3>{ this.state.name }</h3>
+            </div>
+        );
+    }
+
     render () {
         const { name, title, bio } = this.state;
         return (
             <div>
                 <h1 className={ cssServices.compTitle } >Staff</h1>
-                <div>
-                    <h3>{ name }, { title }</h3>
-                    <p>{ bio }</p><br/>
+                <div className={cssServices.staffBorder}>
+                    { name && title
+                        ? this.isBio()
+                        : null }
+                    <p>{ bio }</p>
+                    { name && title
+                        ? <img
+                            className={cssServices.image2Border }
+                            alt="VariCure Vein Center – 9595 N Kendall Dr., Miami"
+                            title="VariCure Vein Center – 9595 N Kendall Dr., Miami"
+                            src="/hq.jpg"
+                        />
+                        : null }
                 </div>
             </div>
         );
     }
 };
 
-export default FAQ;
+export default Staff;
