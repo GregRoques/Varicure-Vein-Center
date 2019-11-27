@@ -1,88 +1,88 @@
-// import React, { Component } from "react";
-// import { cssResults } from "";
+import React, { Component } from "react";
+import cssResults from "./results.module.css";
 
-// var photoArray = {};
+var photoArray = [1, 2, 3, 4, 5, 6, 7, 8];
 
-// class Results extends Component {
-//     state = {
-//         modalShow: false,
-//         modalPhoto: null
-//     }
+class Results extends Component {
+    state = {
+        modalShow: false,
+        modalPhoto: null
+    }
 
-//     pictureDisplayOn = (currentPhoto) => {
-//         this.setState(prevState => ({
-//             modalShow: !prevState.modalShow,
-//             modalPhoto: currentPhoto
-//         }));
-//     }
+    pictureDisplayOn = (currentPhoto) => {
+        this.setState(prevState => ({
+            modalShow: !prevState.modalShow,
+            modalPhoto: currentPhoto
+        }));
+    }
 
-//     pictureDisplayOff = () => {
-//         this.setState(prevState => ({
-//             modalShow: !prevState.modalShow,
-//             modalPhoto: null
-//         }));
-//     }
+    pictureDisplayOff = () => {
+        this.setState(prevState => ({
+            modalShow: !prevState.modalShow,
+            modalPhoto: null
+        }));
+    }
 
-//     clickL = (i, album) => {
-//         i--;
-//         if (i < 0) {
-//             i = photoArray[album].length - 1;
-//         }
+    clickL = i => {
+        i--;
+        if (i < 1) {
+            i = photoArray.length;
+        }
 
-//         this.setState({
-//             modalPhoto: i
-//         })
-//     }
+        this.setState({
+            modalPhoto: i
+        });
+    }
 
-//     clickR = (i, album) => {
-//         i++;
-//         if (i > photoArray[album].length - 1) {
-//             i = 0;
-//         }
+    clickR = i => {
+        i++;
+        if (i > photoArray.length) {
+            i = 1;
+        }
 
-//         this.setState({
-//             modalPhoto: i
-//         });
-//     }
+        this.setState({
+            modalPhoto: i
+        });
+    }
 
-//     render () {
-//         let modalPhotoGallery = null;
-//         if (this.state.modalShow) {
-//             modalPhotoGallery = (
-//                 <div className= { cssResults.photoModal } >
-//                     <div className={ cssResults.closePhotoModal } onClick={()=> this.pictureDisplayOff()}>x</div>
-//                     <div className ={ cssResults.photoContent}>
-//                         <div className={ cssResults.imageGalleryButtons } onClick={()=>this.clickL(this.state.modalPhoto, currentPathname)}>{`<`}</div>
-//                         <div className={ cssResults.sliderContainer }>
-//                             <img alt={ currentPathname + this.state.modalPhoto } src={'/images/photography/' + photoArray[currentPathname][this.state.modalPhoto] }/>
-//                         </div>
-//                         <div className={ cssResults.imageGalleryButtons } onClick={()=>this.clickR(this.state.modalPhoto, currentPathname)}>{`>`}</div>
-//                     </div>
-//                     <div className ={ cssResults.pictureCounter }>
-//                         { this.state.modalPhoto + 1 }/{ photoArray[currentPathname].length }
-//                     </div>
-//                 </div>
-//             );
-//         }
+    render () {
+        let modalPhotoGallery = null;
+        if (this.state.modalShow) {
+            modalPhotoGallery = (
+                <div className= { cssResults.photoModal } >
+                    <div className={ cssResults.closePhotoModal } onClick={ () => this.pictureDisplayOff()}>x</div>
+                    <div className ={ cssResults.photoContent}>
+                        <div className={ cssResults.imageGalleryButtons } onClick={ () => this.clickL(this.state.modalPhoto) }>{`<`}</div>
+                        <div className={ cssResults.sliderContainer }>
+                            <img alt={ "Results" + this.state.modalPhoto } src={"beforeAfter/" + [this.state.modalPhoto] + ".jpg" }/>
+                        </div>
+                        <div className={ cssResults.imageGalleryButtons } onClick={() => this.clickR(this.state.modalPhoto)}>{`>`}</div>
+                    </div>
+                    <div className ={ cssResults.pictureCounter }>
+                        { this.state.modalPhoto }/{ photoArray.length }
+                    </div>
+                </div>
+            );
+        }
 
-//         return (
-//             <div className = { cssResults.fadeIn }>
-//                 { modalPhotoGallery }
-//                 <h1 className = {cssResults.albumTitleText}>{currentPathname}</h1>
-//                 <div className = { cssResults.photoGalleryContainer }>
-//                     <div className = { cssResults.photoGrid }>
-//                         { photoArray[currentPathname] ? photoArray[currentPathname].map((image, i) => {
-//                             return (
-//                                 <div key={ i } className={cssResults.photoBox}>
-//                                     <img onClick={() => this.pictureDisplayOn(i) } alt={ currentPathname + i } src={'/images/photography/'+ image}/>
-//                                 </div>
-//                             );
-//                         }) : this.props.history.push(`/photography`)}
-//                     </div>
-//                 </div>
-//             </div>
-//         );
-//     }
-// }
+        return (
+            <div className = { cssResults.fadeIn }>
+                { modalPhotoGallery }
+                <h1 className = {cssResults.albumTitleText}>Results</h1>
+                <div className = { cssResults.photoGalleryContainer }>
+                    <div className = { cssResults.photoGrid }>
+                        { photoArray.map((image, i) => {
+                            return (
+                                <div key={ i } className={cssResults.photoBox}>
+                                    <img onClick={() => this.pictureDisplayOn(image) } alt={ "Results" + image } src={"beforeAfter/" + image + ".jpg"}/>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
 
-// export default Results;
+export default Results;
