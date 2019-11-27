@@ -141,7 +141,7 @@ hr{
 }
 
 .bioGrid{
-    margin: 4rem 4rem 5rem 4rem;
+    margin: 3rem 4rem 5rem 4rem;
     height: auto;
     display: grid; 
     grid-template-columns: 50% 50%;

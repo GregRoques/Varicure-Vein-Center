@@ -77,6 +77,16 @@ class Services extends Component {
 
     render () {
         const options = ["Treatments", "Results", "Faq", "Staff"];
+        let display;
+        this.props.isEnglish === "e"
+            ? display = this.state.selected
+            : this.state.selected === "Treatments"
+                ? display = "Tratos"
+                : this.state.selected === "Results"
+                    ? display = "Resultados"
+                    : this.state.selected === "Staff"
+                        ? display = "Personal"
+                        : display = this.state.selected;
         return (
             <div className={cssServices.body}>
                 <div className={cssServices.selector}>
@@ -91,6 +101,7 @@ class Services extends Component {
                 </div>
                 <div className={cssServices.currentSelection}>
                     <div key= {this.state.selected } className={cssServices.fadeIn}>
+                        <h1 className={ cssServices.compTitle } >{ display }</h1>
                         <this.Display
                             language={this.state.language}
                             option={ options.indexOf(this.state.selected) }

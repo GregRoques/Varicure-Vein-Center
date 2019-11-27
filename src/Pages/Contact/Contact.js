@@ -1,10 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
 import cssContact from "./contact.module.css";
 import Top from "./Components/ContactTop";
 import Hours from "./Components/Hours";
 import Map from "./Components/Map";
 import Message from "./Components/Message";
-import { connect } from "react-redux";
 
 const Contact = props => {
     return (

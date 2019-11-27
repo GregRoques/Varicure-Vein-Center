@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import cssServices from "../services.module.css";
 import axios from "axios";
 
 class FAQ extends Component {
@@ -29,8 +28,8 @@ class FAQ extends Component {
                 console.log(err);
                 this.setState({
                     QnA: [{
-                        question: "Loading Error",
-                        answer: "Please try back again later."
+                        question: "Loading Error – Please try back again later.\n",
+                        answer: "Error de Carga – Por favor vuelva más tarde."
                     }]
                 });
             });
@@ -49,7 +48,6 @@ class FAQ extends Component {
         console.log(Object.keys(this.state.QnA));
         return (
             <div>
-                <h1 className={ cssServices.compTitle }>FAQ</h1>
                 <div>
                     { Object.keys(this.state.QnA).map((num, i) => {
                         const { question, answer } = this.state.QnA[num];

@@ -32,7 +32,7 @@ class Staff extends Component {
             .catch(err => {
                 console.log(err);
                 this.setState({
-                    bio: "Loading error, please check back later."
+                    bio: "Loading error, please check back later.\nError de carga, por favor vuelva más tarde."
                 });
             });
     };
@@ -66,14 +66,13 @@ class Staff extends Component {
                 <div>9595 N.Kendall Dr. • Miami</div>
 
             </div>
-        )
+        );
     }
 
     render () {
         const { name, title, bio } = this.state;
         return (
             <div>
-                <h1 className={ cssServices.compTitle } >Staff</h1>
                 <div className={ cssServices.staffBorder }>
                     { name && title
                         ? this.isBio()
