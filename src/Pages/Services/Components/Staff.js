@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import cssServices from "../services.module.css";
 import axios from "axios";
 
 class FAQ extends Component {
@@ -40,7 +41,7 @@ class FAQ extends Component {
         const { name, title, bio } = this.state;
         return (
             <div>
-                <h1>Staff</h1>
+                <h1 className={ cssServices.compTitle } >Staff</h1>
                 <div>
                     <h3>{ name }, { title }</h3>
                     <p>{ bio }</p><br/>

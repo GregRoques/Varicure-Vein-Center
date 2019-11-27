@@ -45,7 +45,7 @@
     flex-direction: row;
     width: 100%;
     background-color: rgb(19,163,153);
-    z-index:200;
+    z-index:300;
     top: 45px;
     animation: closeModal 1.5s forwards;
 }

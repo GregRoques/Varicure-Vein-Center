@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import cssServices from "../services.module.css";
 import axios from "axios";
 
 class Treatments extends Component {
@@ -58,7 +59,7 @@ class Treatments extends Component {
     render () {
         return (
             <div>
-                <h1>Treatments</h1>
+                <h1 className={ cssServices.compTitle }>Treatments</h1>
                 <div>
                     { Object.keys(this.state.currTreatments).map((num, i) => {
                         const { treatment, whatItIs, usedFor, toExpect, recovery } = this.state.currTreatments[num];

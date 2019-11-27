@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Lily+Script+One&display=swap');
+@font-face {
+    font-family: "Museo";
+    src: local("/public/fonts/Museo500-Regular.otf")
+}
 
 .body{
     width:100%;
@@ -20,6 +24,15 @@
 .fadeIn {
     animation-name: fadeIn;
     animation-duration:2s;
+}
+
+.compTitle{
+    font-size: 48px;
+    font-family: "Museo";
+    font-weight: 700;
+    color: rgb(19,163,153);
+    text-transform: uppercase;
+    letter-spacing: 5px;
 }
 
 @keyframes fadeIn {
