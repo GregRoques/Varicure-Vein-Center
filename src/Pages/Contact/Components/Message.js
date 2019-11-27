@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import cssMessage from "./CSS/message.module.css";
 import axios from "axios";
 
@@ -77,4 +78,10 @@ class Message extends Component {
     }
 };
 
-export default Message;
+const mapStateToProps = state => {
+    return {
+        isEnglish: state.isEnglish.isEnglish
+    };
+};
+
+export default connect(mapStateToProps, null)(Message);
