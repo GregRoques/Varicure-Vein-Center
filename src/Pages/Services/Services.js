@@ -14,6 +14,7 @@ class Services extends Component {
 
     componentDidMount () {
         this.getServiceLink();
+        window.scrollTo(0, 0);
     };
 
     componentDidUpdate (prevProps) {
@@ -45,9 +46,20 @@ class Services extends Component {
     }
 
     Options = ({ option, listNum }) => {
+        let display;
+        this.props.isEnglish === "e"
+            ? display = option
+            : option === "Treatments"
+                ? display = "Tratos"
+                : option === "Results"
+                    ? display = "Resultados"
+                    : option === "Staff"
+                        ? display = "Personal"
+                        : display = option;
+
         return (
             <span className={cssServices.optionText} key={ listNum } onClick={() => this.info(option)}>
-                { this.state.selected === option ? <span className={cssServices.optionTextSelected}>{ option }</span> : <span>{ option }</span> }
+                { this.state.selected === option ? <span className={cssServices.optionTextSelected}>{ display }</span> : <span>{ display }</span> }
             </span>
         );
     };

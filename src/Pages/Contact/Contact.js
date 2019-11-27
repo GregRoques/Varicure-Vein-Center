@@ -4,6 +4,7 @@ import Top from "./Components/ContactTop";
 import Hours from "./Components/Hours";
 import Map from "./Components/Map";
 import Message from "./Components/Message";
+import { connect } from "react-redux";
 
 const Contact = props => {
     return (
@@ -18,11 +19,20 @@ const Contact = props => {
                 </div>
                 <Map />
                 <div className={ cssContact.copyright}>
-                    Copyright {`${String.fromCharCode(169)}`} 2019 by <a href="https://www.gregroques.com" target="_blank" rel="noopener noreferrer">Greg Roques</a>
+                    { props.isEnglish === "e"
+                        ? <div>Copyright {`${String.fromCharCode(169)}`} 2019 by <a href="https://www.gregroques.com" target="_blank" rel="noopener noreferrer">Greg Roques</a></div>
+                        : <div>Derechos de Autor {`${String.fromCharCode(169)}`} 2019 por <a href="https://www.gregroques.com" target="_blank" rel="noopener noreferrer">Greg Roques</a></div>
+                    }
                 </div>
             </div>
         </div>
     );
 };
 
-export default Contact;
+const mapStateToProps = state => {
+    return {
+        isEnglish: state.isEnglish.isEnglish
+    };
+};
+
+export default connect(mapStateToProps, null)(Contact);
