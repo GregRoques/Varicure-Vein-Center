@@ -40,10 +40,33 @@ class Staff extends Component {
     isBio = () => {
         return (
             <div className={ cssServices.doctor }>
-                <img className={cssServices.staffImages} alt="Dr. Reuben Gurvich" title="Dr. Reuben Gurvich" src="/Reuben.jpg"/>
-                <h3>{ this.state.name }</h3>
+                <div className={ cssServices.bioGrid }>
+                    <div>
+                        <img className={cssServices.staffImages} alt="Dr. Reuben Gurvich" title="Dr. Reuben Gurvich" src="/Reuben.jpg"/>
+                    </div>
+                    <div>
+                        <h3>{ this.state.name }</h3>
+                        <p>{ this.state.bio }</p>
+                    </div>
+                </div>
             </div>
         );
+    }
+
+    officeLocation = () => {
+        return (
+            <div className ={ cssServices.officeLocation }>
+                <h3> Visit Us Today!</h3>
+                <img
+                    className={cssServices.image2Border }
+                    alt="VariCure Vein Center – 9595 N Kendall Dr., Miami"
+                    title="VariCure Vein Center – 9595 N Kendall Dr., Miami"
+                    src="/hq.jpg"
+                />
+                <div>9595 N.Kendall Dr. • Miami</div>
+
+            </div>
+        )
     }
 
     render () {
@@ -51,18 +74,13 @@ class Staff extends Component {
         return (
             <div>
                 <h1 className={ cssServices.compTitle } >Staff</h1>
-                <div className={cssServices.staffBorder}>
+                <div className={ cssServices.staffBorder }>
                     { name && title
                         ? this.isBio()
                         : null }
-                    <p>{ bio }</p>
+                    { !name && !title ? <div>{ bio }</div> : null }
                     { name && title
-                        ? <img
-                            className={cssServices.image2Border }
-                            alt="VariCure Vein Center – 9595 N Kendall Dr., Miami"
-                            title="VariCure Vein Center – 9595 N Kendall Dr., Miami"
-                            src="/hq.jpg"
-                        />
+                        ? this.officeLocation()
                         : null }
                 </div>
             </div>

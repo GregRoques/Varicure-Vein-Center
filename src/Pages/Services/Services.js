@@ -85,6 +85,7 @@ class Services extends Component {
                         />
                     </div>
                 </div>
+                <div className={cssServices.mainPageBottom}/>
             </div>
         );
     };

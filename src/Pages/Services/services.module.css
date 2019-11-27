@@ -64,7 +64,7 @@
 
 .optionTextSelected{
     font-weight:900;
-    color: orange;
+    color: rgb(250,173,73);
     text-transform: uppercase;
 }
 
@@ -113,14 +113,51 @@ hr{
 }
 
 .image2Border{
-    margin-top: 3rem;
+    margin-top: -1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 15px;
 }
 
 .doctor{
     font-size: 36px;
 }
 
+.doctor p{
+    font-size: 1rem;
+}
+
 .staffImages{
     width: 400px;
     height: auto;
+    border-radius: 15px;
+}
+
+.mainPageBottom{
+    position: fixed;
+    width: 100%;
+    height: 25px;
+    bottom: 0px;
+    background-color: white;
+}
+
+.bioGrid{
+    margin: 4rem 4rem 5rem 4rem;
+    height: auto;
+    display: grid; 
+    grid-template-columns: 50% 50%;
+    row-gap: 1rem;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.officeLocation{
+    font-size: 18px
+}
+
+.officeLocation h3{
+    font-size: 48px;
+    font-family: "Museo";
+    font-weight: 700;
+    color: rgb(250,173,73);
+    text-transform: uppercase;
 }
