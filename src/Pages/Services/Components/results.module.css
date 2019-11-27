@@ -14,7 +14,6 @@
     /* ===================================================== Fade */
   
     .fadeIn{
-      margin-top: 4rem;
       animation-name: fadeIn;
       animation-duration:2s;
     }
