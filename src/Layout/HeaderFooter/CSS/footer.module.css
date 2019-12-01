@@ -27,7 +27,7 @@
 
 .closed {
     font-weight: bold;
-    color:red;
+    /* color:rgb(250,173,73); */
 }
 
 .address{

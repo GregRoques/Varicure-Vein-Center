@@ -9,6 +9,10 @@ class Results extends Component {
         modalPhoto: null
     }
 
+    componentDidMount () {
+        window.scrollTo(0, 0);
+    }
+
     pictureDisplayOn = (currentPhoto) => {
         this.setState(prevState => ({
             modalShow: !prevState.modalShow,

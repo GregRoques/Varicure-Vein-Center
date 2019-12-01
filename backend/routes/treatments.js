@@ -4,8 +4,8 @@ const db = require("../util/database");
 
 router.get("/treatments/:hash", (req, res) => {
     const language = req.params.hash;
-    const selectTreatments = `SELECT id, treatment, whatItIs, usedFor, toExpect, recovery FROM treatments WHERE language='${language}'`;
-    db.execute(selectTreatments)
+    const treatments = `Select id, question, answer FROM treatments WHERE language='${language}'`;
+    db.execute(treatments)
         .then(results => {
             const myTreatments = results[0];
             res.json(myTreatments);
@@ -15,14 +15,14 @@ router.get("/treatments/:hash", (req, res) => {
         });
 });
 
-// router.post("/treaments/addtreaments", (req, res) => {
-//     const { treatment, whatItIs, usedFor, toExpect, recovery, language } = req.query;
-//     const addtreaments = `INSERT INTO treaments (treatment, whatItIs, usedFor, toExpect, recovery, language) VALUES ('${treatment}', '${whatItIs}', '${usedFor}', '${toExpect}', '${recovery}', '${language}')`;
-//     db.execute(addtreaments).then(() => {
-//         const selectTreatments = `SELECT id, treatment, whatItIs, usedFor, toExpect, recovery FROM treaments WHERE language='${language}'`;
-//         db.execute(selectTreatments).then(results => {
-//             const myTreatments = results[0];
-//             res.json(myTreatments);
+// router.post("/faq/addfaq", (req, res) => {
+//     const { language, question, answer } = req.query;
+//     const addFAQ = `INSERT INTO faq (question, answer, language) VALUES ('${question}', '${answer}', '${language}')`;
+//     db.execute(addFAQ).then(() => {
+//         const selectFAQ = `SELECT id, question FROM faq WHERE language='${language}'`;
+//         db.execute(selectFAQ).then(results => {
+//             const myFaqs = results[0];
+//             res.json(myFaqs);
 //         }).catch(err => {
 //             if (err) {
 //                 throw err;
@@ -35,14 +35,14 @@ router.get("/treatments/:hash", (req, res) => {
 //     });
 // });
 
-// router.post("/treaments/updatetreaments", (req, res) => {
-//     const { id, treatment, whatItIs, usedFor, toExpect, recovery, language } = req.query;
-//     const updateTreaments = `UPDATE treaments SET treatment="${treatment}", whatItIs="${whatItIs}", usedFor="${usedFor}", toExpect="${toExpect}, recovery="${recovery}" WHERE id="${id}"`;
-//     db.execute(updateTreaments).then(() => {
-//         const selectTreatments = `SELECT id, treatment, whatItIs, usedFor, toExpect, recovery FROM treaments WHERE language='${language}'`;
-//         db.execute(selectTreatments).then(results => {
-//             const myTreatments = results[0];
-//             res.json(myTreatments);
+// router.post("/faq/updatefaq", (req, res) => {
+//     const { id, language, question, answer } = req.query;
+//     const updateFAQ = `UPDATE faq SET question="${question}", answer="${answer}" WHERE id="${id}"`;
+//     db.execute(updateFAQ).then(() => {
+//         const selectFAQ = `SELECT id, question FROM faq WHERE language='${language}'`;
+//         db.execute(selectFAQ).then(results => {
+//             const myFaqs = results[0];
+//             res.json(myFaqs);
 //         }).catch(err => {
 //             if (err) {
 //                 throw err;
@@ -55,14 +55,14 @@ router.get("/treatments/:hash", (req, res) => {
 //     });
 // });
 
-// router.post("/treaments/deletetreaments", (req, res) => {
+// router.post("/faq/deletefaq", (req, res) => {
 //     const { id, language } = req.query;
-//     const deleteTreatments = `DELETE * FROM treaments WHERE id="${id}"`;
-//     db.execute(deleteTreatments).then(() => {
-//         const selectTreatments = `SELECT id, treatment, whatItIs, usedFor, toExpect, recovery FROM treaments WHERE language='${language}'`;
-//         db.execute(selectTreatments).then(results => {
-//             const myTreatments = results[0];
-//             res.json(myTreatments);
+//     const deleteFAQ = `DELETE * FROM faq WHERE id="${id}"`;
+//     db.execute(deleteFAQ).then(() => {
+//         const selectFAQ = `SELECT id, question FROM faq WHERE language='${language}'`;
+//         db.execute(selectFAQ).then(results => {
+//             const myFaqs = results[0];
+//             res.json(myFaqs);
 //         }).catch(err => {
 //             if (err) {
 //                 throw err;

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import cssServices from "../services.module.css";
 import axios from "axios";
 
 class FAQ extends Component {
@@ -7,7 +8,7 @@ class FAQ extends Component {
     };
 
     componentDidMount () {
-        this.getFAQ();
+        this.getFAQ(); window.scrollTo(0, 0);
     };
 
     componentDidUpdate (prevProps) {
@@ -52,11 +53,14 @@ class FAQ extends Component {
                     { Object.keys(this.state.QnA).map((num, i) => {
                         const { question, answer } = this.state.QnA[num];
                         return (
-                            <this.FAQs
-                                key={ i }
-                                question = { question }
-                                answer = { answer }
-                            />
+                            <div>
+                                <this.FAQs
+                                    key={ i }
+                                    question = { question }
+                                    answer = { answer }
+                                />
+                                { i !== this.state.QnA.length - 1 ? <hr/> : <div className={ cssServices.qnaEnd }/>}
+                            </div>
                         );
                     }) }
                 </div>

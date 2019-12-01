@@ -1,75 +1,68 @@
 import React, { Component } from "react";
 import axios from "axios";
+import cssServices from "../services.module.css";
 
 class Treatments extends Component {
     state = {
-        currTreatments: {}
+        QnA: {}
     };
 
     componentDidMount () {
-        this.getTreatments();
+        this.getTreatment();
+        window.scrollTo(0, 0);
     };
 
     componentDidUpdate (prevProps) {
         if (prevProps.isEnglish !== this.props.isEnglish) {
-            this.getTreatments();
+            this.getTreatment();
         }
     }
 
-    getTreatments = () => {
+    getTreatment = () => {
         const language = this.props.isEnglish;
         axios.get(`http://localhost:2000/treatments/${language}`)
             .then(res => {
                 this.setState({
-                    currTreatments: [...res.data]
+                    QnA: [...res.data]
                 });
             })
             .catch(err => {
-                console.log(`Loading error, please check back later.\nError de carga, por favor vuelva más tarde.\n${err}`);
+                console.log(err);
+                this.setState({
+                    QnA: [{
+                        question: "Loading Error – Please try back again later.\n",
+                        answer: "Error de Carga – Por favor vuelva más tarde."
+                    }]
+                });
             });
     };
 
-    treatmentList = props => {
-        let usedForArray = [];
-        props.usedFor.includes(",") ? usedForArray = props.usedFor.split(",") : usedForArray = [props.usedFor];
+    Treatments = props => {
         return (
-            <div id={`treatment${props.key}`}>
-                <h3>What is {props.treatment}?</h3>
-                <p>{props.whatItIs}</p><br/>
-
-                <h3>What is {props.treatment} used to treat?</h3>
-                <p>
-                    {(usedForArray).map((condition, i) => {
-                        return (
-                            <span id={`condition${i}`}>• {condition}</span>
-                        );
-                    })}
-                </p><br/>
-                <h3>What to expect during a {props.treatment}?</h3>
-                <p>{props.toExpect}</p><br/>
-
-                <h3>What to expect after my {props.treatment}?</h3>
-                <p>{props.recovery}</p>
-                <hr/><br/>
+            <div id={`Treatments${props.key}`}>
+                <h3>{ props.question }</h3>
+                <p>{props.answer}</p><br/>
             </div>
         );
     };
 
     render () {
+        console.log(Object.keys(this.state.QnA));
         return (
             <div>
                 <div>
-                    { Object.keys(this.state.currTreatments).map((num, i) => {
-                        const { treatment, whatItIs, usedFor, toExpect, recovery } = this.state.currTreatments[num];
+                    { Object.keys(this.state.QnA).map((num, i) => {
+                        const { question, answer } = this.state.QnA[num];
                         return (
-                            <this.treatmentList
-                                key = { i }
-                                treatment = { treatment }
-                                whatItIs = { whatItIs }
-                                usedFor = { usedFor }
-                                toExpect = { toExpect }
-                                recovery = { recovery }
-                            />
+                            <div>
+                                <this.Treatments
+                                    key={ i }
+                                    question = { question }
+                                    answer = { answer }
+                                />
+                                { i !== this.state.QnA.length - 1 ? <hr/> : <div className={ cssServices.qnaEnd }/>}
+                                <br/>
+                            </div>
                         );
                     }) }
                 </div>

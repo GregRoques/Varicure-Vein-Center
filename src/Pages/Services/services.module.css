@@ -161,3 +161,7 @@ hr{
     color: rgb(250,173,73);
     text-transform: uppercase;
 }
+
+.qnaEnd{
+    margin-bottom: 5rem;
+}

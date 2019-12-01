@@ -11,6 +11,7 @@ class Staff extends Component {
 
     componentDidMount () {
         this.getBio();
+        window.scrollTo(0, 0);
     };
 
     componentDidUpdate (prevProps) {

@@ -14,7 +14,6 @@ class Services extends Component {
 
     componentDidMount () {
         this.getServiceLink();
-        window.scrollTo(0, 0);
     };
 
     componentDidUpdate (prevProps) {

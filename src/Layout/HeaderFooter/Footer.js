@@ -4,8 +4,8 @@ import { mapSelector } from "../../Functions/MapSelector";
 import { connect } from "react-redux";
 
 const dayNum = (new Date()).getDay();
-const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-const dias = ["Lu", "Ma", "Mi", "Ju", "Vi", "Sá", "Do"];
+const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const dias = ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sá"];
 const hoy = dias[dayNum];
 const today = days[dayNum];
 let time;
@@ -39,7 +39,7 @@ const Footer = props => {
                     <span className={ cssFooter.visibleBig }>
                         { props.isEnglish === "e"
                             ? <span>{ today }: <span className={ time === "Closed" ? cssFooter.closed : null }>{ time }</span></span>
-                            : <span>{ hoy }: <span className={ time === "Cerrado" ? cssFooter.closed : null }>{ props.isEnglish === "s" && time === "Closed" ? "Cerrado" : time }</span></span>
+                            : <span>{ hoy }: <span className={ time === "Closed" ? cssFooter.closed : null }>{ props.isEnglish === "s" && time === "Closed" ? "Cerrado" : time }</span></span>
                         }
                     </span>
                     <span className={ cssFooter.visibleSmall }><a href="mailto:info@vericure.com">
