@@ -4,7 +4,7 @@ const db = require("../util/database");
 
 router.get("/faq/:hash", (req, res) => {
     const language = req.params.hash;
-    const faqs = `Select id, question, answer FROM faq WHERE language='${language}'`;
+    const faqs = `Select id, question, answer, image FROM faq WHERE language='${language}'`;
     db.execute(faqs)
         .then(results => {
             const myFaqs = results[0];

@@ -33,6 +33,7 @@
     color: rgb(19,163,153);
     text-transform: uppercase;
     letter-spacing: 5px;
+    margin-bottom: 3.5rem;
 }
 
 @keyframes fadeIn {
@@ -68,9 +69,7 @@
     text-transform: uppercase;
 }
 
-hr{
-    width: 80%;
-}
+
 
 @media screen and (max-width: 619px){
     .selector{
@@ -112,12 +111,6 @@ hr{
     margin-bottom:8rem;
 }
 
-.image2Border{
-    margin-top: -1rem;
-    margin-bottom: 0.5rem;
-    border-radius: 15px;
-}
-
 .doctor{
     font-size: 36px;
 }
@@ -126,9 +119,9 @@ hr{
     font-size: 1rem;
 }
 
-.staffImages{
-    width: 400px;
-    height: auto;
+.serviceImages{
+    width: auto;
+    height: 400px;
     border-radius: 15px;
 }
 
@@ -151,17 +144,29 @@ hr{
 }
 
 .officeLocation{
-    font-size: 18px
+    font-size: 18px;
 }
 
 .officeLocation h3{
-    font-size: 48px;
+    font-size: 36px;
     font-family: "Museo";
     font-weight: 700;
     color: rgb(250,173,73);
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
+}
+
+.officeLocation p{
+    line-height:30px;
 }
 
 .qnaEnd{
     margin-bottom: 5rem;
+}
+
+.textBorder{
+    padding:0px 5rem 0px 5rem;
+}
+
+.textBorder hr{
+    width: 80%;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import cssServices from "../services.module.css";
 import axios from "axios";
+import ReactHtmlParser from "react-html-parser";
 
 class FAQ extends Component {
     state = {
@@ -8,7 +9,8 @@ class FAQ extends Component {
     };
 
     componentDidMount () {
-        this.getFAQ(); window.scrollTo(0, 0);
+        this.getFAQ();
+        window.scrollTo(0, 0);
     };
 
     componentDidUpdate (prevProps) {
@@ -38,9 +40,17 @@ class FAQ extends Component {
 
     FAQs = props => {
         return (
-            <div id={`FAQ${props.key}`}>
-                <h3>{ props.question }</h3>
-                <p>{props.answer}</p><br/>
+            <div id={`FAQ${props.key}`} className={ cssServices.officeLocation }>
+                <h3>{ ReactHtmlParser(props.question) }</h3>
+                { props.image !== null
+                    ? <img
+                        className={cssServices.serviceImages }
+                        alt={ props.image }
+                        src={ `/${props.image}`}
+                    />
+                    : null
+                }
+                <p>{ ReactHtmlParser(props.answer) }</p>
             </div>
         );
     };
@@ -51,15 +61,17 @@ class FAQ extends Component {
             <div>
                 <div>
                     { Object.keys(this.state.QnA).map((num, i) => {
-                        const { question, answer } = this.state.QnA[num];
+                        const { question, answer, image } = this.state.QnA[num];
                         return (
-                            <div>
+                            <div className={cssServices.textBorder}>
                                 <this.FAQs
                                     key={ i }
                                     question = { question }
                                     answer = { answer }
+                                    image = { image }
                                 />
                                 { i !== this.state.QnA.length - 1 ? <hr/> : <div className={ cssServices.qnaEnd }/>}
+                                <br/>
                             </div>
                         );
                     }) }

@@ -72,6 +72,7 @@ class Results extends Component {
         return (
             <div className = { cssResults.fadeIn }>
                 { modalPhotoGallery }
+                <h1 className={ cssResults.subheading }> Healthy Legs Should Not Look Like Road Maps</h1>
                 <div className = { cssResults.photoGalleryContainer }>
                     <div className = { cssResults.photoGrid }>
                         { photoArray.map((image, i) => {

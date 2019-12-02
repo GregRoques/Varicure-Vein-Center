@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import cssServices from "./services.module.css";
-import Staff from "./Components/Staff";
 import Faq from "./Components/FAQ";
 import Treatments from "./Components/Treatments";
 import Results from "./Components/Results";
 
 class Services extends Component {
     state = {
-        selected: "Staff",
+        selected: "Treatments",
         language: "e"
     }
 
@@ -30,7 +29,7 @@ class Services extends Component {
     getServiceLink = () => {
         const serviceSelection = (window.location.pathname).split("/services/").pop();
         const formattedSelection = serviceSelection.charAt(0).toUpperCase() + serviceSelection.substring(1);
-        if (formattedSelection === "Treatments" || formattedSelection === "Results" || formattedSelection === "Faq" || formattedSelection === "Staff") {
+        if (formattedSelection === "Treatments" || formattedSelection === "Results" || formattedSelection === "Faq") {
             this.setState({
                 selected: formattedSelection,
                 language: this.props.isEnglish
@@ -52,9 +51,7 @@ class Services extends Component {
                 ? display = "Tratos"
                 : option === "Results"
                     ? display = "Resultados"
-                    : option === "Staff"
-                        ? display = "Personal"
-                        : display = option;
+                    : display = option;
 
         return (
             <span className={cssServices.optionText} key={ listNum } onClick={() => this.info(option)}>
@@ -64,7 +61,7 @@ class Services extends Component {
     };
 
     Display = ({ option, language }) => {
-        const components = [<Treatments isEnglish={language}/>, <Results isEnglish={language}/>, <Faq isEnglish={language}/>, <Staff isEnglish={language}/>];
+        const components = [<Treatments isEnglish={language}/>, <Faq isEnglish={language}/>, <Results isEnglish={language}/>];
         return components[option];
     };
 
@@ -75,7 +72,7 @@ class Services extends Component {
     };
 
     render () {
-        const options = ["Treatments", "Results", "Faq", "Staff"];
+        const options = ["Treatments", "Faq", "Results"];
         let display;
         this.props.isEnglish === "e"
             ? display = this.state.selected
@@ -83,9 +80,7 @@ class Services extends Component {
                 ? display = "Tratos"
                 : this.state.selected === "Results"
                     ? display = "Resultados"
-                    : this.state.selected === "Staff"
-                        ? display = "Personal"
-                        : display = this.state.selected;
+                    : display = this.state.selected;
         return (
             <div className={cssServices.body}>
                 <div className={cssServices.selector}>

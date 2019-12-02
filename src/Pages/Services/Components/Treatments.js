@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import cssServices from "../services.module.css";
+import ReactHtmlParser from "react-html-parser";
 
 class Treatments extends Component {
     state = {
@@ -39,9 +40,17 @@ class Treatments extends Component {
 
     Treatments = props => {
         return (
-            <div id={`Treatments${props.key}`}>
-                <h3>{ props.question }</h3>
-                <p>{props.answer}</p><br/>
+            <div id={`Treatments${props.key}`} className={ cssServices.officeLocation }>
+                <h3>{ ReactHtmlParser(props.question) }</h3>
+                { props.image
+                    ? <img
+                        className={cssServices.serviceImages }
+                        alt={ props.image }
+                        src={ `/${props.image}`}
+                    />
+                    : null
+                }
+                <p>{ ReactHtmlParser(props.answer) }</p>
             </div>
         );
     };
@@ -52,13 +61,14 @@ class Treatments extends Component {
             <div>
                 <div>
                     { Object.keys(this.state.QnA).map((num, i) => {
-                        const { question, answer } = this.state.QnA[num];
+                        const { question, answer, image } = this.state.QnA[num];
                         return (
-                            <div>
+                            <div className={cssServices.textBorder}>
                                 <this.Treatments
                                     key={ i }
                                     question = { question }
                                     answer = { answer }
+                                    image = { image }
                                 />
                                 { i !== this.state.QnA.length - 1 ? <hr/> : <div className={ cssServices.qnaEnd }/>}
                                 <br/>

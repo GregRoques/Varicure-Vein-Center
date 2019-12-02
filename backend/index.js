@@ -8,7 +8,6 @@ const myContacts = require("./routes/personalData");
 const login = require("./routes/login");
 const treatments = require("./routes/treatments");
 const faq = require("./routes/faq");
-const staff = require("./routes/staff");
 
 const app = express();
 
@@ -23,7 +22,6 @@ app.use(myContacts);
 app.use(login);
 app.use(treatments);
 app.use(faq);
-app.use(staff);
 
 const PORT = 2000;
 app.listen(PORT, () => {

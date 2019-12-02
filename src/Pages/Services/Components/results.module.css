@@ -176,6 +176,12 @@
     user-select: none;
     padding: 10px;
   }
+
+  .subheading{
+    font-style: italic;
+    font-weight: 700;
+    color: rgb(250,173,73);
+  }
     
   
   /* =============================================== Media Queries */

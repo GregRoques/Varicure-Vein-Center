@@ -18,9 +18,6 @@ const Modal = ({ isOpen, close, isEnglish, languageToggle, isFadeOut }) => {
                 <span className={ cssModal.subService } onClick={ () => close("/services/results") } >
                     <Link to= "/services/results">{ isEnglish === "e" ? "• Results" : "• Resultados" }</Link>
                 </span>
-                <span className={ cssModal.subService } onClick={ () => close("/services/staff") } >
-                    <Link to= "/services/staff">{ isEnglish === "e" ? "• Staff" : "• Personal" }</Link>
-                </span>
                 <span className={ cssModal.subService } onClick={ () => close("/services/treatments") } >
                     <Link to= "/services/treatments">{ isEnglish === "e" ? "• Treatments" : "• Tratos" }</Link>
                 </span>
