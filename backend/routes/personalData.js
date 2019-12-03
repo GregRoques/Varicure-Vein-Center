@@ -35,21 +35,21 @@ const phoneFormat = ph => {
 const yearMonth = new Date().toISOString().slice(0, 7);
 
 router.post("/personalData", (req, res, next) => {
-    const { name, email, phone, contact, message, services, updates } = req.body;
+    const { name, email, phone, checked, message } = req.body;
     const phoneEdit = phoneFormat(phone);
 
     transporter.sendMail({
         to: "varicuremarketing@gmail.com",
         from: email,
-        subject: `${name} has a question about ${services}`,
+        subject: `${name} has a new question`,
         html: `<b>From:</b> ${name} <br/> 
         <b>Email:</b> ${email} <br/>
-        ${phoneEdit.length > 2 ? "<b>Phone:</b> " + phoneEdit + "<br/><b>Preferred Contact:</b> " + contact + "<br/>" : null}
+        ${phoneEdit.length > 2 ? "<b>Phone:</b> " + phoneEdit + "<br/>" : null}
         <b>Date:</b> ${new Date().toISOString().slice(0, 10)} <br/><br/>
         ${message}`
     }).then(() => {
         res.json("Yes");
-        if (updates === "yes") {
+        if (checked === "True") {
             next();
         }
     }).catch(() => {
@@ -77,10 +77,10 @@ router.post("/personalData", (req, res, next) => {
 });
 
 router.post("/personalData", (req, res) => {
-    const { name, email, phone, contact } = req.body;
+    const { name, email, phone } = req.body;
     const phoneEdit = phoneFormat(phone);
 
-    const addNewInfo = `INSERT INTO personalData (email, name, phone, preference, date) VALUES ("${email}", "${name}", "${phoneEdit}", "${contact}", "${yearMonth}")`;
+    const addNewInfo = `INSERT INTO personalData (email, name, phone, preference, date) VALUES ("${email}", "${name}", "${phoneEdit}", "${yearMonth}")`;
     db.execute(addNewInfo).then(() => {
         console.log("Update Successful");
     }).catch(() => {

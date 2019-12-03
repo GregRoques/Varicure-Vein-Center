@@ -61,11 +61,15 @@ input:placeholder-shown, textarea:placeholder-shown{
 }
 
 .radioBoxes{
-    margin-top: 10px;
+    margin: 10px 0px 10px 25px;
+    width: 80%;
+    line-height: 20px;
     color: gray;
     padding: 0px 10px 0px 10px;
+    font-size: 14px;
+    text-align: center;
 }
 
-.radio {
-    margin-left: 25px;
+.radioBoxes input{
+    margin-right: 10px;
 }

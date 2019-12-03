@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import cssMessage from "./CSS/message.module.css";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 class Message extends Component {
     state = {
         name: "",
         email: "",
         phone: "",
-        contact: "email",
-        message: "",
-        services: ""
+        checked: "",
+        message: ""
     };
 
     onChangeHandler = e => {
@@ -22,26 +22,38 @@ class Message extends Component {
 
     onSubmitHanlder = async e => {
         e.preventDefault();
-        const { name, email, phone, contact, message, services } = this.state;
+        const { name, email, phone, checked, message } = this.state;
         axios.post("http://localhost:2000/personalData", {
             name,
             email,
             phone,
-            contact,
-            message,
-            services
+            checked,
+            message
         })
             .then(res => {
-                res.data === "Yes" ? console.log("Your Email Has Been Sent!") : console.log("Something went wrong. Please try again later!"); // add module function here
+                res.data === "Yes"
+                    ? Swal.fire({
+                        icon: "success",
+                        title: "Hurray!",
+                        text: "Your Email has been sent!"
+                    }) : Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong. Please try again later!"
+                    });
             })
             .catch(() => {
-                console.log("Something went wrong. Please try again later!"); // add module function here
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong. Please try again later!"
+                });
             });
         await this.setState({
             name: "",
             email: "",
             phone: "",
-            contact: "email",
+            checked: "",
             message: ""
         });
     };
@@ -62,18 +74,9 @@ class Message extends Component {
                     <input className={ cssMessage.shortForm } type="text" name="name" placeholder={ this.props.isEnglish === "e" ? "Full Name" : "Nombre Completo" } value={ this.state.name } required/> <br/>
                     <input className={ cssMessage.shortForm } type="email" name="email" placeholder={ this.props.isEnglish === "e" ? "Email" : "Correo Electrónico" } value={ this.state.email } required/> <br/>
                     <input className={ cssMessage.shortForm } type="tel" maxLength="14" name="phone" placeholder={ this.props.isEnglish === "e" ? "Phone (Optional)" : "Telefono (Opcion)" } value={ this.state.phone }/> <br/>
-                    <select className={ cssMessage.shortForm } name="services" required>
-                        <option value="" disabled selected >{ this.props.isEnglish === "e" ? "SERVICES" : "SERVICIOUS" }</option>
-                        <option value="Kill Spider Man">Kill Spider Man</option>
-                        <option value="laser hair removal">Laser Hair Removal</option>
-                        <option value="cybernetic implants">Cybernetic Limbs </option>
-                        <option value="laser eyes"> Laser Eyes </option>
-                        <option value="General Service Questions">{ this.props.isEnglish === "e" ? "Other" : "Otra" }</option>
-                    </select>
                     <div className={ cssMessage.radioBoxes }>
-                        { this.props.isEnglish === "e" ? "Preferred Contact:" : "Contacto Preferido:" }
-                        <input className={ cssMessage.radio } type="radio" name="contact" value="email" checked={this.state.contact === "email"}/> { this.props.isEnglish === "e" ? "Email" : "Correo Electrónico" }
-                        <input className={ cssMessage.radio } type="radio" name="contact" value="phone"/> { this.props.isEnglish === "e" ? "Phone" : "Telefono" }
+                        <input className={ cssMessage.radio } type="checkbox" name="checked" value="True"/>
+                        { this.props.isEnglish === "e" ? <span>Recieve occasional e-mail updates from Varicure Vein Center.</span> : <span>Reciba actualizaciones ocasionales por correo electrónico de VariCure.</span> }
                     </div>
                 </div>
                 <div>
