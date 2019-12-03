@@ -25,7 +25,7 @@ const DataError = props => {
 const phoneFormat = ph => {
     if (ph.length >= 10) {
         const onlyNumbers = ph.replace(/\D/g, "");
-        const newNumber = onlyNumbers.slice(0, 3) + "-" + onlyNumbers.slice(3, 6) + "-" + onlyNumbers.slice(6);
+        const newNumber = onlyNumbers.substring(0, 3) + "-" + onlyNumbers.substring(3, 6) + "-" + onlyNumbers.substring(6, 10);
         return newNumber;
     } else {
         return 0;
