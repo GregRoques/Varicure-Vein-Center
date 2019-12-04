@@ -41,7 +41,7 @@ router.post("/personalData", (req, res, next) => {
     transporter.sendMail({
         to: "varicuremarketing@gmail.com",
         from: email,
-        subject: `${name} has a new question`,
+        subject: `${name} has a question for you`,
         html: `<b>From:</b> ${name} <br/> 
         <b>Email:</b> ${email} <br/>
         ${phoneEdit.length > 2 ? "<b>Phone:</b> " + phoneEdit + "<br/>" : null}
