@@ -41,7 +41,7 @@ class Treatments extends Component {
     Treatments = props => {
         return (
             <div id={`Treatments${props.key}`} className={ cssServices.officeLocation }>
-                <h3>{ ReactHtmlParser(props.question) }</h3>
+                { props.question ? <h3>{ ReactHtmlParser(props.question) }</h3> : null }
                 { props.image
                     ? <img
                         className={cssServices.serviceImages }
