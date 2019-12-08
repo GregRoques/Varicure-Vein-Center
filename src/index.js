@@ -10,9 +10,17 @@ import thunk from "redux-thunk";
 import RootReducer from "./Redux/RootReducers";
 import { createBrowserHistory } from "history";
 
-// need to eventually add ReactGA and Facebook Pixel for Google Analytics tracking
+// import ReactGA from "react-ga";
+// import { trackingId } from "./Aux/trackingIDs";
 
 const history = createBrowserHistory();
+// ReactGA.initialize(trackingId);
+// history.listen(location => {
+//     ReactGA.set({
+//         page: location.pathname
+//     });
+//     ReactGA.pageview(location.pathname);
+// });
 
 const theStore = createStore(
     RootReducer,

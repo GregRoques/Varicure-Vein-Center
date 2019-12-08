@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import cssServices from "./services.module.css";
 import Faq from "./Components/FAQ";
-import Treatments from "./Components/Treatments";
+import About from "./Components/About";
 import Results from "./Components/Results";
 
 class Services extends Component {
     state = {
-        selected: "Treatments",
+        selected: "About Us",
         language: "e"
     }
 
@@ -29,7 +29,7 @@ class Services extends Component {
     getServiceLink = () => {
         const serviceSelection = (window.location.pathname).split("/services/").pop();
         const formattedSelection = serviceSelection.charAt(0).toUpperCase() + serviceSelection.substring(1);
-        if (formattedSelection === "Treatments" || formattedSelection === "Results" || formattedSelection === "Faq") {
+        if (formattedSelection === "About Us" || formattedSelection === "Results" || formattedSelection === "Faq") {
             this.setState({
                 selected: formattedSelection,
                 language: this.props.isEnglish
@@ -47,8 +47,8 @@ class Services extends Component {
         let display;
         this.props.isEnglish === "e"
             ? display = option
-            : option === "Treatments"
-                ? display = "Tratos"
+            : option === "About Us"
+                ? display = "Acerca"
                 : option === "Results"
                     ? display = "Resultados"
                     : display = option;
@@ -61,7 +61,7 @@ class Services extends Component {
     };
 
     Display = ({ option, language }) => {
-        const components = [<Treatments isEnglish={language}/>, <Faq isEnglish={language}/>, <Results isEnglish={language}/>];
+        const components = [<About isEnglish={language}/>, <Faq isEnglish={language}/>, <Results isEnglish={language}/>];
         return components[option];
     };
 
@@ -72,12 +72,12 @@ class Services extends Component {
     };
 
     render () {
-        const options = ["Treatments", "Faq", "Results"];
+        const options = ["About Us", "Faq", "Results"];
         let display;
         this.props.isEnglish === "e"
             ? display = this.state.selected
-            : this.state.selected === "Treatments"
-                ? display = "Tratos"
+            : this.state.selected === "About Us"
+                ? display = "Acerca"
                 : this.state.selected === "Results"
                     ? display = "Resultados"
                     : display = this.state.selected;

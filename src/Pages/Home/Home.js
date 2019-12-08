@@ -6,7 +6,9 @@ const Home = props => {
     const UserReview = () => {
         return (
             <div className={ cssHome.userReview }>
-                "{props.review}" {props.url && props.name ? <div className ={ cssHome.indent }>–<a href={props.url} rel="noopener noreferrer" target="_blank">{props.name} <img alt={props.social} src={"/icons/" + props.social + ".png"} /></a> </div> : null }
+                "{props.review}" {props.url
+                    ? <div className ={ cssHome.indent }>–<a href={props.url} rel="noopener noreferrer" target="_blank">{props.name} <img alt={props.social} src={"/icons/" + props.social + ".png"} /></a> </div>
+                    : <div className ={ cssHome.indent }>–{props.name} { props.social ? <img alt={props.social} src={"/icons/" + props.social + ".png"} /> : null} </div> }
             </div>
         );
     };

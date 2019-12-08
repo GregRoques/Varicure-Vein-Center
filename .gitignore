@@ -4,6 +4,7 @@
 /backend/util/sendgridApi.js
 /backend/node_modules
 /node_modules
+/src/Aux
 /.pnp
 .pnp.js
 .env
