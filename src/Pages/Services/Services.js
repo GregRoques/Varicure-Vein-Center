@@ -12,7 +12,9 @@ class Services extends Component {
     }
 
     componentDidMount () {
-        this.getServiceLink();
+        if (this.props.match.params.param) {
+            this.getServiceLink();
+        }
     };
 
     componentDidUpdate (prevProps) {
@@ -27,9 +29,9 @@ class Services extends Component {
     }
 
     getServiceLink = () => {
-        const serviceSelection = (window.location.pathname).split("/services/").pop();
+        const serviceSelection = this.props.match.params.param;
         const formattedSelection = serviceSelection.charAt(0).toUpperCase() + serviceSelection.substring(1);
-        if (formattedSelection === "About Us" || formattedSelection === "Results" || formattedSelection === "Faq") {
+        if (formattedSelection === "Results" || formattedSelection === "Faq") {
             this.setState({
                 selected: formattedSelection,
                 language: this.props.isEnglish

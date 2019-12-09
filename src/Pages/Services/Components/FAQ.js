@@ -42,7 +42,7 @@ class FAQ extends Component {
         return (
             <div id={`FAQ${props.key}`} className={ cssServices.officeLocation }>
                 <h3>{ ReactHtmlParser(props.question) }</h3>
-                { props.image !== null
+                { props.image
                     ? <img
                         className={cssServices.serviceImages }
                         alt={ props.image }
