@@ -44,7 +44,7 @@ const Footer = props => {
                             : <span>{ hoy }: <span className={ time === "Closed" ? cssFooter.closed : null }>{ props.isEnglish === "s" && time === "Closed" ? "Cerrado" : time }</span></span>
                         }
                     </span>
-                    <span className={ cssFooter.visibleSmall }><a href="mailto:info@vericure.com">
+                    <span className={ cssFooter.visibleSmall }><a href="mailto:info@varicureveincenter.com">
                         { props.isEnglish === "e" ? "Email" : "Correo" }
                     </a></span>
                 </div>

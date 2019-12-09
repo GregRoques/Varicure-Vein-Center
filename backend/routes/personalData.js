@@ -39,9 +39,9 @@ router.post("/personalData", (req, res, next) => {
     const phoneEdit = phoneFormat(phone);
 
     transporter.sendMail({
-        to: "varicuremarketing@gmail.com",
+        to: "varicuremarketing@gmail.com", // info@varicureveincenter.com
         from: email,
-        subject: `${name} has a question for you`,
+        subject: `${name} has a question for Dr. Gurvich`,
         html: `<b>From:</b> ${name} <br/> 
         <b>Email:</b> ${email} <br/>
         ${phoneEdit.length > 2 ? "<b>Phone:</b> " + phoneEdit + "<br/>" : null}
