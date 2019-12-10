@@ -50,10 +50,10 @@ const Hours = props => {
                     </div>
                 </div>
                 <a href="https://www.facebook.com/VaricureMiami" target="_blank" rel="noopener noreferrer">
-                    <img alt="Facebook" className={ cssHours.connectSocial } src="/icons/Facebook.png"/>
+                    <img alt="Facebook" className={ cssHours.connectSocial } src="/icons/FacebookBox.png"/>
                 </a>
                 <a href="https://www.yelp.com/biz/varicure-vein-center-miami-2" target="_blank" rel="noopener noreferrer">
-                    <img alt="Yelp" className={ cssHours.connectSocial } src="/icons/yelp.png"/>
+                    <img alt="Yelp" className={ cssHours.connectSocial } src="/icons/YelpBox.png"/>
                 </a>
                 {/* <a href="" target="_blank" rel="noopener noreferrer">
                     <img alt="Google Business" className={ cssHours.connectSocial } src="/icons/Google.png"/>

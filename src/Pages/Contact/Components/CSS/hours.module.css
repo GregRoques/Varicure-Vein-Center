@@ -44,14 +44,14 @@
 }
 
 .connectSocial{
-    width: 45px;
+    width: 55px;
     height: auto;
     margin-top: 40px;
 }
 
-.connectSocial + .connectSocial {
-    margin-left:45px;
-}
+/* .connectSocial + .connectSocial {
+    margin-left:25px;
+} */
 
 .weekDays {
     font-size: 18px;
