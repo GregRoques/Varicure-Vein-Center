@@ -55,9 +55,9 @@ const Hours = props => {
                 <a href="https://www.yelp.com/biz/varicure-vein-center-miami-2" target="_blank" rel="noopener noreferrer">
                     <img alt="Yelp" className={ cssHours.connectSocial } src="/icons/yelp.png"/>
                 </a>
-                <a href="" target="_blank" rel="noopener noreferrer">
+                {/* <a href="" target="_blank" rel="noopener noreferrer">
                     <img alt="Google Business" className={ cssHours.connectSocial } src="/icons/Google.png"/>
-                </a>
+                </a> */}
             </div>
         </div>
     );
