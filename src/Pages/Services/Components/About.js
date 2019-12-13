@@ -9,19 +9,19 @@ class Treatments extends Component {
     };
 
     componentDidMount () {
-        this.getTreatment();
+        this.getAbout();
         window.scrollTo(0, 0);
     };
 
     componentDidUpdate (prevProps) {
         if (prevProps.isEnglish !== this.props.isEnglish) {
-            this.getTreatment();
+            this.getAbout();
         }
     }
 
-    getTreatment = () => {
+    getAbout = () => {
         const language = this.props.isEnglish;
-        axios.get(`http://localhost:2000/treatments/${language}`)
+        axios.get(`http://localhost:2000/about/${language}`)
             .then(res => {
                 this.setState({
                     QnA: [...res.data]
@@ -38,18 +38,10 @@ class Treatments extends Component {
             });
     };
 
-    Treatments = props => {
+    About = props => {
         return (
-            <div id={`Treatments${props.key}`} className={ cssServices.officeLocation }>
+            <div id={`About${props.key}`} className={ cssServices.officeLocation }>
                 { props.question ? <h3>{ ReactHtmlParser(props.question) }</h3> : null }
-                { props.image
-                    ? <img
-                        className={cssServices.serviceImages }
-                        alt={ props.image }
-                        src={ `/${props.image}`}
-                    />
-                    : null
-                }
                 <p>{ ReactHtmlParser(props.answer) }</p>
             </div>
         );
@@ -61,14 +53,13 @@ class Treatments extends Component {
             <div>
                 <div>
                     { Object.keys(this.state.QnA).map((num, i) => {
-                        const { question, answer, image } = this.state.QnA[num];
+                        const { question, answer } = this.state.QnA[num];
                         return (
                             <div className={cssServices.textBorder}>
-                                <this.Treatments
+                                <this.About
                                     key={ i }
                                     question = { question }
                                     answer = { answer }
-                                    image = { image }
                                 />
                                 { i !== this.state.QnA.length - 1 ? <hr/> : <div className={ cssServices.qnaEnd }/>}
                                 <br/>

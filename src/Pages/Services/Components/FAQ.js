@@ -42,14 +42,6 @@ class FAQ extends Component {
         return (
             <div id={`FAQ${props.key}`} className={ cssServices.officeLocation }>
                 <h3>{ ReactHtmlParser(props.question) }</h3>
-                { props.image
-                    ? <img
-                        className={cssServices.serviceImages }
-                        alt={ props.image }
-                        src={ `/${props.image}`}
-                    />
-                    : null
-                }
                 <p>{ ReactHtmlParser(props.answer) }</p>
             </div>
         );
@@ -61,14 +53,13 @@ class FAQ extends Component {
             <div>
                 <div>
                     { Object.keys(this.state.QnA).map((num, i) => {
-                        const { question, answer, image } = this.state.QnA[num];
+                        const { question, answer } = this.state.QnA[num];
                         return (
                             <div className={cssServices.textBorder}>
                                 <this.FAQs
                                     key={ i }
                                     question = { question }
                                     answer = { answer }
-                                    image = { image }
                                 />
                                 { i !== this.state.QnA.length - 1 ? <hr/> : <div className={ cssServices.qnaEnd }/>}
                                 <br/>
