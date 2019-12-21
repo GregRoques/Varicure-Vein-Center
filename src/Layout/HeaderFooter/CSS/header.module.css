@@ -16,7 +16,8 @@
     position: fixed;
     /* box-shadow:0 1px 6px rgba(2, 15, 7, 0.5); */
     color: white;
-    z-index:102
+    z-index:102;
+    border-bottom: 2px solid white;
 } 
 
 .VClogo {

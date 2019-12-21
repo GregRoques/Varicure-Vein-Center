@@ -8,11 +8,8 @@ const Layout = props => {
     const loginOmit = window.location.pathname === "/admin-login";
     const contact = window.location.pathname === "/contact";
     const home = window.location.pathname === "/";
-    let backgroundColor = css`background-color: rgb(255,255,255,0.55);`;
-    if (home) {
-        backgroundColor = css`background-color: rgb(255,255,255,0.55); color:black;`;
-    } else {
-        backgroundColor = css`background-color: rgb(19,163,153); color:white;`;
+    if (!home) {
+        var backgroundColor = css`background-color: rgb(19,163,153); color:white;`;
     };
 
     return (

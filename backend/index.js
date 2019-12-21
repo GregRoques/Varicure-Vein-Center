@@ -5,8 +5,8 @@ const helmet = require("helmet");
 
 const reviews = require("./routes/reviews");
 const myContacts = require("./routes/personalData");
-const login = require("./routes/login");
-const treatments = require("./routes/treatments");
+// const login = require("./routes/login");
+const about = require("./routes/about");
 const faq = require("./routes/faq");
 
 const app = express();
@@ -19,8 +19,7 @@ app.use(bodyParser.json());
 
 app.use(reviews);
 app.use(myContacts);
-app.use(login);
-app.use(treatments);
+app.use(about);
 app.use(faq);
 
 const PORT = 2000;

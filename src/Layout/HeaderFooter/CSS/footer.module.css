@@ -3,13 +3,17 @@
     width: 100%;
     height: 25px;
     bottom: 2%;
+    padding: 0 0 5px 0;
     opacity:0;
     animation-name: fadeIn;
     animation-duration:1s;
     animation-delay:0.5s;
     animation-fill-mode: forwards;
     text-align: center;
+    background-color: rgb(255,255,255,0.55); 
+    color:black
 }
+
 
 .footerContainer a{
     text-decoration: none;
@@ -59,5 +63,12 @@
     .visibleSmall{
         display: inline;
     }
+
+    .footerContainer{
+        background-color:rgb(19,163,153, 1);
+        color: white;
+    }
+
+
 
 }

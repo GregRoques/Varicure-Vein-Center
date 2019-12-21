@@ -15,7 +15,7 @@
     overflow-x: hidden;
 }
 
-.userReview {
+.userReviewDesktop {
     position:absolute;
     bottom:25%;
     left: 3%;
@@ -104,3 +104,133 @@
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
   }
+
+  /* media queries */
+
+  @media screen and (max-width: 750px){
+
+    .userReviewDesktop {
+        bottom: 35%;
+        font-size: 24px;
+        
+    }
+  }
+
+    @media screen and (min-width: 620px){
+
+        .mobile{
+            display:none;
+        }
+    
+        .notMobile{
+            display:inline;
+        }
+    }
+/* ============================================================ mobile starts here */
+
+    @media screen and (max-width: 619px){
+
+        .mobile{
+            display:block;
+            margin: 0px;
+            animation: mobileFadeIn 1s forwards;
+        }
+
+        @keyframes mobileFadeIn {
+            0%{
+                opacity:0;
+                
+            }
+            100%{
+                opacity:1;
+            }
+        }
+    
+        .notMobile{
+            display:none;
+        }
+        .blankSpace{
+            width: 100%;
+            height: 85px;
+        }
+        .userReviewMobile {
+ 
+            width: inherit;
+            height: auto;
+            left:0%;
+            padding: 0 50px 0 50px;
+            text-shadow: none;
+            color: #131da3;
+            font-family: 'Nunito', sans-serif;
+            text-align: center;
+            font-size: 30px;
+            font-style: italic;
+            opacity: 1;
+
+            border-bottom: 4rem;
+        }
+
+        .myComputerSucksCock .indent> a{
+            color: #131da3;
+        }
+        .indent a{
+            color: #131da3;
+        }
+        .indent a:hover{
+            color: #131da3;
+        }
+        .indent a:before{
+            background-color: #131da3;
+        }
+
+        .mobileHomeCircleContainer{
+           display: inline-block;
+        }
+
+        .innerCircle{
+            display: flex;
+            justify-content:center;
+            align-content:center;
+            flex-direction:column;
+            width: 150px;
+            height: 150px;
+            border-radius:100%;
+            color: white;
+            background-color: rgb(35,64,143);
+            border-style:solid;
+            font-size: 1.5rem;
+            color:white;
+            text-align:center;
+            vertical-align: middle;
+            font-family: 'Nunito', sans-serif;
+            transition:1s all;
+            margin: 4rem 1rem 4rem 1rem;
+        }
+
+        .circlesJustify{
+            display: flex;
+            flex-direction: row;
+            justify-content:center;
+            align-content:center;
+        }
+
+        .innerCircle:hover{
+            transform:scale(0.8);
+        }
+
+        .mainPageBottom{
+            position: fixed;
+            width: 100%;
+            height: 25px;
+            bottom: 0px;
+            background-color: white;
+        }
+
+      }
+
+      
+
+      
+  
+
+ 
