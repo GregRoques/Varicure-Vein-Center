@@ -1,12 +1,38 @@
 import React, { Component } from "react";
 import { css } from "emotion";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { setLanguage } from "../../Redux/Actions/Language";
 import cssHome from "./home.module.css";
 
 const categories = ["About", "FAQ", "Results"];
+const spanishCategories = ["Acerca", "FAQ", "Resultados"];
+
+const dayNum = (new Date()).getDay();
+const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const dias = ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sá"];
+const hoy = dias[dayNum];
+const today = days[dayNum];
+let time;
+
+if (dayNum === 5) {
+    time = "9a – 3p";
+} else if (dayNum === 6 || dayNum === 0) {
+    time = "Closed";
+} else {
+    time = "8a – 6p";
+};
+
+const disappearingClass = css`
+    opacity: 0;
+    transition: 1s ;
+    transform: scale(0);
+`;
 
 class Home extends Component {
     state = {
-        isResized: false
+        isResized: false,
+        fadeOut: [false, false, false]
     }
 
     componentDidMount () {
@@ -28,12 +54,34 @@ class Home extends Component {
         window.innerWidth < 620 ? this.setState({ isResized: true }) : this.setState({ isResized: false });
     };
 
-    displayCircles = ({ circles }) => {
+    displayCircles = ({ forwardAddress, titleIndex }) => {
+        const nextPage = forwardAddress;
+        const fadeAway = titleIndex;
         return (
-            <div className={cssHome.innerCircle}>
-                {circles}
+            <div className={this.state.fadeOut[titleIndex] ? disappearingClass : null }>
+                <div className={cssHome.innerCircle}>
+                    <div onClick={() => this.circleRedirect(nextPage, fadeAway) }>{ this.props.isEnglish === "e" ? categories[titleIndex] : spanishCategories[titleIndex] }</div>
+                </div>
             </div>
         );
+    }
+
+    circleRedirect = (nextPage, fadeAway) => {
+        const array = this.state.fadeOut;
+        array[fadeAway] = true;
+        // console.log(forwardAddress, titleIndex);
+        this.setState({
+            fadeOut: array
+        });
+        setTimeout(() => {
+            return (
+                window.location.href = `/services/${nextPage}`
+            );
+        }, 800);
+    }
+
+    languageToggler = () => {
+        this.props.isEnglish === "e" ? this.props.translate("s") : this.props.translate("e");
     }
 
     render () {
@@ -60,14 +108,26 @@ class Home extends Component {
                         />
                         <div className={cssHome.mobileHomeCircleContainer}>
                             <div className={cssHome.circlesJustify}>
-                                {categories.map(aCircle => {
+                                {categories.map((aCircle, i) => {
                                     return (
                                         <this.displayCircles
-                                            circles= { aCircle }
+                                            forwardAddress= { aCircle.toLowerCase() }
+                                            titleIndex={ i }
                                         />
                                     );
                                 })}
                             </div>
+                        </div>
+                        <hr className={cssHome.seperator}/>
+                        <div className={cssHome.todaysHours}>
+                            { this.props.isEnglish === "e"
+                                ? <span>{ today }: <span className={ time === "Closed" ? cssHome.closed : null }>{ time }</span></span>
+                                : <span>{ hoy }: <span className={ time === "Closed" ? cssHome.closed : null }>{ this.props.isEnglish === "s" && time === "Closed" ? "Cerrado" : time }</span></span>
+                            }
+                        </div>
+                        <hr className={cssHome.seperator}/>
+                        <div>
+                            <button className={cssHome.translateButton} onClick={() => this.languageToggler()}>{ this.props.isEnglish === "e" ? "¿Español?" : "English" }</button>
                         </div>
                     </div>
                     : null}
@@ -77,4 +137,16 @@ class Home extends Component {
     }
 };
 
-export default Home;
+const mapStateToProps = state => {
+    return {
+        isEnglish: state.isEnglish.isEnglish
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        translate: (inverse) => dispatch(setLanguage(inverse))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

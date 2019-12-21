@@ -69,7 +69,7 @@
     width:auto;
 }
 
-.userReview .indent> a{
+.userReviewDesktop .indent> a{
     text-decoration: none;
     color:white;
 }
@@ -170,7 +170,7 @@
             border-bottom: 4rem;
         }
 
-        .myComputerSucksCock .indent> a{
+        .userReviewMobile.indent> a{
             color: #131da3;
         }
         .indent a{
@@ -196,15 +196,14 @@
             height: 150px;
             border-radius:100%;
             color: white;
-            background-color: rgb(35,64,143);
-            border-style:solid;
+            font-weight: bold;
+            background-color: #FCAE4B ;
             font-size: 1.5rem;
-            color:white;
             text-align:center;
             vertical-align: middle;
             font-family: 'Nunito', sans-serif;
             transition:1s all;
-            margin: 4rem 1rem 4rem 1rem;
+            margin: 3.5rem 1rem .25rem 1rem;
         }
 
         .circlesJustify{
@@ -229,8 +228,41 @@
       }
 
       
+.todaysHours{
+    text-align: center;
+    font-size: 30px;
+    color:black;
+    margin-bottom: -2rem;
+}
 
-      
-  
+.dayColor{
+    color: #131da3
+}
 
- 
+.closed{
+    color: #AF0506;
+    font-weight: bold;
+}
+
+.seperator{
+    width: 55%;
+    border-color: #14A399;
+    display:inline-block;
+}
+
+.translateButton{
+
+    width:200px;
+    height:auto;
+    font-size:1rem;
+    padding:10px;
+    color: white;
+    outline: none;
+    background-color:#AF0506;
+    border-radius: 15px;
+    margin-top: 2rem;
+}
+
+.translateButton:active{
+    transform: scale(.75)
+}
