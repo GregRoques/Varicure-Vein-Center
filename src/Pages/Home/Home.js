@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { css } from "emotion";
-import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 import { setLanguage } from "../../Redux/Actions/Language";
 import cssHome from "./home.module.css";
 
@@ -32,7 +32,9 @@ const disappearingClass = css`
 class Home extends Component {
     state = {
         isResized: false,
-        fadeOut: [false, false, false]
+        fadeOut: [false, false, false],
+        isRedirect: false,
+        redirectLink: ""
     }
 
     componentDidMount () {
@@ -74,9 +76,11 @@ class Home extends Component {
             fadeOut: array
         });
         setTimeout(() => {
-            return (
-                window.location.href = `/services/${nextPage}`
-            );
+            this.setState({
+                isRedirect: true,
+                redirectLink: `/services/${nextPage}`
+            });
+            // window.location.href = `/services/${nextPage}`
         }, 800);
     }
 
@@ -91,6 +95,7 @@ class Home extends Component {
 
         return (
             <div>
+                { this.state.isRedirect && <Redirect push to={this.state.redirectLink}/> }
                 { !this.state.isResized
                     ? <div className={ cssHome.notMobile}>
                         <div className={ cssJoin.join(" ")}>

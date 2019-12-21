@@ -48,7 +48,6 @@ class FAQ extends Component {
     };
 
     render () {
-        console.log(Object.keys(this.state.QnA));
         return (
             <div>
                 <div>

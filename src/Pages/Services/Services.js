@@ -36,9 +36,7 @@ class Services extends Component {
                 selected: formattedSelection,
                 language: this.props.isEnglish
             });
-            window.history.pushState(null, null, `/services`);
         } else {
-            window.history.pushState(null, null, `/services`);
             this.setState({
                 language: this.props.isEnglish
             });
