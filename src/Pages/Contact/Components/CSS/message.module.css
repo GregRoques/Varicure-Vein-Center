@@ -73,3 +73,26 @@ input:placeholder-shown, textarea:placeholder-shown{
 .radioBoxes input{
     margin-right: 10px;
 }
+
+@media screen and (max-width: 735px){
+    .messageGrid {
+        grid-template-columns: 100%;
+    }
+}
+
+@media screen and (max-width: 399px){
+    .header{
+        font-size:60px;
+    }
+
+    .intro{
+        font-size: .85rem;
+    }
+    /* .radio{
+        display:block;
+    } */
+    .radioBoxes span::before{
+        content: "\A";
+        white-space: pre;
+    }
+}
