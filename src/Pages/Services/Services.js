@@ -87,7 +87,7 @@ class Services extends Component {
                 </div>
                 <div className={cssServices.currentSelection}>
                     <div key= {this.state.selected } className={cssServices.fadeIn}>
-                        <h1 className={ cssServices.compTitle } >{ display }</h1>
+                        <div className={ cssServices.compTitle } >{ display }</div>
                         <this.Display
                             language={this.state.language}
                             option={ options.indexOf(this.state.selected) }

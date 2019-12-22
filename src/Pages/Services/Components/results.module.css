@@ -244,3 +244,15 @@
       text-align:center;
     }
   }
+
+  @media screen and (max-width: 449px){
+    .subheading{
+        font-size: 24px;
+    }
+  }
+
+  @media screen and (max-width: 330px){
+    .subheading{
+        font-size: 20px;
+    }
+  }

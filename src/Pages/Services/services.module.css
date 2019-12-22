@@ -34,6 +34,7 @@
     text-transform: uppercase;
     letter-spacing: 5px;
     margin-bottom: 3.5rem;
+    margin-top: 1.5rem;
 }
 
 @keyframes fadeIn {
@@ -169,4 +170,61 @@
 
 .textBorder hr{
     width: 80%;
+}
+
+@media screen and (max-width: 650px){
+
+    .officeLocation{
+        font-size: 16px;
+    }
+    
+    .officeLocation h3{
+        font-size: 30px;
+    }
+    
+    .officeLocation p{
+        line-height:26px;
+    }
+}
+
+@media screen and (max-width: 619px){
+
+    .compTitle{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media screen and (max-width: 549px){
+    .officeLocation h3{
+        font-size: 24px;
+    }
+    .compTitle{
+        font-size: 36px;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .officeLocation h3{
+        font-size: 21px;
+    }
+
+    .officeLocation{
+        font-size: 14px;
+    }
+
+    .officeLocation p{
+        line-height:24px;
+    }
+
+    .compTitle h1{
+        font-size: 22x;
+    }
+}
+
+@media screen and (max-width: 399x){
+    .officeLocation h3{
+        font-size: 16px;
+    }
+
 }
