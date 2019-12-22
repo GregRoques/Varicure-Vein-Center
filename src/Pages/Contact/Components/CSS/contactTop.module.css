@@ -2,9 +2,9 @@
     background-image: url("/contactPic.jpg");
     height: 85vh;
     background-attachment: fixed;
-    background-position: center;
+    background-position: center 0px;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
 }
 
 .topImageText{
@@ -19,4 +19,73 @@
     font-size: 175px;
     color: white;
     text-shadow: 3px 3px 2px orangered;
+}
+
+@media screen and (max-width: 990px){
+    .topImage {
+        height: 75vh;
+    }
+
+    .topImageText{
+        font-size: 150px;
+    }
+}
+
+@media screen and (max-width: 990px){
+    .topImage {
+        height: 70vh;
+    }
+
+    .topImageText{
+        font-size: 125px;
+    }
+}
+
+@media screen and (max-width: 735px){
+    .topImage {
+        height: 55vh;
+    }
+
+    .topImageText{
+        top: 25px;
+        font-size: 95px;
+    }
+}
+
+@media screen and (max-width: 615px){
+
+    .topImage {
+        height: 45vh;
+    }
+
+    .topImageText{
+        top: 0px;
+        text-indent: 25px;
+        font-size: 85px;
+        text-shadow: 2px 2px 1px orangered;
+    }
+}
+
+@media screen and (max-width: 490px){
+
+    .topImage {
+        height: 40vh;
+    }
+
+    .topImageText{
+
+        font-size: 65px;
+    }
+}
+
+@media screen and (max-width: 390px){
+
+    .topImage {
+        height: 30vh;
+    }
+
+    .topImageText{
+        font-size: 55px;
+        text-shadow: 1.5px 1.5px .5px orangered;
+    }
 }

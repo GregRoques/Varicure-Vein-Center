@@ -34,14 +34,14 @@ const Hours = props => {
                     { props.isEnglish === "e" ? "Connect" : "Connecto" }
                 </div>
                 <div className={ cssHours.connectGrid }>
-                    <div>
+                    <div className={ cssHours.hitEmWithTheFlex}>
                         <a href="tel:305-284-8090">
                             <img alt="305-284-8090" className={ cssHours.connectContact } src="/icons/phone.png"/>
                             <br/>
                             (305) 284-8090
                         </a>
                     </div>
-                    <div>
+                    <div className={ cssHours.hitEmWithTheFlex}>
                         <a href="mailto:info@varicureveincenter.com?subject=Question for Dr. Gurvich">
                             <img alt="info@varicureveincenter.com" className={ cssHours.connectContact } src="/icons/email.png"/>
                             <br/>

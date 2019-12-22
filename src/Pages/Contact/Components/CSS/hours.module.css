@@ -21,12 +21,19 @@
 }
 
 .connectGrid{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.hitEmWithTheFlex{
     height: auto;
-    display: grid; 
-    grid-template-columns: 50% 50%;
+    display: flex; 
+    margin: 0 1rem 0 1rem;
+    position:relative;
+    flex-direction: column;
+    
     row-gap: 1rem;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 .connectGrid a{
@@ -55,4 +62,27 @@
 
 .weekDays {
     font-size: 18px;
+}
+
+@media screen and (max-width: 735px){
+    .hoursGrid {
+        grid-template-columns: 100%;
+
+    }
+
+    .seperator{
+        border-top: 1px solid rgb(128,128,128,0.35);
+        border-left: none;
+        margin: 1rem 0px 0rem 0px;
+    }
+}
+
+@media screen and (max-width: 399px){
+    .header{
+        font-size:60px;
+    }
+
+    .highlightDate, .hitEmWithTheFlex, .weekDays  {
+        font-size: .85rem;
+    }
 }
