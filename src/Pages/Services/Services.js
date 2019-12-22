@@ -17,17 +17,6 @@ class Services extends Component {
         }
     };
 
-    componentDidUpdate (prevProps) {
-        if (window.location.pathname !== "/services") {
-            this.getServiceLink();
-        }
-        if (prevProps.isEnglish !== this.props.isEnglish) {
-            this.setState({
-                language: this.props.isEnglish
-            });
-        }
-    }
-
     getServiceLink = () => {
         const serviceSelection = this.props.match.params.param;
         const formattedSelection = serviceSelection.charAt(0).toUpperCase() + serviceSelection.substring(1);
