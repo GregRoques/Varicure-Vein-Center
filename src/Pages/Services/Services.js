@@ -20,7 +20,7 @@ class Services extends Component {
     getServiceLink = () => {
         const serviceSelection = this.props.match.params.param;
         const formattedSelection = serviceSelection.charAt(0).toUpperCase() + serviceSelection.substring(1);
-        if (formattedSelection === "Results" || formattedSelection === "Faq" || formattedSelection === "About" ) {
+        if (formattedSelection === "Results" || formattedSelection === "Faq" || formattedSelection === "About") {
             this.setState({
                 selected: formattedSelection,
                 language: this.props.isEnglish

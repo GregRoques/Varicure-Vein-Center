@@ -67,7 +67,7 @@ class Results extends Component {
 
         return (
             <span>{beforeOrAfter}</span>
-        )
+        );
     }
 
     render () {

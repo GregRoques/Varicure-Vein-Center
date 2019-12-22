@@ -16,6 +16,23 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `about`
+--
+
+DROP TABLE IF EXISTS `about`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `about` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `language` varchar(1) NOT NULL,
+  `question` varchar(255) DEFAULT NULL,
+  `answer` varchar(999) NOT NULL,
+  `image` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `faq`
 --
 
@@ -58,30 +75,13 @@ DROP TABLE IF EXISTS `Reviews`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `Reviews` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `review` varchar(100) NOT NULL,
+  `englishReview` varchar(100) NOT NULL,
+  `spanishReview` varchar(100) NOT NULL,
   `name` varchar(45) NOT NULL,
   `url` varchar(500) DEFAULT NULL,
   `social` varchar(45) DEFAULT NULL,
-  `language` varchar(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `treatments`
---
-
-DROP TABLE IF EXISTS `treatments`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `treatments` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `language` varchar(1) NOT NULL,
-  `question` varchar(255) DEFAULT NULL,
-  `answer` varchar(999) NOT NULL,
-  `image` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -110,4 +110,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-08 11:55:09
+-- Dump completed on 2019-12-22 13:53:06

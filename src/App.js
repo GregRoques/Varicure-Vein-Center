@@ -16,32 +16,23 @@ class App extends Component {
     state = {
         customerReviews1: {
             homePagePic: 0,
-            review: "We Take Care of the Spiders",
+            englishReview: "We Take Care of the Spiders",
+            spanishReview: "Cuidamos de las arañas",
             url: null,
             name: null,
             social: null
-        },
-        language: "e"
+        }
     };
 
     componentDidMount () {
-        this.userReviews(this.props.isEnglish, true);
+        this.userReviews(true);
         this.props.onTryAutoSignUp();
     };
 
-    componentDidUpdate (prevProps) {
-        if (prevProps.isEnglish !== this.props.isEnglish) {
-            this.userReviews(this.props.isEnglish, false);
-            this.setState({
-                language: this.props.isEnglish
-            });
-        }
-    }
-
-    userReviews = (language, newPic) => {
+    userReviews = (newPic) => {
         let number;
         newPic ? number = Math.floor(Math.random() * 3) : number = this.state.customerReviews1.homePagePic;
-        axios.get(`http://localhost:2000/reviews/${language}`)
+        axios.get(`http://localhost:2000/reviews`)
             .then(res => {
                 this.setState({
                     customerReviews1: {
@@ -79,16 +70,10 @@ class App extends Component {
     }
 };
 
-const mapStateToProps = state => {
-    return {
-        isEnglish: state.isEnglish.isEnglish
-    };
-};
-
 const mapDispatchToProps = dispatch => {
     return {
         onTryAutoSignUp: () => dispatch(authCheckState())
     };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default withRouter(connect(null, mapDispatchToProps)(App));

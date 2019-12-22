@@ -42,10 +42,10 @@ class Home extends Component {
         window.innerWidth < 620 ? this.setState({ isResized: true }) : this.setState({ isResized: false });
     };
 
-    UserReview = ({ classType }) => {
+    UserReview = ({ classType, isEnglish }) => {
         return (
             <div className={ classType }>
-                "{this.props.review}" {this.props.url
+                "{ isEnglish === "e" ? this.props.englishReview : this.props.spanishReview}" {this.props.url
                     ? <div className ={ cssHome.indent }>–<a href={this.props.url} rel="noopener noreferrer" target="_blank">{this.props.name} <img alt={this.props.social} src={"/icons/" + this.props.social + ".png"} /></a> </div>
                     : <div className ={ cssHome.indent }>–{this.props.name} { this.props.social ? <img alt={this.props.social} src={"/icons/" + this.props.social + ".png"} /> : null} </div> }
             </div>
@@ -59,10 +59,13 @@ class Home extends Component {
     displayCircles = ({ forwardAddress, titleIndex }) => {
         const nextPage = forwardAddress;
         const fadeAway = titleIndex;
+        const backgroundCircle = css`
+        background-image: url("/circles/${titleIndex}.jpg");`;
+        const cssJoin = [backgroundCircle, cssHome.innerCircle];
         return (
             <div className={this.state.fadeOut[titleIndex] ? disappearingClass : null }>
-                <div className={cssHome.innerCircle}>
-                    <div onClick={() => this.circleRedirect(nextPage, fadeAway) }>{ this.props.isEnglish === "e" ? categories[titleIndex] : spanishCategories[titleIndex] }</div>
+                <div className={cssJoin.join(" ")}>
+                    <div className={cssHome.circleTextBackground} onClick={() => this.circleRedirect(nextPage, fadeAway) }>{ this.props.isEnglish === "e" ? categories[titleIndex] : spanishCategories[titleIndex] }</div>
                 </div>
             </div>
         );
@@ -71,7 +74,6 @@ class Home extends Component {
     circleRedirect = (nextPage, fadeAway) => {
         const array = this.state.fadeOut;
         array[fadeAway] = true;
-        // console.log(forwardAddress, titleIndex);
         this.setState({
             fadeOut: array
         });
@@ -80,7 +82,6 @@ class Home extends Component {
                 isRedirect: true,
                 redirectLink: `/services/${nextPage}`
             });
-            // window.location.href = `/services/${nextPage}`
         }, 800);
     }
 
@@ -101,6 +102,7 @@ class Home extends Component {
                         <div className={ cssJoin.join(" ")}>
                             <this.UserReview
                                 classType={ cssHome.userReviewDesktop}
+                                isEnglish={ this.props.isEnglish }
                             />
                         </div>
                     </div>
@@ -110,6 +112,7 @@ class Home extends Component {
                         <div className={ cssHome.blankSpace}/>
                         <this.UserReview
                             classType={ cssHome.userReviewMobile}
+                            isEnglish={ this.props.isEnglish }
                         />
                         <div className={cssHome.mobileHomeCircleContainer}>
                             <div className={cssHome.circlesJustify}>

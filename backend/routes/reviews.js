@@ -2,14 +2,13 @@ const express = require("express");
 const router = express.Router();
 const db = require("../util/database");
 
-router.get("/reviews/:hash", (req, res) => {
+router.get("/reviews", (req, res) => {
     const count = `SELECT count( id ) FROM Reviews`;
-    const language = req.params.hash;
     db.execute(count)
         .then(results => {
             const max = (Object.values(results[0][0])[0]);
             const random = Math.floor(Math.random() * max) + 1;
-            const customerReview = `Select review, name, url, social FROM reviews WHERE id='${random}' AND language='${language}'`;
+            const customerReview = `Select englishReview, spanishReview, name, url, social FROM reviews WHERE id='${random}'`;
             db.execute(customerReview)
                 .then(results2 => {
                     const twoReviews = (Object.values(Object.values(results2)[0]));

@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport(sendgridTransport({
 
 const DataError = props => {
     transporter.sendMail({
-        to: "varicuremarketing@gmail.com",
+        to: "varicuremarketing@gmail.com, info@varicureveincenter.com",
         from: "varicuremarketing@gmail.com",
         subject: "Error saving user data to backend",
         html: `<b>Date:</b> ${new Date().toISOString().slice(0, 10)}<br/><br/>
