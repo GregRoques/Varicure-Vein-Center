@@ -88,9 +88,6 @@ input:placeholder-shown, textarea:placeholder-shown{
     .intro{
         font-size: .85rem;
     }
-    /* .radio{
-        display:block;
-    } */
     .radioBoxes span::before{
         content: "\A";
         white-space: pre;

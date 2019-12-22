@@ -62,6 +62,7 @@ class Home extends Component {
         const backgroundCircle = css`
         background-image: url("/circles/${titleIndex}.jpg");`;
         const cssJoin = [backgroundCircle, cssHome.innerCircle];
+
         return (
             <div className={this.state.fadeOut[titleIndex] ? disappearingClass : null }>
                 <div className={cssJoin.join(" ")}>

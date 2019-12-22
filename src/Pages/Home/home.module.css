@@ -125,10 +125,15 @@
         .notMobile{
             display:inline;
         }
+        
     }
 /* ============================================================ mobile starts here */
 
     @media screen and (max-width: 619px){
+
+        .backgroundStyle{
+            overflow-x: scroll;
+        }
 
         .mobile{
             display:block;
@@ -144,6 +149,7 @@
             100%{
                 opacity:1;
             }
+            
         }
     
         .notMobile{
@@ -163,7 +169,7 @@
             color: #131da3;
             font-family: 'Nunito', sans-serif;
             text-align: center;
-            font-size: 30px;
+            font-size: 24px;
             font-style: italic;
             opacity: 1;
 
@@ -203,7 +209,7 @@
             vertical-align: middle;
             font-family: 'Nunito', sans-serif;
             transition:1s all;
-            margin: 3.5rem 1rem .25rem 1rem;
+            margin: 0px 1rem 0px 1rem;
             cursor: pointer;
             background-size: cover ;
             background-repeat: no-repeat;
@@ -222,6 +228,8 @@
             flex-direction: row;
             justify-content:center;
             align-content:center;
+            flex-wrap: wrap;
+            margin: 3.5rem 0rem .25rem 0rem;
         }
 
         .innerCircle:hover{
@@ -262,7 +270,6 @@
 }
 
 .translateButton{
-
     width:200px;
     height:auto;
     font-size:1rem;
@@ -273,8 +280,28 @@
     background-color:#FBAD4B;
     border-radius: 15px;
     margin-top: 2rem;
+    margin-bottom: 5rem;
 }
 
 .translateButton:active{
     transform: scale(.75)
 }
+
+
+@media screen and (max-width: 544px){
+    .circlesJustify{
+        margin: 1rem 0rem 0rem 0rem;
+    }
+    .innerCircle{
+        margin-top: 2.5rem;
+    }
+    .userReviewMobile{
+        font-size: 20px;
+    }
+} 
+
+@media screen and (max-width: 399px){
+    .userReviewMobile{
+        font-size: 18px;
+    }
+} 
