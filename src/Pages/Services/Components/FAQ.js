@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import cssServices from "../services.module.css";
 import axios from "axios";
 import ReactHtmlParser from "react-html-parser";
+import { connect } from "react-redux";
 
 class FAQ extends Component {
     state = {
-        QnA: {}
+        QnA: {},
+        isEnglish: "e"
     };
 
     componentDidMount () {
@@ -13,18 +15,13 @@ class FAQ extends Component {
         window.scrollTo(0, 0);
     };
 
-    componentDidUpdate (prevProps) {
-        if (prevProps.isEnglish !== this.props.isEnglish) {
-            this.getFAQ();
-        }
-    }
-
     getFAQ = () => {
         const language = this.props.isEnglish;
         axios.get(`http://localhost:2000/faq/${language}`)
             .then(res => {
                 this.setState({
-                    QnA: [...res.data]
+                    QnA: [...res.data],
+                    isEnglish: language
                 });
             })
             .catch(err => {
@@ -50,6 +47,7 @@ class FAQ extends Component {
     render () {
         return (
             <div>
+                {this.state.isEnglish !== this.props.isEnglish ? this.getFAQ() : null}
                 <div>
                     { Object.keys(this.state.QnA).map((num, i) => {
                         const { question, answer } = this.state.QnA[num];
@@ -71,4 +69,10 @@ class FAQ extends Component {
     }
 };
 
-export default FAQ;
+const mapStateToProps = state => {
+    return {
+        isEnglish: state.isEnglish.isEnglish
+    };
+};
+
+export default connect(mapStateToProps, null)(FAQ);

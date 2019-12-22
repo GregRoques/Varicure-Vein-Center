@@ -152,16 +152,29 @@
    color:white;
    font-size: 14px;
   }
-  
+
   .closePhotoModal{
-    position: relative;
-    margin:0;
+    position: fixed;
+    width: 100%;
     left:4%;
     text-align: left;
+    cursor: pointer;
+   }
+
+   .subheading{
+     padding: 0 1.5rem 0 1.5rem;
+   }
+
+  .photoTop{
+    margin: 0;
+    position: relative;
     color:white;
     cursor: pointer;
     font-size: 24px;
     font-weight: bold;
+    width: 100%;
+    margin-bottom: .25rem;
+    margin-top: .25rem;
    }
   
   .imageGalleryButtons{

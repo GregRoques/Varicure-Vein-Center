@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import cssResults from "./results.module.css";
+import { connect } from "react-redux";
 
 var photoArray = [1, 2, 3, 4, 5, 6, 7, 8];
 
 class Results extends Component {
     state = {
+        isEnglish: "e",
         modalShow: false,
         modalPhoto: null
-    }
+    };
 
     componentDidMount () {
         window.scrollTo(0, 0);
@@ -18,6 +20,12 @@ class Results extends Component {
             modalShow: !prevState.modalShow,
             modalPhoto: currentPhoto
         }));
+    }
+
+    getTranslation = () => {
+        this.setState({
+            isEnglish: this.props.isEnglish
+        });
     }
 
     pictureDisplayOff = () => {
@@ -49,12 +57,28 @@ class Results extends Component {
         });
     }
 
+    isBeforeOrAfter = () => {
+        let beforeOrAfter;
+        if (this.state.modalPhoto % 2 === 0) {
+            beforeOrAfter = this.state.isEnglish === "e" ? "After" : "Después";
+        } else {
+            beforeOrAfter = this.state.isEnglish === "e" ? "Before" : "Antes";
+        }
+
+        return (
+            <span>{beforeOrAfter}</span>
+        )
+    }
+
     render () {
         let modalPhotoGallery = null;
         if (this.state.modalShow) {
             modalPhotoGallery = (
                 <div className= { cssResults.photoModal } >
-                    <div className={ cssResults.closePhotoModal } onClick={ () => this.pictureDisplayOff()}>x</div>
+                    <div className= { cssResults.photoTop } >
+                        <span className={ cssResults.closePhotoModal } onClick={ () => this.pictureDisplayOff()}>x</span>
+                        <this.isBeforeOrAfter/>
+                    </div>
                     <div className ={ cssResults.photoContent}>
                         <div className={ cssResults.imageGalleryButtons } onClick={ () => this.clickL(this.state.modalPhoto) }>{`<`}</div>
                         <div className={ cssResults.sliderContainer }>
@@ -71,8 +95,15 @@ class Results extends Component {
 
         return (
             <div className = { cssResults.fadeIn }>
+                {this.state.isEnglish !== this.props.isEnglish ? this.getTranslation() : null}
                 { modalPhotoGallery }
-                <h1 className={ cssResults.subheading }> Healthy Legs Should Not Look Like Road Maps</h1>
+                <h1 className={ cssResults.subheading }>
+                    {this.state.isEnglish === "e"
+                        ? "Healthy Legs Should Not Look Like Road Maps"
+                        : "Las piernas sanas no deberían verse como mapas de carreteras."
+                    }
+                </h1>
+
                 <div className = { cssResults.photoGalleryContainer }>
                     <div className = { cssResults.photoGrid }>
                         { photoArray.map((image, i) => {
@@ -89,4 +120,10 @@ class Results extends Component {
     }
 }
 
-export default Results;
+const mapStateToProps = state => {
+    return {
+        isEnglish: state.isEnglish.isEnglish
+    };
+};
+
+export default connect(mapStateToProps, null)(Results);

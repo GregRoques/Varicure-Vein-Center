@@ -7,7 +7,7 @@ import Results from "./Components/Results";
 
 class Services extends Component {
     state = {
-        selected: "About Us",
+        selected: "About",
         language: "e"
     }
 
@@ -20,15 +20,17 @@ class Services extends Component {
     getServiceLink = () => {
         const serviceSelection = this.props.match.params.param;
         const formattedSelection = serviceSelection.charAt(0).toUpperCase() + serviceSelection.substring(1);
-        if (formattedSelection === "Results" || formattedSelection === "Faq") {
+        if (formattedSelection === "Results" || formattedSelection === "Faq" || formattedSelection === "About" ) {
             this.setState({
                 selected: formattedSelection,
                 language: this.props.isEnglish
             });
+            window.history.pushState(null, null, "/services");
         } else {
             this.setState({
                 language: this.props.isEnglish
             });
+            window.history.pushState(null, null, "/services");
         }
     }
 
@@ -36,7 +38,7 @@ class Services extends Component {
         let display;
         this.props.isEnglish === "e"
             ? display = option
-            : option === "About Us"
+            : option === "About"
                 ? display = "Acerca"
                 : option === "Results"
                     ? display = "Resultados"
@@ -61,17 +63,18 @@ class Services extends Component {
     };
 
     render () {
-        const options = ["About Us", "Faq", "Results"];
+        const options = ["About", "Faq", "Results"];
         let display;
         this.props.isEnglish === "e"
             ? display = this.state.selected
-            : this.state.selected === "About Us"
+            : this.state.selected === "About"
                 ? display = "Acerca"
                 : this.state.selected === "Results"
                     ? display = "Resultados"
                     : display = this.state.selected;
         return (
             <div className={cssServices.body}>
+                { this.props.match.params.param !== undefined && this.props.match.params.param !== this.state.selected.toLowerCase() ? this.getServiceLink() : null }
                 <div className={cssServices.selector}>
                     { options.map((option, i) => {
                         return (
