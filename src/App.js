@@ -6,6 +6,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { authCheckState } from "./Redux/Actions/Auth";
 
+import { api } from "./Aux/apiLink";
 import Layout from "./Layout/HOC/Layout";
 import Home from "./Pages/Home/Home";
 import Services from "./Pages/Services/Services";
@@ -32,7 +33,7 @@ class App extends Component {
     userReviews = (newPic) => {
         let number;
         newPic ? number = Math.floor(Math.random() * 3) : number = this.state.customerReviews1.homePagePic;
-        axios.get(`http://localhost:2000/reviews`)
+        axios.get(`${api}reviews`)
             .then(res => {
                 this.setState({
                     customerReviews1: {
@@ -61,7 +62,6 @@ class App extends Component {
                         <Route exact path= "/contact" component= { Contact } />
                         <Route exact path= "/services" component= { Services } />
                         <Route exact path= "/services/:param" component= { Services } />
-                        {/* <Route exact path = "/admin-login" component= { Admin } /> */}
                         <Route component= { this.NoPage } />
                     </Switch>
                 </Layout>

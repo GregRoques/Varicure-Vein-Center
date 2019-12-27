@@ -10,7 +10,7 @@ const Modal = ({ isOpen, close, isEnglish, languageToggle, isFadeOut }) => {
                     <Link to= "/">{ isEnglish === "e" ? "Home" : "Principal" }</Link>
                 </span>
                 <span className={ cssModal.serviceParent } onClick={ () => close("close")}>
-                    <Link to= "/services/faq">{ isEnglish === "e" ? "Services" : "Servicios" }</Link>
+                    <Link to= "/services/about">{ isEnglish === "e" ? "Services" : "Servicios" }</Link>
                 </span>
                 <span className={ cssModal.subService } onClick={ () => close("/services/faq")} >
                     <Link to= "/services/faq">• FAQ</Link>

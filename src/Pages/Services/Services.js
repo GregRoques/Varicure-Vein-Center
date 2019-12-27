@@ -12,26 +12,24 @@ class Services extends Component {
     }
 
     componentDidMount () {
-        if (this.props.match.params.param) {
+        if (this.props.match.params.param && (this.props.match.params.param === "about" || this.props.match.params.param === "faq" || this.props.match.params.param === "results")) {
             this.getServiceLink();
-        }
-    };
-
-    getServiceLink = () => {
-        const serviceSelection = this.props.match.params.param;
-        const formattedSelection = serviceSelection.charAt(0).toUpperCase() + serviceSelection.substring(1);
-        if (formattedSelection === "Results" || formattedSelection === "Faq" || formattedSelection === "About") {
-            this.setState({
-                selected: formattedSelection,
-                language: this.props.isEnglish
-            });
-            window.history.pushState(null, null, "/services");
         } else {
             this.setState({
                 language: this.props.isEnglish
             });
             window.history.pushState(null, null, "/services");
         }
+    };
+
+    getServiceLink = () => {
+        const serviceSelection = this.props.match.params.param;
+        const formattedSelection = serviceSelection.charAt(0).toUpperCase() + serviceSelection.substring(1);
+        this.setState({
+            selected: formattedSelection,
+            language: this.props.isEnglish
+        });
+        window.history.pushState(null, null, "/services");
     }
 
     Options = ({ option, listNum }) => {
@@ -52,7 +50,7 @@ class Services extends Component {
     };
 
     Display = ({ option, language }) => {
-        const components = [<About isEnglish={language}/>, <Faq isEnglish={language}/>, <Results isEnglish={language}/>];
+        const components = [<About/>, <Faq/>, <Results/>];
         return components[option];
     };
 
@@ -74,7 +72,7 @@ class Services extends Component {
                     : display = this.state.selected;
         return (
             <div className={cssServices.body}>
-                { this.props.match.params.param !== undefined && this.props.match.params.param !== this.state.selected.toLowerCase() ? this.getServiceLink() : null }
+                { this.props.match.params.param !== undefined && (this.props.match.params.param === "about" || this.props.match.params.param === "faq" || this.props.match.params.param === "results") && this.props.match.params.param !== this.state.selected.toLowerCase() ? this.getServiceLink() : null }
                 <div className={cssServices.selector}>
                     { options.map((option, i) => {
                         return (
@@ -89,7 +87,6 @@ class Services extends Component {
                     <div key= {this.state.selected } className={cssServices.fadeIn}>
                         <div className={ cssServices.compTitle } >{ display }</div>
                         <this.Display
-                            language={this.state.language}
                             option={ options.indexOf(this.state.selected) }
                         />
                     </div>

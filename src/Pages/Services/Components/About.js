@@ -3,6 +3,7 @@ import axios from "axios";
 import cssServices from "../services.module.css";
 import ReactHtmlParser from "react-html-parser";
 import { connect } from "react-redux";
+import { api } from "../../../Aux/apiLink";
 
 class Treatments extends Component {
     state = {
@@ -17,7 +18,7 @@ class Treatments extends Component {
 
     getAbout = () => {
         const language = this.props.isEnglish;
-        axios.get(`http://localhost:2000/about/${language}`)
+        axios.get(`${api}/about/${language}`)
             .then(res => {
                 this.setState({
                     QnA: [...res.data],

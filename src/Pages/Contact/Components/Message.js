@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import cssMessage from "./CSS/message.module.css";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { api } from "../../../Aux/apiLink";
 
 class Message extends Component {
     state = {
@@ -23,7 +24,7 @@ class Message extends Component {
     onSubmitHanlder = async e => {
         e.preventDefault();
         const { name, email, phone, checked, message } = this.state;
-        axios.post("http://localhost:2000/personalData", {
+        axios.post(`${api}personalData`, {
             name,
             email,
             phone,
