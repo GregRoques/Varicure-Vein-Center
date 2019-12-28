@@ -18,7 +18,7 @@ class FAQ extends Component {
 
     getFAQ = () => {
         const language = this.props.isEnglish;
-        axios.get(`${api}faq/${language}`)
+        axios.get(`${api}/faq/${language}`)
             .then(res => {
                 this.setState({
                     QnA: [...res.data],

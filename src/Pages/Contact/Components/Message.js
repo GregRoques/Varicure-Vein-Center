@@ -24,7 +24,7 @@ class Message extends Component {
     onSubmitHanlder = async e => {
         e.preventDefault();
         const { name, email, phone, checked, message } = this.state;
-        axios.post(`${api}personalData`, {
+        axios.post(`${api}/personalData`, {
             name,
             email,
             phone,

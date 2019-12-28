@@ -33,7 +33,7 @@ class App extends Component {
     userReviews = (newPic) => {
         let number;
         newPic ? number = Math.floor(Math.random() * 3) : number = this.state.customerReviews1.homePagePic;
-        axios.get(`${api}reviews`)
+        axios.get(`${api}/reviews`)
             .then(res => {
                 this.setState({
                     customerReviews1: {
