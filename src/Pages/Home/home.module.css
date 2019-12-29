@@ -281,6 +281,8 @@
     border-radius: 15px;
     margin-top: 2rem;
     margin-bottom: 5rem;
+    outline: none;
+    text-decoration: none;
 }
 
 .translateButton:active{
