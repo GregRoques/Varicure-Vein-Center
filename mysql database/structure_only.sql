@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 8.0.16, for macos10.14 (x86_64)
 --
--- Host: localhost    Database: Vericure
+-- Host: localhost    Database: varicure
 -- ------------------------------------------------------
--- Server version	8.0.16
+-- Server version	8.0.18
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -61,6 +61,7 @@ CREATE TABLE `personalData` (
   `name` varchar(50) NOT NULL,
   `phone` varchar(12) DEFAULT NULL,
   `date` varchar(7) NOT NULL,
+  `checked` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`email`),
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -110,4 +111,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-22 13:53:06
+-- Dump completed on 2019-12-31 17:44:15
