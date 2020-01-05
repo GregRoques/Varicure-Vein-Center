@@ -35,11 +35,11 @@ const phoneFormat = ph => {
 const yearMonth = new Date().toISOString().slice(0, 7);
 
 router.post("/personalData", (req, res, next) => {
-    const { name, email, phone, message } = req.body;
+    const { name, email, phone, checked, message } = req.body;
     const phoneEdit = phoneFormat(phone);
 
     transporter.sendMail({
-        to: "varicuremarketing@gmail.com", // info@varicureveincenter.com
+        to: "varicuremarketing@gmail.com, info@varicureveincenter.com",
         from: email,
         subject: `${name} has a question for Dr. Gurvich`,
         html: `<b>From:</b> ${name} <br/> 
@@ -49,22 +49,22 @@ router.post("/personalData", (req, res, next) => {
         ${message}`
     }).then(() => {
         res.json("Yes");
-        next();
+        if (checked === "True") {
+            next();
+        }
     }).catch(() => {
         res.json("No");
     });
 });
 
 router.post("/personalData", (req, res, next) => {
-    const { email, checked } = req.body;
-    const isEmailAlready = `SELECT email, checked FROM personalData WHERE email="${email}"`;
+    const { email } = req.body;
+    const isEmailAlready = `SELECT email FROM personalData WHERE email="${email}"`;
     db.execute(isEmailAlready).then(results => {
         if (!results[0][0]) {
             next();
         } else {
-            const updateDate = checked === "True"
-                ? `UPDATE personalData SET date="${yearMonth}", checked="${checked}" WHERE email="${email}"`
-                : `UPDATE personalData SET date="${yearMonth}" WHERE email="${email}"`;
+            const updateDate = `UPDATE personalData SET date="${yearMonth}" WHERE email="${email}"`;
             db.execute(updateDate).then(() => {
                 console.log("Updated date where email already exists.");
             }).catch(() => {
@@ -77,14 +77,14 @@ router.post("/personalData", (req, res, next) => {
 });
 
 router.post("/personalData", (req, res) => {
-    const { name, email, phone, checked } = req.body;
+    const { name, email, phone } = req.body;
     const phoneEdit = phoneFormat(phone);
 
-    const addNewInfo = `INSERT INTO personalData (email, name, phone, preference, date, checked) VALUES ("${email}", "${name}", "${phoneEdit}", "${yearMonth}", "${checked}")`;
+    const addNewInfo = `INSERT INTO personalData (email, name, phone, preference, date) VALUES ("${email}", "${name}", "${phoneEdit}", "${yearMonth}")`;
     db.execute(addNewInfo).then(() => {
         console.log("Update Successful");
     }).catch(() => {
-        DataError(name, email, phone, checked);
+        DataError(name, email, phone);
     });
 });
 
