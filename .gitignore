@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/backend/util/sendgridApi.js
+/backend/util
 /backend/node_modules
 /node_modules
 /src/Aux
@@ -25,3 +25,4 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
