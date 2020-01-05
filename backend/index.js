@@ -22,6 +22,10 @@ app.use(myContacts);
 app.use(about);
 app.use(faq);
 
+app.use((req, res) => {
+    res.redirect(`/?route=${req.path}`);
+});
+
 const PORT = 2000;
 app.listen(PORT, () => {
     console.log("Listening on ", PORT);

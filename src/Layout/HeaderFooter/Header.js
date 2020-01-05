@@ -82,7 +82,7 @@ class Header extends Component {
                         { !this.state.isResized || this.state.isOpen
                             ? <div className= { cssHeader.headerContainerSmallText}>
                                 {!this.state.isOpen
-                                    ? <img alt="hamburger" className={cssHeader.imageContain} src="/icons/hamburger.png" onClick={() => this.modalToggler()}/>
+                                    ? <img alt="hamburger" className={cssHeader.imageContain} src="/myImages/hamburger.png" onClick={() => this.modalToggler()}/>
                                     : <span className={cssHeader.imageContain} onClick={() => this.modalToggler("close")}>X</span>
                                 }
                             </div>

@@ -36,27 +36,27 @@ const Hours = props => {
                 <div className={ cssHours.connectGrid }>
                     <div className={ cssHours.hitEmWithTheFlex}>
                         <a href="tel:305-284-8090">
-                            <img alt="305-284-8090" className={ cssHours.connectContact } src="/icons/phone.png"/>
+                            <img alt="305-284-8090" className={ cssHours.connectContact } src={"/myImages/phone.png"}/>
                             <br/>
                             (305) 284-8090
                         </a>
                     </div>
                     <div className={ cssHours.hitEmWithTheFlex}>
                         <a href="mailto:info@varicureveincenter.com?subject=Question for Dr. Gurvich">
-                            <img alt="info@varicureveincenter.com" className={ cssHours.connectContact } src="/icons/email.png"/>
+                            <img alt="info@varicureveincenter.com" className={ cssHours.connectContact } src="/myImages/email.png"/>
                             <br/>
                             info@vericure.com
                         </a>
                     </div>
                 </div>
                 <a href="https://www.facebook.com/VaricureMiami" target="_blank" rel="noopener noreferrer">
-                    <img alt="Facebook" className={ cssHours.connectSocial } src="/icons/FacebookBox.png"/>
+                    <img alt="Facebook" className={ cssHours.connectSocial } src="/myImages/FacebookBox.png"/>
                 </a>
                 <a href="https://www.yelp.com/biz/varicure-vein-center-miami-2" target="_blank" rel="noopener noreferrer">
-                    <img alt="Yelp" className={ cssHours.connectSocial } src="/icons/YelpBox.png"/>
+                    <img alt="Yelp" className={ cssHours.connectSocial } src="/myImages/YelpBox.png"/>
                 </a>
                 {/* <a href="" target="_blank" rel="noopener noreferrer">
-                    <img alt="Google Business" className={ cssHours.connectSocial } src="/icons/Google.png"/>
+                    <img alt="Google Business" className={ cssHours.connectSocial } src="/myImages/Google.png"/>
                 </a> */}
             </div>
         </div>
