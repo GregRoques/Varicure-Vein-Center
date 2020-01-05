@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../util/database");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt-nodejs");
 const randToken = require("rand-token");
 
 router.post("/login", (req, res) => {
