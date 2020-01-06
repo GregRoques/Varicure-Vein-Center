@@ -87,7 +87,7 @@ class Header extends Component {
                                 }
                             </div>
                             : <div className= { cssHeader.headerContainerText}>
-                                <Link className = { cssHeader.textSpace } to="/services">
+                                <Link className = { cssHeader.textSpace } to="/services/about">
                                     { this.props.isEnglish === "e" ? "Services" : "Servicios" }
                                 </Link>
                                 <Link className = { cssHeader.textSpace } to="/contact">
