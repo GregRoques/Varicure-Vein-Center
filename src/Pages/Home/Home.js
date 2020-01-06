@@ -46,8 +46,8 @@ class Home extends Component {
         return (
             <div className={ classType }>
                 "{ isEnglish === "e" ? this.props.englishReview : this.props.spanishReview}" {this.props.url
-                    ? <div className ={ cssHome.indent }>–<a href={this.props.url} rel="noopener noreferrer" target="_blank">{this.props.name} <img alt={this.props.social} src={"/icons/" + this.props.social + ".png"} /></a> </div>
-                    : <div className ={ cssHome.indent }>–{this.props.name} { this.props.social ? <img alt={this.props.social} src={"/icons/" + this.props.social + ".png"} /> : null} </div> }
+                    ? <div className ={ cssHome.indent }>–<a href={this.props.url} rel="noopener noreferrer" target="_blank">{this.props.name} <img alt={this.props.social} src={"/myImages/" + this.props.social + ".png"} /></a> </div>
+                    : <div className ={ cssHome.indent }>–{this.props.name} { this.props.social ? <img alt={this.props.social} src={"/myImages/" + this.props.social + ".png"} /> : null} </div> }
             </div>
         );
     };

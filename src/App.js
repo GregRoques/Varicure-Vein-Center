@@ -51,6 +51,10 @@ class App extends Component {
         return <Redirect push to= { Home }/>;
     };
 
+    serviceAbout = () => {
+        return <Redirect push to="/services/about"/>;
+    }
+
     render () {
         return (
             <div className = { cssApp.body }>
@@ -60,7 +64,7 @@ class App extends Component {
                             exact path= "/"
                             render={() => <Home { ...this.state.customerReviews1 } />} />
                         <Route exact path= "/contact" component= { Contact } />
-                        <Route exact path= "/services" component= { Services } />
+                        <Route exact path= "/services" component= { this.serviceAbout } />
                         <Route exact path= "/services/:param" component= { Services } />
                         <Route component= { this.NoPage } />
                     </Switch>
