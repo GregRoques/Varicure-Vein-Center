@@ -109,7 +109,7 @@ class Results extends Component {
                         { photoArray.map((image, i) => {
                             return (
                                 <div key={ i } className={cssResults.photoBox}>
-                                    <img onClick={() => this.pictureDisplayOn(image) } alt={ "Results" + image } src={`${process.env.PUBLIC_URL}/beforeAfter/${image}.jpg`} />
+                                    <img onClick={() => this.pictureDisplayOn(image) } alt={ "Results" + image } src={`${process.env.PUBLIC_URL}/beforeAfter/${image}.jpg`}/>
                                 </div>
                             );
                         })}
