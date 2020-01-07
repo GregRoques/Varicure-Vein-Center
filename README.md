@@ -43,9 +43,6 @@ Company website featuring the ability for owners to update via an admin page.
 * npm i nodemailer 
 * npm i nodemailer-sendgrid-transport (supports integrating nodemailer with sendgrid.com account)
 
-### Testing
-* npm i cypress --save-dev
-
 ## MVP
 * Website featuring company contact information (and email form) in addition to information about services offered and caregiver bios.
 * Ability to toggle between English and Spanish translations.
