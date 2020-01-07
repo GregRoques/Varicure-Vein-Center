@@ -82,7 +82,7 @@ class Results extends Component {
                     <div className ={ cssResults.photoContent}>
                         <div className={ cssResults.imageGalleryButtons } onClick={ () => this.clickL(this.state.modalPhoto) }>{`<`}</div>
                         <div className={ cssResults.sliderContainer }>
-                            <img alt={ "Results" + this.state.modalPhoto } src={"beforeAfter/" + [this.state.modalPhoto] + ".jpg" }/>
+                            <img alt={"Results" + this.state.modalPhoto } src={process.env.PUBLIC_URL + `/beforeAfter/${this.state.modalPhoto}.jpg`}/>
                         </div>
                         <div className={ cssResults.imageGalleryButtons } onClick={() => this.clickR(this.state.modalPhoto)}>{`>`}</div>
                     </div>
@@ -109,7 +109,7 @@ class Results extends Component {
                         { photoArray.map((image, i) => {
                             return (
                                 <div key={ i } className={cssResults.photoBox}>
-                                    <img onClick={() => this.pictureDisplayOn(image) } alt={ "Results" + image } src={"beforeAfter/" + image + ".jpg"}/>
+                                    <img onClick={() => this.pictureDisplayOn(image) } alt={ "Results" + image } src={`${process.env.PUBLIC_URL}/beforeAfter/${image}.jpg`} />
                                 </div>
                             );
                         })}

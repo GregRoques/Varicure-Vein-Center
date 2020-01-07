@@ -1,105 +1,33 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import cssServices from "./services.module.css";
+import { Route, Switch, Redirect, withRouter } from "react-router-dom";
+
+import ServicesLayout from "./ServicesLayout";
 import Faq from "./Components/FAQ";
 import About from "./Components/About";
 import Results from "./Components/Results";
 
 class Services extends Component {
-    state = {
-        selected: "About",
-        language: "e"
-    }
-
-    componentDidMount () {
-        if (this.props.match.params.param && (this.props.match.params.param === "about" || this.props.match.params.param === "faq" || this.props.match.params.param === "results")) {
-            this.getServiceLink();
-        } else {
-            this.setState({
-                language: this.props.isEnglish
-            });
-            window.history.pushState(null, null, "/services");
-        }
-    };
-
-    getServiceLink = () => {
-        const serviceSelection = this.props.match.params.param;
-        const formattedSelection = serviceSelection.charAt(0).toUpperCase() + serviceSelection.substring(1);
-        this.setState({
-            selected: formattedSelection,
-            language: this.props.isEnglish
-        });
-        window.history.pushState(null, null, "/services");
-    }
-
-    Options = ({ option, listNum }) => {
-        let display;
-        this.props.isEnglish === "e"
-            ? display = option
-            : option === "About"
-                ? display = "Acerca"
-                : option === "Results"
-                    ? display = "Resultados"
-                    : display = option;
-
-        return (
-            <span className={cssServices.optionText} key={ listNum } onClick={() => this.info(option)}>
-                { this.state.selected === option ? <span className={cssServices.optionTextSelected}>{ display }</span> : <span>{ display }</span> }
-            </span>
-        );
-    };
-
-    Display = ({ option }) => {
-        const components = [<About/>, <Faq/>, <Results/>];
-        return components[option];
-    };
-
-    info = option => {
-        this.setState({
-            selected: option
-        });
+    NoSelection = () => {
+        return <Redirect push to="/services/about"/>;
     };
 
     render () {
-        const options = ["About", "Faq", "Results"];
-        let display;
-        this.props.isEnglish === "e"
-            ? display = this.state.selected
-            : this.state.selected === "About"
-                ? display = "Acerca"
-                : this.state.selected === "Results"
-                    ? display = "Resultados"
-                    : display = this.state.selected;
         return (
-            <div className={cssServices.body}>
-                <div className={cssServices.selector}>
-                    { options.map((option, i) => {
-                        return (
-                            <this.Options
-                                option={ option }
-                                listNum={ i }
-                            />
-                        );
-                    })}
-                </div>
-                <div className={cssServices.currentSelection}>
-                    <div key= {this.state.selected } className={cssServices.fadeIn}>
-                        <div className={ cssServices.compTitle } >{ display }</div>
-                        <this.Display
-                            option={ options.indexOf(this.state.selected) }
-                        />
-                    </div>
-                </div>
-                <div className={cssServices.mainPageBottom}/>
+            <div>
+                {this.props.match.params.param !== "about" && this.props.match.params.param !== "faq" && this.props.match.params.param !== "results"
+                    ? this.NoSelection()
+                    : null
+                }
+                <ServicesLayout>
+                    <Switch>
+                        <Route exact path="/services/about/" component={About} />
+                        <Route exact path="/services/faq/" component={Faq} />
+                        <Route exact path="/services/results/" component={Results} />
+                    </Switch>
+                </ServicesLayout>
             </div>
         );
-    };
-};
+    }
+}
 
-const mapStateToProps = state => {
-    return {
-        isEnglish: state.isEnglish.isEnglish
-    };
-};
-
-export default connect(mapStateToProps, null)(Services);
+export default withRouter(Services);
