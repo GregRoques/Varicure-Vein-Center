@@ -49,6 +49,7 @@ class Treatments extends Component {
         return (
             <div>
                 {this.state.isEnglish !== this.props.isEnglish ? this.getAbout() : null}
+                <div className={ cssServices.compTitle }>{this.props.isEnglish === "e" ? "About" : "Acerca"}</div>
                 <div>
                     { Object.keys(this.state.QnA).map((num, i) => {
                         const { question, answer } = this.state.QnA[num];

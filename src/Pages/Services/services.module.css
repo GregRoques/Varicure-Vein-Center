@@ -60,6 +60,7 @@
 
 .optionText {
     font-size: 24px;
+    font-weight: bold;
     margin: 0px 15px 0px 15px;
     cursor: pointer;
     display:inline-block

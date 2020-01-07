@@ -195,7 +195,17 @@
     font-weight: 700;
     color: rgb(250,173,73);
   }
-    
+  
+  .compTitle{
+    font-size: 48px;
+    font-family: "Museo";
+    font-weight: 700;
+    color: rgb(19,163,153);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 3.5rem;
+    margin-top: 1.5rem;
+}
   
   /* =============================================== Media Queries */
   

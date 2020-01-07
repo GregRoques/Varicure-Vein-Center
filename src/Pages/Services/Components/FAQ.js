@@ -49,6 +49,7 @@ class FAQ extends Component {
         return (
             <div>
                 {this.state.isEnglish !== this.props.isEnglish ? this.getFAQ() : null}
+                <div className={ cssServices.compTitle }>FAQ</div>
                 <div>
                     { Object.keys(this.state.QnA).map((num, i) => {
                         const { question, answer } = this.state.QnA[num];

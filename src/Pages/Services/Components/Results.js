@@ -97,6 +97,7 @@ class Results extends Component {
             <div className = { cssResults.fadeIn }>
                 {this.state.isEnglish !== this.props.isEnglish ? this.getTranslation() : null}
                 { modalPhotoGallery }
+                <div className={ cssResults.compTitle }>{this.state.isEnglish === "e" ? "Results" : "Resultados"}</div>
                 <h1 className={ cssResults.subheading }>
                     {this.state.isEnglish === "e"
                         ? "Healthy Legs Should Not Look Like Road Maps"
