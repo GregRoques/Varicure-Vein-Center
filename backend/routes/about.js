@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require("../util/database");
 
 router.get("/about/:hash", (req, res) => {
+    console.log("you got me");
     const language = req.params.hash;
     const about = `Select id, question, answer FROM about WHERE language='${language}'`;
     db.execute(about)
