@@ -111,10 +111,6 @@ class Home extends Component {
                 { this.state.isResized
                     ? <div className={ cssHome.mobile}>
                         <div className={ cssHome.blankSpace}/>
-                        <this.UserReview
-                            classType={ cssHome.userReviewMobile}
-                            isEnglish={ this.props.isEnglish }
-                        />
                         <div className={cssHome.mobileHomeCircleContainer}>
                             <div className={cssHome.circlesJustify}>
                                 {categories.map((aCircle, i) => {
@@ -127,6 +123,10 @@ class Home extends Component {
                                 })}
                             </div>
                         </div>
+                        <this.UserReview
+                            classType={ cssHome.userReviewMobile}
+                            isEnglish={ this.props.isEnglish }
+                        />
                         <hr className={cssHome.seperator}/>
                         <div className={cssHome.todaysHours}>
                             { this.props.isEnglish === "e"
