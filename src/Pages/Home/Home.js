@@ -56,7 +56,7 @@ class Home extends Component {
     };
 
     logoResize = () => {
-        window.innerWidth < 620 || (window.innerWidth >= 768 && window.innerWidth <= 1024 && window.innerHeight > window.innerWidth)
+        window.innerWidth < 620 || (window.innerWidth > 767 && window.innerWidth < 1025 && window.innerHeight > window.innerWidth)
             ? this.setState({ isResized: true }) 
             : this.setState({ isResized: false });
     };
