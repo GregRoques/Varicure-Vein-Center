@@ -321,3 +321,20 @@
         margin-top: 1.25rem;
     }
 } 
+
+/* Ipads set to Mobile Screen */
+
+@media only screen 
+and (min-device-width : 767px) 
+and (max-device-width : 1025px) 
+and (orientation : portrait) {
+
+    .mobile{
+        display:inline;
+    }
+
+    .notMobile{
+        display:none;
+    }
+    
+}

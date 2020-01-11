@@ -27,7 +27,7 @@ class Contact extends Component {
                     <Map />
                     <div className={ cssContact.copyright}>
                         { this.props.isEnglish === "e"
-                            ? <div>Copyright {`${String.fromCharCode(169)}`} 2019 by <a href="https://www.gregroques.com" target="_blank" rel="noopener noreferrer">Greg Roques</a></div>
+                            ? <div>Copyright {`${String.fromCharCode(169)}`} { currYear }  by <a href="https://www.gregroques.com" target="_blank" rel="noopener noreferrer">Greg Roques</a></div>
                             : <div>Derechos de Autor {`${String.fromCharCode(169)}`} { currYear } por <a href="https://www.gregroques.com" target="_blank" rel="noopener noreferrer">Greg Roques</a></div>
                         }
                     </div>

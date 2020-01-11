@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
@@ -22,9 +23,10 @@ app.use(myContacts);
 app.use(about);
 app.use(faq);
 
-app.use((req, res) => {
-    res.redirect(`/?route=${req.path}`);
-});
+app.use(express.static(path.join(__dirname, "build")));
+app.get("/*", (req, res, next) => {
+    res.sendFile(path.join(__dirname, "build", "index.html"));
+}); // So this is a solution if you build in your folder with the react project in it. You can run npm build then run node on the server and it should serve your pages from waht I can tell!
 
 const PORT = 2000;
 app.listen(PORT, () => {
