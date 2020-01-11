@@ -70,3 +70,21 @@
     }
 
 }
+
+@media only screen 
+and (min-device-width : 767px) 
+and (max-device-width : 1025px) 
+and (orientation : portrait) {
+    .visibleBig{
+        display: none;
+    }
+    
+    .visibleSmall{
+        display: inline;
+    }
+
+    .footerContainer{
+        background-color:rgb(19,163,153, 1);
+        color: white;
+    }
+}

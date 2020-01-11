@@ -40,7 +40,7 @@ class Home extends Component {
     componentDidMount () {
         window.scrollTo(0, 0);
         window.addEventListener("resize", this.logoResize);
-        window.innerWidth < 620 || window.innerWidth == 768 && window.innerHeight == 1024 || window.innerWidth == 1024 && window.innerHeight == 1366 
+        window.innerWidth < 620 || (window.innerWidth > 767 && window.innerWidth < 1025 && window.innerHeight > window.innerWidth)
             ? this.setState({ isResized: true }) 
             : this.setState({ isResized: false });
     };
@@ -56,7 +56,9 @@ class Home extends Component {
     };
 
     logoResize = () => {
-        window.innerWidth < 620 ? this.setState({ isResized: true }) : this.setState({ isResized: false });
+        window.innerWidth < 620 || (window.innerWidth >= 768 && window.innerWidth <= 1024 && window.innerHeight > window.innerWidth)
+            ? this.setState({ isResized: true }) 
+            : this.setState({ isResized: false });
     };
 
     displayCircles = ({ forwardAddress, titleIndex }) => {

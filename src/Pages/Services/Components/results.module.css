@@ -77,6 +77,15 @@
       border-style: solid;
       border-color: transparent;
       border-width: 10px;
+      transition: .75s
+    }
+
+    .photoBox:hover{
+      transform: scale(.85);
+      /* box-shadow: 0px 0px 15px #FAAD49; */
+      border-color: #FAAD49;
+      border-radius: 15px;
+      cursor: pointer;
     }
   
     .photoBox IMG {

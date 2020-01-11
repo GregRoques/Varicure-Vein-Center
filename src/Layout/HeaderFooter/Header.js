@@ -21,7 +21,9 @@ class Header extends Component {
         window.addEventListener("scroll", this.logoScroll);
         window.pageYOffset > 25 && window.location.pathname !== "/home" ? this.setState({ isScrolled: false }) : this.setState({ isScrolled: true });
         window.addEventListener("resize", this.logoResize);
-        window.innerWidth < 620 ? this.setState({ isResized: false }) : this.setState({ isResized: true });
+        window.innerWidth < 620 || (window.innerWidth > 767 && window.innerWidth < 1025 && window.innerHeight > window.innerWidth)
+            ? this.setState({ isResized: false })
+            : this.setState({ isResized: true });
         this.props.history.listen(location => {
             this.setLogo();
         });
@@ -41,7 +43,9 @@ class Header extends Component {
     };
 
     logoResize = () => {
-        window.innerWidth < 620 ? this.setState({ isResized: false }) : this.setState({ isResized: true });
+        window.innerWidth < 620 || (window.innerWidth > 767 && window.innerWidth < 1025 && window.innerHeight > window.innerWidth)
+            ? this.setState({ isResized: false })
+            : this.setState({ isResized: true });
     };
 
     languageToggler = () => {
