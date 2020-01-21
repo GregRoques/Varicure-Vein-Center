@@ -45,7 +45,7 @@ const Hours = props => {
                         <a href="mailto:info@varicureveincenter.com?subject=Question for Dr. Gurvich">
                             <img alt="info@varicureveincenter.com" className={ cssHours.connectContact } src="/myImages/email.png"/>
                             <br/>
-                            info@vericure.com
+                            info@varicure.com
                         </a>
                     </div>
                 </div>
