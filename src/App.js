@@ -9,7 +9,6 @@ import Home from "./Pages/Home/Home";
 import Services from "./Pages/Services/Services";
 import Contact from "./Pages/Contact/Contact";
 // import Reviews from "./Pages/Reviews/Reviews";
-// import spanishReviews from "./Pages/Reviews/ReviewsSP";
 // import Admin from "./Pages/Admin/Admin";
 
 class App extends Component {
@@ -38,8 +37,7 @@ class App extends Component {
                         <Route exact path= "/contact" component= { Contact } />
                         <Route exact path= "/services" component= { this.serviceAbout } />
                         <Route exact path= "/services/:param" component= { Services } />
-                        {/* <Route exact path= "/reviews" component= { Reviews } />
-                        <Route exact path= "/critica" component= { spanishReviews }/> */}
+                        {/* <Route exact path= "/reviews" component= { Reviews } /> */}
                         <Route component= { this.NoPage } />
                     </Switch>
                 </Layout>
