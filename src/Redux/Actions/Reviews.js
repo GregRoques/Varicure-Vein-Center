@@ -1,8 +1,7 @@
 export const THREE_REVIEWS = "THREE_REVIEWS";
 
-export const selectReviews = three => {
+export const selectReviews = () => {
     return {
-        type: "THREE_REVIEWS",
-        payload: three
+        type: "THREE_REVIEWS"
     };
 };

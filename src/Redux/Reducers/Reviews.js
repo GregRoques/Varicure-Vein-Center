@@ -1,6 +1,11 @@
 import * as actionType from "../Actions/Reviews";
 import { reviewAPI } from "../../Aux/apiLink";
 
+const number = Math.floor(Math.random() * Object.keys(reviewAPI).length);
+const number2 = number + 1 < Object.keys(reviewAPI).length ? number + 1 : 0;
+const number3 = number - 1 >= 0 ? number - 1 : Object.keys(reviewAPI).length;
+const threeNumbers = [number, number2, number3];
+
 const initialState = {
     Reviews1: {
         newPic: 1,
@@ -33,13 +38,13 @@ const reviewReducer = (state = initialState, action) => {
                 ...state,
                 Reviews1: {
                     newPic: Math.floor(Math.random() * 2),
-                    ...reviewAPI[action.payload[0]]
+                    ...reviewAPI[threeNumbers[0]]
                 },
                 Reviews2: {
-                    ...reviewAPI[action.payload[1]]
+                    ...reviewAPI[threeNumbers[1]]
                 },
                 Reviews3: {
-                    ...reviewAPI[action.payload[2]]
+                    ...reviewAPI[threeNumbers[2]]
                 }
             };
         default:

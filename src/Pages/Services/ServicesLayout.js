@@ -21,18 +21,18 @@ class ServicesLayout extends Component {
     isBoldFunction = toBold => {
         this.setState({
             isBold: toBold
-        })
+        });
     }
 
     Options = ({ display, listNum }) => {
         return (
             <span className={cssServices.optionText} key={ listNum }>
                 <Link onClick={() => this.isBoldFunction(selections.e[listNum].toLowerCase())} className={this.state.isBold === selections.e[listNum].toLowerCase() ? cssServices.isBold : null} to={`/services/${selections.e[listNum].toLowerCase()}`}>{ this.props.isEnglish === "e" ? display : selections.s[listNum] }</Link>
-            </span> 
+            </span>
         );
     };
 
-    render(){
+    render () {
         return (
             <div className={cssServices.body}>
                 <div className={cssServices.selector}>
@@ -55,7 +55,6 @@ class ServicesLayout extends Component {
             </div>
         );
     }
-    
 };
 
 const mapStateToProps = state => {

@@ -7,7 +7,6 @@ import About from "./Components/About";
 import Results from "./Components/Results";
 
 class Services extends Component {
-
     NoSelection = () => {
         return <Redirect push to="/services/about"/>;
     };
