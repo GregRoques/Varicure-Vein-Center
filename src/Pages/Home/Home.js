@@ -3,8 +3,12 @@ import { css } from "emotion";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { setLanguage } from "../../Redux/Actions/Language";
+import { mapSelector } from "../../Functions/MapSelector";
 import cssHome from "./home.module.css";
+import parse from "html-react-parser";
+import { homePageDescription } from "../../Aux/apiLink";
 
+const isiPad = navigator.userAgent.match(/iPad/i) !== null;
 const categories = ["About", "FAQ", "Results"];
 const spanishCategories = ["Acerca", "FAQ", "Resultados"];
 
@@ -40,7 +44,7 @@ class Home extends Component {
     componentDidMount () {
         window.scrollTo(0, 0);
         window.addEventListener("resize", this.logoResize);
-        window.innerWidth < 620 || (window.innerWidth > 767 && window.innerWidth < 1025 && window.innerHeight > window.innerWidth)
+        window.innerWidth < 620 || (window.innerWidth > 767 && window.innerWidth < 1025 && (window.innerHeight > window.innerWidth) && isiPad)
             ? this.setState({ isResized: true }) 
             : this.setState({ isResized: false });
     };
@@ -48,15 +52,15 @@ class Home extends Component {
     UserReview = ({ classType, isEnglish }) => {
         return (
             <div className={ classType }>
-                "{ isEnglish === "e" ? this.props.englishReview : this.props.spanishReview}" {this.props.url
-                    ? <div className ={ cssHome.indent }>–<a href={this.props.url} rel="noopener noreferrer" target="_blank">{this.props.name} <img alt={this.props.social} src={"/myImages/" + this.props.social + ".png"} /></a> </div>
-                    : <div className ={ cssHome.indent }>–{this.props.name} { this.props.social ? <img alt={this.props.social} src={"/myImages/" + this.props.social + ".png"} /> : null} </div> }
+                "{ isEnglish === "e" ? this.props.Reviews.englishReview : this.props.Reviews.spanishReview}" {this.props.Reviews.url
+                    ? <div className ={ cssHome.indent }>–<a href={this.props.Reviews.url} rel="noopener noreferrer" target="_blank">{this.props.Reviews.name} <img alt={this.props.Reviews.social} src={"/myImages/" + this.props.Reviews.social + ".png"} /></a> </div>
+                    : <div className ={ cssHome.indent }>–{this.props.Reviews.name} { this.props.Reviews.social ? <img alt={this.props.Reviews.social} src={"/myImages/" + this.props.Reviews.social + ".png"} /> : null} </div> }
             </div>
         );
     };
 
     logoResize = () => {
-        window.innerWidth < 620 || (window.innerWidth > 767 && window.innerWidth < 1025 && window.innerHeight > window.innerWidth)
+        window.innerWidth < 620 || (window.innerWidth > 767 && window.innerWidth < 1025 && (window.innerHeight > window.innerWidth) && isiPad)
             ? this.setState({ isResized: true }) 
             : this.setState({ isResized: false });
     };
@@ -69,12 +73,22 @@ class Home extends Component {
         const cssJoin = [backgroundCircle, cssHome.innerCircle];
 
         return (
-            <div className={this.state.fadeOut[titleIndex] ? disappearingClass : null }>
-                <div className={cssJoin.join(" ")}>
-                    <div className={cssHome.circleTextBackground} onClick={() => this.circleRedirect(nextPage, fadeAway) }>{ this.props.isEnglish === "e" ? categories[titleIndex] : spanishCategories[titleIndex] }</div>
+            <div className={this.state.fadeOut[titleIndex] ? disappearingClass : null } >
+                <div className={cssJoin.join(" ")} onClick={() => this.circleRedirect(nextPage, fadeAway) }>
+                    <div className={cssHome.circleTextBackground} >{ this.props.isEnglish === "e" ? categories[titleIndex] : spanishCategories[titleIndex] }</div>
                 </div>
             </div>
         );
+    }
+
+    practiceDescription = () => {
+        return(
+            <div> { this.props.isEnglish === "e" ? parse(homePageDescription["e"]["main"]) : parse(homePageDescription["s"]["main"]) }
+                <div className={cssHome.quoteGrid}>
+                    { this.props.isEnglish === "e" ? parse(homePageDescription["e"]["sub"]) : parse(homePageDescription["s"]["sub"]) }
+                </div>
+            </div>
+        )
     }
 
     circleRedirect = (nextPage, fadeAway) => {
@@ -97,19 +111,17 @@ class Home extends Component {
 
     render () {
         const backgroundImage = css`
-        background-image: url("/${this.props.homePagePic}.jpg");`;
+        background-image: url("/${this.props.Reviews.newPic}.jpg");`;
         const cssJoin = [backgroundImage, cssHome.backgroundIn, cssHome.backgroundStyle];
-
         return (
             <div>
                 { this.state.isRedirect && <Redirect push to={this.state.redirectLink}/> }
                 { !this.state.isResized
                     ? <div className={ cssHome.notMobile}>
                         <div className={ cssJoin.join(" ")}>
-                            <this.UserReview
-                                classType={ cssHome.userReviewDesktop}
-                                isEnglish={ this.props.isEnglish }
-                            />
+                            <div className={cssHome.userReviewDesktop}>
+                                    <this.practiceDescription/>
+                            </div>
                         </div>
                     </div>
                     : null}
@@ -117,11 +129,13 @@ class Home extends Component {
                     ? <div className={ cssHome.mobile}>
                         <div className={ cssHome.blankSpace}/>
                             <img alt="VeriCure Logo" className={ cssHome.mobileMainLogo } src="/logos/siteLogo.png"/>
-                            <this.UserReview
-                                classType={ cssHome.userReviewMobile}
-                                isEnglish={ this.props.isEnglish }
-                            />
-                            <div className={cssHome.mobileHomeCircleContainer}>
+                            <div className={ cssHome.tinyAddress} title="Open Map" onClick ={() => mapSelector("www.google.com/maps/place/9595+N+Kendall+Dr,+Miami,+FL+33176/@25.6880755,-80.3506089,17z/data=!3m1!4b1!4m5!3m4!1s0x88d9c73c861e9189:0xeb40d00fad0dec28!8m2!3d25.6880755!4d-80.3484202")} >
+                                9595 N.Kendall Dr. • Miami
+                            </div>
+                            <div className={cssHome.missionStatement}>
+                                <this.practiceDescription/>
+                            </div>
+                        <div className={cssHome.mobileHomeCircleContainer}>
                             <div className={cssHome.circlesJustify}>
                                 {categories.map((aCircle, i) => {
                                     return (
@@ -133,6 +147,10 @@ class Home extends Component {
                                 })}
                             </div>
                         </div>
+                            <this.UserReview
+                                classType={ cssHome.userReviewMobile}
+                                isEnglish={ this.props.isEnglish }
+                            />
                         <hr className={cssHome.seperator}/>
                         <div className={cssHome.todaysHours}>
                             { this.props.isEnglish === "e"
@@ -154,8 +172,9 @@ class Home extends Component {
 
 const mapStateToProps = state => {
     return {
-        isEnglish: state.isEnglish.isEnglish
-    };
+        isEnglish: state.isEnglish.isEnglish,
+        Reviews: state.reviews.Reviews1
+    }
 };
 
 const mapDispatchToProps = dispatch => {

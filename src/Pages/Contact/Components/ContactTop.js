@@ -6,7 +6,7 @@ const ContactTop = props => {
     return (
         <div className={ cssTop.topImage }>
             <div className= {cssTop.topImageText }>
-                { props.isEnglish === "e" ? "Contact" : "Contacto" }
+                { props.isEnglish === "e" ? "Contact" : "Informacion" }
             </div>
         </div>
     );

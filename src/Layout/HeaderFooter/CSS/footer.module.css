@@ -64,6 +64,10 @@
         display: inline;
     }
 
+    .grid{
+        grid-template-columns: auto;
+    }
+
     .footerContainer{
         background-color:rgb(19,163,153, 1);
         color: white;

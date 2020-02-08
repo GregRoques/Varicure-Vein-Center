@@ -5,6 +5,9 @@ import cssHeader from "./CSS/header.module.css";
 import { setLanguage } from "../../Redux/Actions/Language";
 import Modal from "./Modal";
 
+
+const isiPad = navigator.userAgent.match(/iPad/i) !== null;
+
 class Header extends Component {
     state = {
         isScrolled: true,
@@ -21,7 +24,7 @@ class Header extends Component {
         window.addEventListener("scroll", this.logoScroll);
         window.pageYOffset > 25 && window.location.pathname !== "/home" ? this.setState({ isScrolled: false }) : this.setState({ isScrolled: true });
         window.addEventListener("resize", this.logoResize);
-        window.innerWidth < 620 || (window.innerWidth > 767 && window.innerWidth < 1025 && window.innerHeight > window.innerWidth)
+        window.innerWidth < 620 || (window.innerWidth > 767 && window.innerWidth < 1025 && (window.innerHeight > window.innerWidth) && isiPad)
             ? this.setState({ isResized: false })
             : this.setState({ isResized: true });
         this.props.history.listen(location => {
@@ -43,7 +46,7 @@ class Header extends Component {
     };
 
     logoResize = () => {
-        window.innerWidth < 620 || (window.innerWidth > 767 && window.innerWidth < 1025 && window.innerHeight > window.innerWidth)
+        window.innerWidth < 620 || (window.innerWidth > 767 && window.innerWidth < 1025 && (window.innerHeight > window.innerWidth) && isiPad)
             ? this.setState({ isResized: false })
             : this.setState({ isResized: true });
     };
@@ -92,10 +95,10 @@ class Header extends Component {
                             </div>
                             : <div className= { cssHeader.headerContainerText}>
                                 <Link className = { cssHeader.textSpace } to="/services/about">
-                                    { this.props.isEnglish === "e" ? "Services" : "Servicios" }
+                                    { this.props.isEnglish === "e" ? "About Us" : "Quienes somos" }
                                 </Link>
                                 <Link className = { cssHeader.textSpace } to="/contact">
-                                    { this.props.isEnglish === "e" ? "Contact" : "Contacto" }
+                                    { this.props.isEnglish === "e" ? "Contact" : "Informacion" }
                                 </Link>
                                 <span onClick={() => this.languageToggler()}>
                                     { this.props.isEnglish === "e" ? "Español" : "English" }

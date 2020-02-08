@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import axios from "axios";
 import cssServices from "../services.module.css";
 import ReactHtmlParser from "react-html-parser";
 import { connect } from "react-redux";
-import { api } from "../../../Aux/apiLink";
+import { aboutAPI } from "../../../Aux/apiLink";
 
 class Treatments extends Component {
     state = {
@@ -18,22 +17,10 @@ class Treatments extends Component {
 
     getAbout = () => {
         const language = this.props.isEnglish;
-        axios.get(`${api}/about/${language}`)
-            .then(res => {
-                this.setState({
-                    QnA: [...res.data],
-                    isEnglish: language
-                });
-            })
-            .catch(err => {
-                console.log(err);
-                this.setState({
-                    QnA: [{
-                        question: "Loading Error – Please try back again later.\n",
-                        answer: "Error de Carga – Por favor vuelva más tarde."
-                    }]
-                });
-            });
+        this.setState({
+            QnA: aboutAPI[language],
+            isEnglish: language
+        });
     };
 
     About = props => {
@@ -49,7 +36,7 @@ class Treatments extends Component {
         return (
             <div>
                 {this.state.isEnglish !== this.props.isEnglish ? this.getAbout() : null}
-                <div className={ cssServices.compTitle }>{this.props.isEnglish === "e" ? "About" : "Acerca"}</div>
+                <div className={ cssServices.compTitle }>{this.props.isEnglish === "e" ? "About" : "Quienes somos"}</div>
                 <div>
                     { Object.keys(this.state.QnA).map((num, i) => {
                         const { question, answer } = this.state.QnA[num];
@@ -66,6 +53,12 @@ class Treatments extends Component {
                         );
                     }) }
                 </div>
+                <div className={ cssServices.serviceTestimonial}>Testimonial</div>
+                <div className={ cssServices.quote}>
+                    "{ this.props.isEnglish === "e" ? this.props.Reviews.englishReview : this.props.Reviews.spanishReview }" {this.props.url
+                        ? <div className ={ cssServices.serviceIndent }>–<a href={this.props.Reviews.url} rel="noopener noreferrer" target="_blank">{this.props.Reviews.name} <img alt={this.props.Reviews.social} src={"/myImages/" + this.props.Reviews.social + ".png"} /></a> </div>
+                        : <div className ={ cssServices.serviceIndent }>–{this.props.Reviews.name} { this.props.Reviews.social ? <img alt={this.props.Reviews.social} src={"/myImages/" + this.props.Reviews.social + ".png"} /> : null} </div> }
+                </div>
             </div>
         );
     }
@@ -73,7 +66,8 @@ class Treatments extends Component {
 
 const mapStateToProps = state => {
     return {
-        isEnglish: state.isEnglish.isEnglish
+        isEnglish: state.isEnglish.isEnglish,
+        Reviews: state.reviews.Reviews3
     };
 };
 

@@ -1,277 +1,242 @@
-.galleryContainer{
-    text-align: center;
-  }
-    
-    .gridContainer {
-      display:grid;
-      margin:auto;
-      justify-content: center;
-      text-align:center;
-      row-gap: 2rem;
-      padding-bottom:1rem;
-    }
-    
-    /* ===================================================== Fade */
-  
-    .fadeIn{
-      animation-name: fadeIn;
-      animation-duration:2s;
-    }
-    
-    @keyframes fadeIn{
-      0%{
-          opacity:0;
-      }
-      100%{
-          opacity:1;
-      }
-    }
-    
-    /* ================ Dummy Data */
-    
-    .box {
-      width: 200px;
-      height: 200px;
-      border-radius:50%;
-      background-image: cover;
-      border-style: solid;
-      border-color: transparent;
-      border-width: 10px;
-      margin-bottom:1rem;
-      transition: 0.5s ;
-    }
-  
-    .box IMG{
-      height: inherit;
-      width: inherit;
-      border-radius: inherit;
-      object-fit: cover;
-      object-position: center;
-    }
-    
-    .box:hover{
-      transform:scale(1.1);
-      background-color:white;
-      border-color:white;
-      transition: 1s ;
-    }
-    
-    .centerText{
-      margin:auto;
-      justify-content: center;
-      text-align: center;
-    }
-  
-    /* =========================== Photos */
-    .photoGrid {
-      display:grid;
-      margin:auto;
-      justify-content: center; 
-      text-align:center;
-    }
-  
-    .photoBox {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-style: solid;
-      border-color: transparent;
-      border-width: 10px;
-      transition: .75s
-    }
 
-    .photoBox:hover{
-      transform: scale(.85);
-      /* box-shadow: 0px 0px 15px #FAAD49; */
-      border-color: #FAAD49;
-      border-radius: 15px;
-      cursor: pointer;
-    }
-  
-    .photoBox IMG {
-      height: inherit;
-      width: inherit;
-      object-fit: cover;
-      object-position: center;
-    }
-  
-    .albumTitleText{
-      font-size: 48px;
-      font-family: "Museo";
-      font-weight: 700;
-      color: rgb(19,163,153);
-      text-transform: uppercase;
-      letter-spacing: 5px;
-    }
-  
-  
-    /* ============================== Photo Modal */
-  
-    .photoModal {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      z-index: 8;
-      margin:auto;
-      animation-name: up;
-      animation-duration:1s;
-      animation-fill-mode: forwards;
-    }
-  
-    @keyframes up{
-      0%{
-          height:0%;
-      }
-      100%{
-          height:75%;
-      }
-    }
-  
-  .photoContent{
-    position: absolute;
-    display:flex;
-    flex-direction: row;
-    left: 50%;
-    transform: translate(-50%);
-    width: 90%;
-    height:100%
-  
+  /* ===================================================== Fade */
+
+  .fadeIn{
+    animation-name: fadeIn;
+    animation-duration:2s;
   }
   
-  .sliderContainer{
-    width:100%;
-    height: 95%
+  @keyframes fadeIn{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
   }
   
-  .sliderContainer IMG {
-    width: inherit;
-    height: inherit;
-    object-fit: contain;
-  }
-  
-  
-  .pictureCounter{
-   position: fixed;
-   margin:0;
-   right:4%;
-   bottom: 2%;
-   text-align: right;
-   color:white;
-   font-size: 14px;
+
+  /* =========================== Photos */
+  .photoGrid {
+    display:grid;
+    margin:auto; 
+    justify-content: center; 
+    text-align:center;
   }
 
-  .closePhotoModal{
-    position: fixed;
-    width: 100%;
-    left:4%;
-    text-align: left;
-    cursor: pointer;
-   }
-
-   .subheading{
-     padding: 0 1.5rem 0 1.5rem;
-   }
-
-  .photoTop{
-    margin: 0;
-    position: relative;
-    color:white;
-    cursor: pointer;
-    font-size: 24px;
+  .photoContainerWidth{
+    width: 200px;
     font-weight: bold;
-    width: 100%;
-    margin-bottom: .25rem;
-    margin-top: .25rem;
-   }
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
   
-  .imageGalleryButtons{
-    display: flex;
-    cursor: pointer;
-    flex-direction: row;
-    align-content:center;
-    align-items: center;
-    color:white;
-    font-size:2rem;
-    font-weight:bold;
-    user-select: none;
-    padding: 10px;
+  .photoBox {
+    width: inherit;
+    height: 200px;
+    object-fit: cover;
+    transition: .5s;
+    margin-bottom: .5rem;
+   
   }
 
-  .subheading{
-    font-style: italic;
-    font-weight: 700;
-    color: rgb(250,173,73);
+  .photoBox:hover{
+    transform: scale(.9);
+    cursor: pointer;
   }
-  
-  .compTitle{
+
+  .photoBox IMG {
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .albumTitleText{
     font-size: 48px;
     font-family: "Museo";
     font-weight: 700;
     color: rgb(19,163,153);
     text-transform: uppercase;
     letter-spacing: 5px;
-    margin-bottom: 3.5rem;
-    margin-top: 1.5rem;
+  }
+
+
+  /* ============================== Photo Modal */
+
+  .photoModal {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 8;
+    margin:auto;
+    animation-name: up;
+    animation-duration:1s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes up{
+    0%{
+        height:0%;
+    }
+    100%{
+        height:75%;
+    }
+  }
+
+.photoContent{
+  position: absolute;
+  display:flex;
+  flex-direction: row;
+  left: 50%;
+  transform: translate(-50%);
+  width: 90%;
+  height:100%
+
 }
-  
-  /* =============================================== Media Queries */
-  
-  /* =================================== Photos */
-  
-  @media screen and (min-width: 460px){
-    .photoGalleryContainer{
-      border-radius: 25px;
-      margin-top:2rem;
-      padding:1rem 3rem 5rem 3rem;
-      justify-content: center;
-      text-align:center;
-    }
+
+.sliderContainer{
+  width:100%;
+  height: 95%
+}
+
+.sliderContainer IMG {
+  width: inherit;
+  height: inherit;
+  object-fit: contain;
+}
+
+
+.pictureCounter{
+ position: fixed;
+ margin:0;
+ right:4%;
+ bottom: 2%;
+ text-align: right;
+ color:white;
+ font-size: 14px;
+}
+
+.closePhotoModal{
+  position: fixed;
+  width: 100%;
+  left:4%;
+  text-align: left;
+  cursor: pointer;
+ }
+
+ .subheading{
+   padding: 0 1.5rem 0 1.5rem;
+ }
+
+.photoTop{
+  margin: 0;
+  position: relative;
+  color:white;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: bold;
+  width: 100%;
+  margin-bottom: .25rem;
+  margin-top: .25rem;
+ }
+
+.imageGalleryButtons{
+  display: flex;
+  cursor: pointer;
+  flex-direction: row;
+  align-content:center;
+  align-items: center;
+  color:white;
+  font-size:2rem;
+  font-weight:bold;
+  user-select: none;
+  padding: 10px;
+}
+
+.subheading{
+  font-style: italic;
+  font-weight: 700;
+  color: rgb(250,173,73);
+}
+
+.compTitle{
+  font-size: 48px;
+  font-family: "Museo";
+  font-weight: 700;
+  color: rgb(19,163,153);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin-bottom: 3.5rem;
+  margin-top: 1.5rem;
+}
+
+/* =============================================== Media Queries */
+
+/* =================================== Photos */
+
+@media screen and (min-width: 460px){
+  .photoGalleryContainer{
+    border-radius: 25px;
+    margin-top:2rem;
+    padding:1rem 3rem 5rem 3rem;
+    justify-content: center;
+    text-align:center;
   }
-  
-  @media screen and (min-width: 672px){
-   .photoGrid {
-      display:grid;
-      margin:auto;
-      grid-template-columns: repeat(auto-fill, 12rem);
-      justify-content: center; 
-      text-align:center;
-      column-gap: 1.75rem;
-    }
+}
+
+@media screen and (min-width: 672px){
+ .photoGrid {
+    display:grid;
+    margin:auto;
+    grid-template-columns: repeat(auto-fill, 12rem);
+    justify-content: center; 
+    text-align:center;
+    column-gap: 1.75rem;
   }
-  
-  /* =================================== Albums */
-  
-  @media screen and (min-width: 712px){
-    .gridContainer {
-      display:grid;
-      margin:auto;
-      grid-template-columns: repeat(auto-fill, 12rem);
-      justify-content: center;
-      text-align:center;
-      grid-gap: 4rem;
-    }
+}
+
+/* =================================== Albums */
+
+@media screen and (min-width: 712px){
+  .gridContainer {
+    display:grid;
+    margin:auto;
+    grid-template-columns: repeat(auto-fill, 12rem);
+    justify-content: center;
+    text-align:center;
+    grid-gap: 4rem;
   }
-  
-  @media screen and (min-width: 397px){
-    .galleryContainer{
-      border-radius: 25px;
-      margin-top:2rem;
-      padding:1rem 3rem 5rem 3rem;
-      justify-content: center;
-      text-align:center;
-    }
+}
+
+@media screen and (max-width: 619px){
+
+  .photoGalleryContainer{
+    margin-bottom: 3rem;
   }
 
-  @media screen and (max-width: 549px){
-    .subheading{
-        font-size: 24px;
-    }
-  }
+}
 
-  @media screen and (max-width: 330px){
-    .subheading{
-        font-size: 20px;
-    }
+@media screen and (min-width: 397px){
+  .galleryContainer{
+    border-radius: 25px;
+    margin-top:2rem;
+    padding:1rem 3rem 5rem 3rem;
+    justify-content: center;
+    text-align:center;
   }
+}
+
+@media screen and (max-width: 549px){
+  .subheading{
+      font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 330px){
+  .subheading{
+      font-size: 20px;
+  }
+}

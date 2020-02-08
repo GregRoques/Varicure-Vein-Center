@@ -109,8 +109,18 @@ class Results extends Component {
                     <div className = { cssResults.photoGrid }>
                         { photoArray.map((image, i) => {
                             return (
-                                <div key={ i } className={cssResults.photoBox}>
-                                    <img onClick={() => this.pictureDisplayOn(image) } alt={ "Results" + image } src={`${process.env.PUBLIC_URL}/beforeAfter/${image}.jpg`}/>
+                                <div className={cssResults.photoContainerWidth}>
+                                    <div key={ i } className={cssResults.photoBox}>
+                                        <img className={cssResults} onClick={() => this.pictureDisplayOn(image) } alt={ "Results" + image } src={`${process.env.PUBLIC_URL}/beforeAfter/${image}.jpg`}/>
+                                    </div>
+                                    { (i + 1) % 2 === 0 && this.state.isEnglish === "e"  
+                                    ? "After" 
+                                    : (i + 1) % 2 === 0 && this.state.isEnglish === "s" 
+                                        ? "Después"
+                                        : (i + 1) % 2 !== 0 && this.state.isEnglish === "e"
+                                            ? "Before"
+                                            : "Antes"
+                                    }
                                 </div>
                             );
                         })}

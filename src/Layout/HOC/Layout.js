@@ -5,7 +5,6 @@ import Footer from "../HeaderFooter/Footer";
 import { css } from "emotion";
 
 const Layout = props => {
-    const loginOmit = window.location.pathname === "/admin-login";
     const contact = window.location.pathname === "/contact";
     const home = window.location.pathname === "/";
     if (!home) {
@@ -14,11 +13,11 @@ const Layout = props => {
 
     return (
         <div>
-            { !loginOmit ? <Header /> : null }
+            <Header />
             <Aux>
                 { props.children }
             </Aux>
-            { loginOmit || contact ? null : <Footer background={backgroundColor}/> }
+            { contact ? null : <Footer background={backgroundColor}/> }
         </div>
     );
 };

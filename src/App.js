@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import cssApp from "./app.module.css";
-import axios from "axios";
-
+import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { authCheckState } from "./Redux/Actions/Auth";
-
-import { api } from "./Aux/apiLink";
+import { compose } from "redux";
+import { selectReviews } from "./Redux/Actions/Reviews";
+import { reviewLength } from "./Aux/apiLink";
 import Layout from "./Layout/HOC/Layout";
 import Home from "./Pages/Home/Home";
 import Services from "./Pages/Services/Services";
@@ -14,37 +12,16 @@ import Contact from "./Pages/Contact/Contact";
 // import Admin from "./Pages/Admin/Admin";
 
 class App extends Component {
-    state = {
-        customerReviews1: {
-            homePagePic: 0,
-            englishReview: "We Take Care of the Spiders",
-            spanishReview: "Cuidamos de las arañas",
-            url: null,
-            name: null,
-            social: null
-        }
-    };
-
     componentDidMount () {
-        this.userReviews(true);
-        this.props.onTryAutoSignUp();
+        this.userReviews();
     };
 
-    userReviews = (newPic) => {
-        let number;
-        newPic ? number = Math.floor(Math.random() * 3) : number = this.state.customerReviews1.homePagePic;
-        axios.get(`${api}/reviews`)
-            .then(res => {
-                this.setState({
-                    customerReviews1: {
-                        homePagePic: number,
-                        ...res.data[0]
-                    }
-                });
-            })
-            .catch(err => {
-                console.log(err);
-            });
+    userReviews = () => {
+        const number = Math.floor(Math.random() * reviewLength);
+        const number2 = number + 1 < reviewLength ? number + 1 : 0;
+        const number3 = number - 1 >= 0 ? number - 1 : reviewLength;
+        const threeNumbers = [number, number2, number3];
+        this.props.Reviews(threeNumbers);
     };
 
     NoPage = () => {
@@ -60,9 +37,7 @@ class App extends Component {
             <div className = { cssApp.body }>
                 <Layout>
                     <Switch>
-                        <Route
-                            exact path= "/"
-                            render={() => <Home { ...this.state.customerReviews1 } />} />
+                        <Route exact path= "/" component= { Home }/>} />
                         <Route exact path= "/contact" component= { Contact } />
                         <Route exact path= "/services" component= { this.serviceAbout } />
                         <Route exact path= "/services/:param" component= { Services } />
@@ -76,8 +51,11 @@ class App extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onTryAutoSignUp: () => dispatch(authCheckState())
+        Reviews: (three) => dispatch(selectReviews(three))
     };
 };
 
-export default withRouter(connect(null, mapDispatchToProps)(App));
+export default compose(
+    withRouter,
+    connect(null, mapDispatchToProps)
+)(App);

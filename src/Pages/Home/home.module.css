@@ -1,5 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
 
+.missionStatementDesktop{
+    top: 75px;
+    right: 155px;
+    text-align:left;
+    font-size: 1rem;
+    line-height: .5rem;
+    z-index: 500
+}
+
+.tinyAddress{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    margin-top: .5rem;
+    cursor: pointer;
+    color: #14A399;
+}
+
 .backgroundStyle {
     position:fixed;
     top:0px;
@@ -17,19 +35,29 @@
 
 .userReviewDesktop {
     position:absolute;
-    bottom:25%;
+    bottom:20%;
     left: 3%;
-    width:35%;
+    width:55%;
     text-shadow: 1px 1px 1px black; 
     border-radius: 15px;
     z-index: 5;
     font-family: 'Nunito', sans-serif;
     text-align: left;
     color: white;
-    font-size: 28px;
+    font-size: 24px;
     font-style: italic;
     opacity: 0;
     animation: container 2s .75s forwards;
+}
+
+.quoteGrid{
+    margin-top: 1rem;
+    font-size: 18px;
+    display: grid;
+    grid-row-gap: 1.5rem;
+    grid-column-gap: .5rem;
+    grid-template-columns: auto auto;
+    line-height: 36px;
 }
 
 @keyframes container {
@@ -80,6 +108,15 @@
     text-decoration: none;
 }
 
+.missionStatement{
+    margin-top: 1.25rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.5rem;
+}
+
 .indent  a:hover {
     color: white;
 }
@@ -107,12 +144,29 @@
 
   /* media queries */
 
+
+  @media screen and (min-width: 1099px){
+
+    .userReviewDesktop{
+        font-size: 30px;
+    }
+    .quoteGrid{
+        font-size: 24px;
+        line-height: 44px;
+    }
+  }
+
+  
+
   @media screen and (max-width: 750px){
 
     .userReviewDesktop {
-        bottom: 35%;
-        font-size: 24px;
-        
+        /* bottom: 35%; */
+        font-size: 22px;
+    }
+    .quoteGrid{
+        font-size: 16px;
+        line-height: 30px;
     }
   }
 
@@ -121,8 +175,11 @@
     .userReviewDesktop {
         bottom: 20%;
         font-size: 18px;
-        width: 40%
+        /* width: 40% */
         
+    }
+    .quoteGrid{
+        display:none;
     }
   }
 
@@ -141,6 +198,14 @@
 /* ============================================================ mobile starts here */
 
     @media screen and (max-width: 619px), (min-device-width: 767px) and (max-device-width: 1025px) and (orientation : portrait){
+
+        .quoteGrid{
+            margin-top:1.75rem;
+            border: 1px solid #FBAD4C;
+            padding: 10px;
+            text-align: center;
+            grid-column-gap: 2rem;
+        }
 
         .mobileMainLogo{
             width:80%;
@@ -297,8 +362,8 @@
     outline: none;
     background-color:#FBAD4B;
     border-radius: 15px;
-    margin-top: 2rem;
-    margin-bottom: 5rem;
+    margin-top: 3rem;
+    margin-bottom: 6rem;
     outline: none;
     text-decoration: none;
 }
@@ -307,11 +372,21 @@
     transform: scale(.75)
 }
 
+@media screen and (max-width: 399px){
+    .quoteGrid{
+        font-size:14px;
+        line-height: 24px;
+    }
+} 
 
 @media screen and (max-width: 359px){
     .userReviewMobile{
         font-size: 20px;
         margin-top: 1.25rem;
+    }
+
+    .tinyAddress{
+        font-size: 16px;
     }
 } 
 

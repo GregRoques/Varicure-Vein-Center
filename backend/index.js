@@ -7,8 +7,6 @@ const helmet = require("helmet");
 const reviews = require("./routes/reviews");
 const myContacts = require("./routes/personalData");
 // const login = require("./routes/login");
-const about = require("./routes/about");
-const faq = require("./routes/faq");
 
 const app = express();
 
@@ -20,8 +18,6 @@ app.use(bodyParser.json());
 
 app.use(reviews);
 app.use(myContacts);
-app.use(about);
-app.use(faq);
 
 app.use(express.static(path.join(__dirname, "build")));
 app.get("/*", (req, res, next) => {

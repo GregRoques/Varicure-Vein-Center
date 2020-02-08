@@ -7,6 +7,7 @@ import About from "./Components/About";
 import Results from "./Components/Results";
 
 class Services extends Component {
+
     NoSelection = () => {
         return <Redirect push to="/services/about"/>;
     };
@@ -20,8 +21,8 @@ class Services extends Component {
                 }
                 <ServicesLayout>
                     <Switch>
-                        <Route exact path="/services/about/" component={About} />
-                        <Route exact path="/services/faq/" component={Faq} />
+                        <Route exact path="/services/about/" component={ About } />
+                        <Route exact path="/services/faq/" component={ Faq } /> />
                         <Route exact path="/services/results/" component={Results} />
                     </Switch>
                 </ServicesLayout>

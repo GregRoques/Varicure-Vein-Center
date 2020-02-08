@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import cssServices from "../services.module.css";
-import axios from "axios";
 import ReactHtmlParser from "react-html-parser";
 import { connect } from "react-redux";
-import { api } from "../../../Aux/apiLink";
+import { faqAPI } from "../../../Aux/apiLink";
 
 class FAQ extends Component {
     state = {
@@ -18,22 +17,10 @@ class FAQ extends Component {
 
     getFAQ = () => {
         const language = this.props.isEnglish;
-        axios.get(`${api}/faq/${language}`)
-            .then(res => {
-                this.setState({
-                    QnA: [...res.data],
-                    isEnglish: language
-                });
-            })
-            .catch(err => {
-                console.log(err);
-                this.setState({
-                    QnA: [{
-                        question: "Loading Error – Please try back again later.\n",
-                        answer: "Error de Carga – Por favor vuelva más tarde."
-                    }]
-                });
-            });
+        this.setState({
+            QnA: faqAPI[language],
+            isEnglish: language
+        });
     };
 
     FAQs = props => {
@@ -66,6 +53,12 @@ class FAQ extends Component {
                         );
                     }) }
                 </div>
+                <div className={ cssServices.serviceTestimonial}>Testimonial</div>
+                <div className={ cssServices.quote}>
+                    "{ this.props.isEnglish === "e" ? this.props.Reviews.englishReview : this.props.Reviews.spanishReview }" {this.props.url
+                        ? <div className ={ cssServices.serviceIndent }>–<a href={this.props.Reviews.url} rel="noopener noreferrer" target="_blank">{this.props.Reviews.name} <img alt={this.props.Reviews.social} src={"/myImages/" + this.props.Reviews.social + ".png"} /></a> </div>
+                        : <div className ={ cssServices.serviceIndent }>–{this.props.Reviews.name} { this.props.Reviews.social ? <img alt={this.props.Reviews.social} src={"/myImages/" + this.props.Reviews.social + ".png"} /> : null} </div> }
+                    </div>
             </div>
         );
     }
@@ -73,7 +66,8 @@ class FAQ extends Component {
 
 const mapStateToProps = state => {
     return {
-        isEnglish: state.isEnglish.isEnglish
+        isEnglish: state.isEnglish.isEnglish,
+        Reviews: state.reviews.Reviews2
     };
 };
 
