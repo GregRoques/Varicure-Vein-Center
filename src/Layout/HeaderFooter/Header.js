@@ -5,7 +5,6 @@ import cssHeader from "./CSS/header.module.css";
 import { setLanguage } from "../../Redux/Actions/Language";
 import Modal from "./Modal";
 
-
 const isiPad = navigator.userAgent.match(/iPad/i) !== null;
 
 class Header extends Component {
@@ -18,11 +17,13 @@ class Header extends Component {
     };
 
     componentDidMount () {
-        if (window.location.pathname.includes("/services")) {
+        if (window.location.pathname.includes("/services") || window.location.pathname.includes("/reviews")) {
             this.setLogo();
         };
         window.addEventListener("scroll", this.logoScroll);
-        window.pageYOffset > 25 && window.location.pathname !== "/home" ? this.setState({ isScrolled: false }) : this.setState({ isScrolled: true });
+        window.pageYOffset > 25
+            ? this.setState({ isScrolled: false })
+            : this.setState({ isScrolled: true });
         window.addEventListener("resize", this.logoResize);
         window.innerWidth < 620 || (window.innerWidth > 767 && window.innerWidth < 1025 && (window.innerHeight > window.innerWidth) && isiPad)
             ? this.setState({ isResized: false })
@@ -33,16 +34,18 @@ class Header extends Component {
     };
 
     setLogo = () => {
-        if (this.props.history.location.pathname.includes("services") && this.state.isServicesLogo === false) {
+        if ((this.props.history.location.pathname.includes("services") || this.props.history.location.pathname.includes("reviews")) && this.state.isServicesLogo === false) {
             this.setState({ isServicesLogo: true });
         }
-        if (!this.props.history.location.pathname.includes("services") && this.state.isServicesLogo === true) {
+        if (!this.props.history.location.pathname.includes("services") && !this.props.history.location.pathname.includes("reviews") && this.state.isServicesLogo === true) {
             this.setState({ isServicesLogo: false });
         };
     }
 
     logoScroll = () => {
-        window.pageYOffset > 25 && window.location.pathname !== "/home" ? this.setState({ isScrolled: false }) : this.setState({ isScrolled: true });
+        window.pageYOffset > 25
+            ? this.setState({ isScrolled: false })
+            : this.setState({ isScrolled: true });
     };
 
     logoResize = () => {

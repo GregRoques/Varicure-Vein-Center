@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c&display=swap');
+
+.thankYou{
+    margin-top: 65px;
+    font-size: 4rem;
+    color: #FAAC4A;
+    text-shadow: 2px 3px 3px rgb(0,0,0,0.65);
+    font-family: 'Sriracha', cursive;
+}
+
+.thankYouParagraph{
+    font-size: 1.25rem;
+    color: gray;
+    line-height: 2rem;
+    margin: 0px 5rem 0px 5rem;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.shareHeader{
+    font-size: 2.5rem;
+    margin: 1.5rem 0px 1.5rem 0px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: #13A399;
+    font-weight: 900
+}

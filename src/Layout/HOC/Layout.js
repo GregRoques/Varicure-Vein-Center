@@ -5,7 +5,7 @@ import Footer from "../HeaderFooter/Footer";
 import { css } from "emotion";
 
 const Layout = props => {
-    const contact = window.location.pathname === "/contact";
+    const contact = window.location.pathname === "/contact"; // || window.location.pathname === "/reviews";
     const home = window.location.pathname === "/";
     if (!home) {
         var backgroundColor = css`background-color: rgb(19,163,153); color:white;`;
