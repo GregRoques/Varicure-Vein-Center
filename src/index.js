@@ -8,17 +8,26 @@ import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import RootReducer from "./Redux/RootReducers";
+import ReactGA from "react-ga";
 import { createBrowserHistory } from "history";
 
 import TagManager from "react-gtm-module";
-import { gtmId } from "./Aux/trackingIDs";
+import { gtmId, trackingId } from "./Aux/trackingIDs";
 
 const history = createBrowserHistory();
 
+ReactGA.initialize(trackingId);
+history.listen(location => {
+    ReactGA.set({
+        page: location.pathname
+    });
+    ReactGA.pageview(location.pathname);
+});
+
 const tagManagerArgs = {
     gtmId: gtmId
-}
-TagManager.initialize(tagManagerArgs)
+};
+TagManager.initialize(tagManagerArgs);
 
 const theStore = createStore(
     RootReducer,
