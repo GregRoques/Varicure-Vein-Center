@@ -5,7 +5,7 @@
     margin-top: 55px;
     font-size: 4rem;
     color: #FAAC4A;
-    text-shadow: 2px 3px 3px rgb(0,0,0,0.65);
+    text-shadow: 2px 3px 3px rgb(0,0,0,0.5);
     font-family: 'Sriracha', cursive;
 }
 
@@ -23,4 +23,30 @@
     font-family: 'M PLUS Rounded 1c', sans-serif;
     color: #13A399;
     font-weight: 900
+}
+
+.gglReview, .fbReview{
+    height:85px;
+    width:auto;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 3rem 3rem 0px 3rem;
+    transition:.5s
+}
+
+.gglReview:hover, .fbReview:hover{
+    transform: scale(.9)
+}
+
+.reviewSeperator{
+    margin-top: 3rem;
+    margin-bottom: 3rem
+}
+
+.reviewButtonContainer{
+    text-align:center;
+}
+
+.reviewsBody{
+    text-align: center;
 }
