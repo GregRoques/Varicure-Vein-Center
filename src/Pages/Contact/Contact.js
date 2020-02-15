@@ -4,7 +4,7 @@ import cssContact from "./contact.module.css";
 import Top from "./Components/ContactTop";
 import Hours from "./Components/Hours";
 import Map from "./Components/Map";
-import Message from "./Components/Message";
+// import Message from "./Components/Message";
 
 const currYear = (new Date()).getFullYear();
 
@@ -36,8 +36,8 @@ class Contact extends Component {
                     <div className={ cssContact.contactMagin}>
                         <Hours />
                         <hr/>
-                        <Message />
-                        <hr/>
+                        {/* <Message />
+                        <hr/> */}
                     </div>
                     <Map />
                     <div className={ cssContact.copyright}>

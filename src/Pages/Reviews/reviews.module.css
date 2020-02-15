@@ -2,10 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c&display=swap');
 
 .thankYou{
-    margin-top: 55px;
+    margin-top: 85px;
     font-size: 4rem;
     color: #FAAC4A;
-    text-shadow: 2px 3px 3px rgb(0,0,0,0.5);
+    /* text-shadow: 2px 3px 3px rgb(0,0,0,0.5); */
     font-family: 'Sriracha', cursive;
 }
 
@@ -40,7 +40,7 @@
 
 .reviewSeperator{
     margin-top: 3rem;
-    margin-bottom: 3rem
+    margin-bottom: 1rem
 }
 
 .reviewButtonContainer{
@@ -50,3 +50,71 @@
 .reviewsBody{
     text-align: center;
 }
+
+.mainPageBottom{
+    position: fixed;
+    width: 100%;
+    height: 25px;
+    bottom: 0px;
+    background-color: white;
+}
+
+.mobileSpace{
+    width:100%;
+    padding-top: 5rem;
+    visibility: hidden;
+}
+
+.reviewSocialEmail, .reviewSocialFacebook, .reviewSocialTwitter{
+    width: 75px;
+    margin: .5rem;
+    transition:.5s;
+    margin: 2rem 1.5rem 0px 1.5rem;
+}
+
+
+.reviewSocialEmail:hover, .reviewSocialFacebook:hover, .reviewSocialTwitter:hover{
+    transform: scale(.9)
+}
+
+.withFriendsHeader{
+    font-size: 3rem;
+    color: #FAAC4A;
+    text-align: center;
+    font-family: 'Sriracha', cursive;
+}
+
+@media screen and (max-width: 499px){
+    .thankYouParagraph{
+        font-size: 1rem;
+        color: gray;
+        line-height: 1.5rem;
+        margin: 0px 2rem 0px 2rem;
+        font-family: 'M PLUS Rounded 1c', sans-serif;
+    }
+
+    .withFriendsHeader{
+        font-size: 2rem;
+    }
+
+    .reviewSocialEmail, .reviewSocialFacebook, .reviewSocialTwitter{
+        margin: 1.5rem 1.5rem 0px 1.5rem;
+        width:50px;
+    }
+
+    .thankYou{
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 499px){
+    .withFriendsHeader{
+        font-size: 1.75rem;
+    }
+
+    .reviewSocialEmail, .reviewSocialFacebook, .reviewSocialTwitter{
+        margin: 1.25rem 1.25rem 0px 1.25rem;
+        width:50px;
+    }
+}
+
