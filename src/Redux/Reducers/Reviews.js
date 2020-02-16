@@ -3,7 +3,7 @@ import { reviewAPI } from "../../Aux/apiLink";
 
 const number = Math.floor(Math.random() * Object.keys(reviewAPI).length);
 const number2 = number + 1 < Object.keys(reviewAPI).length ? number + 1 : 0;
-const number3 = number - 1 >= 0 ? number - 1 : Object.keys(reviewAPI).length;
+const number3 = number - 1 >= 0 ? number - 1 : (Object.keys(reviewAPI).length) - 1;
 const threeNumbers = [number, number2, number3];
 
 const initialState = {
