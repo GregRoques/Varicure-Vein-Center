@@ -16,6 +16,24 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `personalData`
+--
+
+DROP TABLE IF EXISTS `personalData`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `personalData` (
+  `email` varchar(75) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `phone` varchar(12) DEFAULT NULL,
+  `date` varchar(7) NOT NULL,
+  `checked` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`email`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `personalData`
 --
 
@@ -26,6 +44,24 @@ INSERT INTO `personalData` VALUES ('adsf@df','adsf','0','2019-09',NULL),('af@dfa
 UNLOCK TABLES;
 
 --
+-- Table structure for table `Reviews`
+--
+
+DROP TABLE IF EXISTS `Reviews`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `Reviews` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `englishReview` varchar(100) NOT NULL,
+  `spanishReview` varchar(100) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `url` varchar(500) DEFAULT NULL,
+  `social` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `Reviews`
 --
 
@@ -34,6 +70,23 @@ LOCK TABLES `Reviews` WRITE;
 INSERT INTO `Reviews` VALUES (1,'Doctor Ruben is by far the best in disappearing veins.','\nEl doctor Ruben es, con mucho, el mejor en la desaparición de las venas.','Karen R.','https://www.yelp.com/biz/varicure-vein-center-miami-2?hrid=uqps8OA-ENMaOTI3VQ3ZuQ&utm_campaign=www_review_share_popup&utm_medium=copy_link&utm_source=(direct)','yelp'),(2,'If you are  looking for a doctor who really disappears the varicose veins, he\'s here. ','\nSi está buscando un médico que realmente desaparezca las venas varicosas, él está aquí.','Rosi S.','https://www.yelp.com/biz/varicure-vein-center-miami-2?hrid=dhHIlSW5ubXMfrOSGawJdw&utm_campaign=www_review_share_popup&utm_medium=copy_link&utm_source=(direct)','yelp'),(3,'I love my legs since the first visit.','\nAmo mis piernas desde la primera visita.','Rose S.','https://www.yelp.com/biz/varicure-vein-center-miami-2?hrid=dhHIlSW5ubXMfrOSGawJdw&utm_campaign=www_review_share_popup&utm_medium=copy_link&utm_source=(direct)','yelp'),(4,'The issues with my veins are in the past.','\nLos problemas con mis venas están en el pasado.','Juan L.',NULL,'Google');
 /*!40000 ALTER TABLE `Reviews` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `users` (
+  `email` varchar(50) NOT NULL,
+  `userId` varchar(25) NOT NULL,
+  `hash` varchar(500) NOT NULL,
+  `idToken` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`email`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `users`
@@ -54,4 +107,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-16 12:15:40
+-- Dump completed on 2020-02-16 12:16:26
