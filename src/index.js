@@ -12,11 +12,21 @@ import ReactGA from "react-ga";
 import { createBrowserHistory } from "history";
 
 import TagManager from "react-gtm-module";
-import { gtmId, trackingId } from "./Aux/trackingIDs";
+import { gtmId, trackingId1, trackingId2 } from "./Aux/trackingIDs";
 
 const history = createBrowserHistory();
 
-ReactGA.initialize(trackingId);
+// ReactGA.initialize(trackingId1);
+// ReactGA.ga("create", trackingId2, "auto", { "name": "trackingId2Ads" });
+ReactGA.initialize([{
+    trackingId: trackingId1,
+    gaOptions: {
+        name: "siteTracker"
+    }
+}, {
+    trackingId: trackingId2,
+    gaOptions: { name: "adTracker" }
+}], { debug: true, alwaysSendToDefaultTracker: false });
 history.listen(location => {
     ReactGA.set({
         page: location.pathname
