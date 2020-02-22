@@ -4,7 +4,6 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
 
-const reviews = require("./routes/reviews");
 const myContacts = require("./routes/personalData");
 // const login = require("./routes/login");
 
@@ -16,7 +15,6 @@ app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(reviews);
 app.use(myContacts);
 
 app.use(express.static(path.join(__dirname, "build")));
