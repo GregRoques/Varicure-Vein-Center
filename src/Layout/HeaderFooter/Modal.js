@@ -17,10 +17,10 @@ const Modal = ({ isOpen, close, isEnglish, languageToggle, isFadeOut }) => {
                     <Link to= "/services/about">{ isEnglish === "e" ? "• About Us" : "• Quienes somos" }</Link>
                 </span>
                 <span className={ cssModal.subService } onClick={ () => close("/services/faq")} >
-                    <Link to= "/services/faq">• FAQ</Link>
+                    <Link to= "/services/faq">{ isEnglish === "e" ? "• FAQ" : "• Preguntas" }</Link>
                 </span>
                 <span className={ cssModal.subService } onClick={ () => close("/services/results") } >
-                    <Link to= "/services/results">{ isEnglish === "e" ? "• Results" : "• Resultados" }</Link>
+                    <Link to= "/services/results">{ isEnglish === "e" ? "• Results" : "• Fotos" }</Link>
                 </span>
                 <span className={ cssModal.subService} onClick={ () => close("/contact") }t>
                     <Link to= "/contact">{ isEnglish === "e" ? "• Contact" : "• Informacion" }</Link>

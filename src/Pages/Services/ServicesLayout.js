@@ -5,7 +5,7 @@ import cssServices from "./services.module.css";
 
 const selections = {
     e: ["About", "FAQ", "Results"],
-    s: ["Quienes Somos", "FAQ", "Resultados"]
+    s: ["Quienes Somos", "Preguntas", "Fotos"]
 };
 
 class ServicesLayout extends Component {
