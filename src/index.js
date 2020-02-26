@@ -16,23 +16,8 @@ import { gtmId, trackingId1, trackingId2 } from "./Aux/trackingIDs";
 
 const history = createBrowserHistory();
 
-// ReactGA.initialize(trackingId1);
-// ReactGA.ga("create", trackingId2, "auto", { "name": "trackingId2Ads" });
-ReactGA.initialize([{
-    trackingId: trackingId1,
-    gaOptions: {
-        name: "siteTracker"
-    }
-}, {
-    trackingId: trackingId2,
-    gaOptions: { name: "adTracker" }
-}], { debug: true, alwaysSendToDefaultTracker: false });
-history.listen(location => {
-    ReactGA.set({
-        page: location.pathname
-    });
-    ReactGA.pageview(location.pathname);
-});
+ReactGA.initialize(trackingId1);
+ReactGA.initialize(trackingId2);
 
 const tagManagerArgs = {
     gtmId: gtmId

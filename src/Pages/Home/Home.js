@@ -10,7 +10,7 @@ import { homePageDescription } from "../../Aux/apiLink";
 
 const isiPad = navigator.userAgent.match(/iPad/i) !== null;
 const categories = ["About", "FAQ", "Results"];
-const spanishCategories = ["Acerca", "FAQ", "Resultados"];
+const spanishCategories = ["Quienes somos", "Preguntas", "Fotos"];
 
 const dayNum = (new Date()).getDay();
 const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
