@@ -17,6 +17,13 @@ import { gtmId, trackingId1, trackingId2 } from "./Aux/trackingIDs";
 const history = createBrowserHistory();
 
 ReactGA.initialize(trackingId1);
+history.listen(location => {
+    ReactGA.set({
+        page: location.pathname
+    });
+    ReactGA.pageview(location.pathname);
+});
+
 ReactGA.initialize(trackingId2);
 
 const tagManagerArgs = {
