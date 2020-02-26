@@ -16,12 +16,18 @@ import { gtmId, trackingId1, trackingId2 } from "./Aux/trackingIDs";
 
 const history = createBrowserHistory();
 
-ReactGA.initialize([trackingId1, trackingId2]);
+ReactGA.initialize([
+    {
+        trackingId: trackingId1,
+        gaOptions: { name: "webTracker" }
+    },
+    { trackingId: trackingId2 }
+]);
 history.listen(location => {
     ReactGA.set({
         page: location.pathname
     });
-    ReactGA.pageview(location.pathname);
+    ReactGA.pageview(location.pathname, "webTracker");
 });
 
 const tagManagerArgs = {
