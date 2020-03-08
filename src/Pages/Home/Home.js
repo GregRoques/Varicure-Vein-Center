@@ -19,6 +19,8 @@ const hoy = dias[dayNum];
 const today = days[dayNum];
 let time;
 
+
+
 if (dayNum === 5) {
     time = "9a – 3p";
 } else if (dayNum === 6 || dayNum === 0) {
@@ -38,7 +40,6 @@ class Home extends Component {
         isResized: false,
         fadeOut: [false, false, false],
         isRedirect: false,
-        redirectLink: ""
     }
 
     componentDidMount () {
@@ -48,6 +49,10 @@ class Home extends Component {
             ? this.setState({ isResized: true }) 
             : this.setState({ isResized: false });
     };
+
+    keyboardEvent = () => {
+        document.getElementById("my video").click();
+      }
 
     UserReview = ({ classType, isEnglish }) => {
         return (
@@ -110,15 +115,14 @@ class Home extends Component {
     }
 
     render () {
-        const backgroundImage = css`
-        background-image: url("/${this.props.Reviews.newPic}.jpg");`;
-        const cssJoin = [backgroundImage, cssHome.backgroundIn, cssHome.backgroundStyle];
+
         return (
             <div>
                 { this.state.isRedirect && <Redirect push to={this.state.redirectLink}/> }
                 { !this.state.isResized
                     ? <div className={ cssHome.notMobile}>
-                        <div className={ cssJoin.join(" ")}>
+                        <div>
+                        <video src="video.mp4" className={ cssHome.backgroundStyle } type="video/mp4" autoPlay muted loop="loop"/>
                             <div className={cssHome.userReviewDesktop}>
                                     <this.practiceDescription/>
                             </div>

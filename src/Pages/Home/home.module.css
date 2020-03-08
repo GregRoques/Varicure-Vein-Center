@@ -19,18 +19,19 @@
 }
 
 .backgroundStyle {
-    position:fixed;
-    top:0px;
-    bottom:0;
-    right:0;
-    left:0;
-    width: auto;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom right;
-    height: 100%;
-    width:auto;
     overflow-x: hidden;
+    position:fixed;
+   
+    bottom:0;
+    /* right:0; */
+    left:0;
+    bottom: 0;
+    width: 100%;
+    background-image: url(/video.mp4);
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    animation-name: backgroundIn;
+    animation-duration:2s;
 }
 
 .userReviewDesktop {
@@ -58,6 +59,7 @@
     grid-column-gap: .5rem;
     grid-template-columns: auto auto;
     line-height: 36px;
+    overflow: hidden;
 }
 
 @keyframes container {
@@ -69,11 +71,6 @@
         opacity:1;
         transform: scale(1)
     }
-}
-
-.backgroundIn{
-    animation-name: backgroundIn;
-    animation-duration:2s;
 }
 
 @keyframes backgroundIn{
@@ -390,3 +387,34 @@
     }
 } 
 
+/* _______________ */
+
+/* video style */
+
+@media (min-aspect-ratio: 16/9) {
+    .backgroundStyle {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  @media (max-aspect-ratio: 16/9) {
+    .backgroundStyle {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+@media (min-aspect-ratio: 16/9) {
+    .backgroundStyle {
+      height: 300%;
+      top: -100%;
+    }
+  }
+  
+  @media (max-aspect-ratio: 16/9) {
+    .backgroundStyle {
+      width: 300%;
+      left: -100%;
+    }
+  }

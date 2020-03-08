@@ -8,7 +8,6 @@ const threeNumbers = [number, number2, number3];
 
 const initialState = {
     Reviews1: {
-        newPic: 1,
         englishReview: "We Take Care of the Spiders",
         spanishReview: "Cuidamos de las arañas",
         url: null,
@@ -37,7 +36,6 @@ const reviewReducer = (state = initialState, action) => {
             return {
                 ...state,
                 Reviews1: {
-                    newPic: Math.floor(Math.random() * 2),
                     ...reviewAPI[threeNumbers[0]]
                 },
                 Reviews2: {
