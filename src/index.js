@@ -3,10 +3,9 @@ import ReactDOM from "react-dom";
 import { Router } from "react-router-dom";
 import "./index.css";
 import App from "./App";
-import { createStore, applyMiddleware } from "redux";
+import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import thunk from "redux-thunk";
 import RootReducer from "./Redux/RootReducers";
 import ReactGA from "react-ga";
 import { createBrowserHistory } from "history";
@@ -37,9 +36,7 @@ TagManager.initialize(tagManagerArgs);
 
 const theStore = createStore(
     RootReducer,
-    composeWithDevTools(
-        applyMiddleware(thunk)
-    )
+    composeWithDevTools()
 );
 
 ReactDOM.render(

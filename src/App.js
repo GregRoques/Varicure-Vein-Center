@@ -9,7 +9,6 @@ import Home from "./Pages/Home/Home";
 import Services from "./Pages/Services/Services";
 import Contact from "./Pages/Contact/Contact";
 import Reviews from "./Pages/Reviews/Reviews";
-// import Admin from "./Pages/Admin/Admin";
 
 class App extends Component {
     componentDidMount () {

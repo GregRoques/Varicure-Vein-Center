@@ -122,7 +122,7 @@ class Home extends Component {
                 { !this.state.isResized
                     ? <div className={ cssHome.notMobile}>
                         <div>
-                        <video src="video.mp4" className={ cssHome.backgroundStyle } type="video/mp4" autoPlay muted loop="loop"/>
+                        <video src="video.mp4" className={ cssHome.backgroundStyle } type="video/mp4" autoPlay  muted loop="loop"/>
                             <div className={cssHome.userReviewDesktop}>
                                     <this.practiceDescription/>
                             </div>
