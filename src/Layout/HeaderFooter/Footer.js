@@ -15,7 +15,7 @@ if (dayNum === 5) {
 } else if (dayNum === 6 || dayNum === 0) {
     time = "Closed";
 } else {
-    time = "8a – 6p";
+    time = "9a – 5p";
 };
 
 const Footer = props => {
