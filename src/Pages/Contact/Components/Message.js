@@ -49,14 +49,14 @@ class Message extends Component {
                     }) : Swal.fire({
                         icon: "error",
                         title: "Oops...",
-                        text: "Something went wrong. Please try again later!"
+                        text: "Something went wrong. You can still email us at info@varicure.com."
                     });
             })
             .catch(() => {
                 Swal.fire({
                     icon: "error",
                     title: "Oops...",
-                    text: "Something went wrong. Please try again later!"
+                    text: "Something went wrong. You can still email us at info@varicure.com."
                 });
             });
         await this.setState({

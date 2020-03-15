@@ -22,6 +22,7 @@ app.get("/*", (req, res, next) => {
 });
 
 const PORT = 2000;
-app.listen(PORT, () => {
+const LOCAL = "127.0.0.1";
+app.listen(PORT, LOCAL, () => {
     console.log("Listening on ", PORT);
 });
