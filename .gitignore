@@ -2,7 +2,7 @@
 
 # dependencies
 /backend/util
-/backend/node_modules
+
 /node_modules
 /src/Aux
 /.pnp
