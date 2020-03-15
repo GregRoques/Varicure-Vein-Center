@@ -22,7 +22,7 @@ app.get("/*", (req, res, next) => {
 });
 
 const PORT = 2000;
-const LOCAL = "127.0.0.1";
-app.listen(PORT, LOCAL, () => {
+// const LOCAL = "127.0.0.1";
+app.listen(PORT, () => {
     console.log("Listening on ", PORT);
 });
