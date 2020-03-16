@@ -60,14 +60,37 @@ input:placeholder-shown, textarea:placeholder-shown{
     cursor: pointer;
 }
 
-.radioBoxes{
+.sendingContainer{
     margin: 10px 0px 10px 25px;
     width: 80%;
-    line-height: 20px;
-    color: gray;
+    color: #13A399;
     padding: 0px 10px 0px 10px;
-    font-size: 14px;
+    font-size: 18px;
     text-align: center;
+}
+
+.sending1 {
+    opacity: 0;
+    -webkit-animation: addDot 2s infinite;
+    -webkit-animation-delay: 0.0s;
+    animation: addDot 2s infinite;
+    animation-delay: 0.0s;
+}
+
+.sending2 {
+    opacity: 0;
+    -webkit-animation: addDot 2s infinite;
+    -webkit-animation-delay: 0.25s;
+      animation: addDot 2s infinite;
+      animation-delay: 0.25s;
+}
+
+.sending3 {
+    opacity: 0;
+    -webkit-animation: addDot 2s infinite;
+    -webkit-animation-delay: 0.35s;
+     animation: addDot 2s infinite;
+     animation-delay: 0.35s;
 }
 
 .radioBoxes input{

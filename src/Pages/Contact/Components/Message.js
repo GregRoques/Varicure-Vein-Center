@@ -10,7 +10,8 @@ class Message extends Component {
         name: "",
         email: "",
         phone: "",
-        message: ""
+        message: "",
+        loading: false
     };
 
     onChangeHandler = e => {
@@ -31,41 +32,52 @@ class Message extends Component {
         );
     };
 
-    onSubmitHanlder = async e => {
+    onSubmitHanlder = e => {
         e.preventDefault();
-        const { name, email, phone, message } = this.state;
-        axios.post(`${api}/personalData`, {
-            name,
-            email,
-            phone,
-            message
-        })
-            .then(res => {
-                res.data === "Yes"
-                    ? Swal.fire({
-                        icon: "success",
-                        title: "Hurray!",
-                        text: "Your Email has been sent!"
-                    }) : Swal.fire({
+        if (this.state.loading === false) {
+            this.setState({
+                loading: true
+            });
+            const { name, email, phone, message } = this.state;
+            axios.post(`${api}/personalData`, {
+                name,
+                email,
+                phone,
+                message
+            })
+                .then(res => {
+                    res.data === "Yes"
+                        ? Swal.fire({
+                            icon: "success",
+                            title: "Hurray!",
+                            text: "Your Email has been sent!"
+                        }) : Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "Something went wrong. You can still email us at info@varicure.com."
+                        });
+                    this.clearSubmitted();
+                })
+                .catch(() => {
+                    Swal.fire({
                         icon: "error",
                         title: "Oops...",
                         text: "Something went wrong. You can still email us at info@varicure.com."
                     });
-            })
-            .catch(() => {
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Something went wrong. You can still email us at info@varicure.com."
+                    this.clearSubmitted();
                 });
-            });
-        await this.setState({
+        }
+    };
+
+    clearSubmitted = () => {
+        this.setState({
             name: "",
             email: "",
             phone: "",
-            message: ""
+            message: "",
+            loading: false
         });
-    };
+    }
 
     render () {
         return (
@@ -83,10 +95,11 @@ class Message extends Component {
                     <input className={ cssMessage.shortForm } type="text" name="name" placeholder={ this.props.isEnglish === "e" ? "Full Name" : "Nombre Completo" } value={ this.state.name } required/> <br/>
                     <input className={ cssMessage.shortForm } type="email" name="email" placeholder={ this.props.isEnglish === "e" ? "Email" : "Correo Electrónico" } value={ this.state.email } required/> <br/>
                     <input className={ cssMessage.shortForm } type="tel" maxLength="14" name="phone" placeholder={ this.props.isEnglish === "e" ? "Phone (Optional)" : "Telefono (Opcion)" } value={ this.state.phone }/> <br/>
-                    {/* <div className={ cssMessage.radioBoxes }>
-                        <input className={ cssMessage.radio } type="checkbox" name="checked" value="True"/>
-                        { this.props.isEnglish === "e" ? <span>Recieve occasional e-mail updates from Varicure Vein Center.</span> : <span>Reciba actualizaciones ocasionales por correo electrónico de VariCure.</span> }
-                    </div> */}
+                    { this.state.loading === "true"
+                        ? <div className={ cssMessage.sendingContainer }>
+                            Sending<span className={cssMessage.sending1}>.</span><span className={cssMessage.sending2}>.</span><span className={cssMessage.sending3}>.</span>
+                        </div> : null
+                    }
                 </div>
                 <div>
                     <textarea className={ cssMessage.messageForm} type="text" name="message" placeholder={ this.props.isEnglish === "e" ? "Message" : "Mensaje" } value={ this.state.message } required/>
