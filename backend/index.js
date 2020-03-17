@@ -3,6 +3,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
 const myContacts = require("./routes/personalData");
 
@@ -21,8 +22,14 @@ app.get("/*", (req, res, next) => {
     res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
+app.use(
+    "/api",
+    createProxyMiddleware({
+        target: "http://www.varicureveincenter.com",
+        changeOrigin: true
+    }));
+
 const PORT = 2000;
-// const LOCAL = "127.0.0.1";
 app.listen(PORT, () => {
     console.log("Listening on ", PORT);
 });

@@ -29,7 +29,7 @@ router.post("/personalData", (req, res, next) => {
 
 
     transporter.sendMail({
-        to: "gregg@gregroques.com",
+        to: "gregg@gregroques.com, info@varicure.com",
         from: email,
         subject: `${name} has a question for Dr. Gurvich`,
         html: `<b>From:</b> ${name} <br/> 
