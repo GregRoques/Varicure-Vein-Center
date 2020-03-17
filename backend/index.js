@@ -3,13 +3,17 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
-const { createProxyMiddleware } = require("http-proxy-middleware");
+// const { createProxyMiddleware } = require("http-proxy-middleware");
 
 const myContacts = require("./routes/personalData");
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+    origin: "http://www.varicureveincenter.com"
+};
+
+app.use(cors(corsOptions));
 app.use(helmet());
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -22,12 +26,12 @@ app.get("/*", (req, res, next) => {
     res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
-app.use(
-    "/personalData",
-    createProxyMiddleware({
-        target: "http://localhost:2000",
-        changeOrigin: true
-    }));
+// app.use(
+//     "/personalData",
+//     createProxyMiddleware({
+//         target: "http://localhost:2000",
+//         changeOrigin: true
+//     }));
 
 const PORT = 2000;
 app.listen(PORT, () => {
