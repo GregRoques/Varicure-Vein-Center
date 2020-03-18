@@ -25,7 +25,7 @@ app.get("/*", (req, res, next) => {
 app.use(
     "/",
     createProxyMiddleware({
-        target: "https://www.varicureveincenter.com",
+        target: "http://localhost:2000",
         changeOrigin: true
     }));
 
