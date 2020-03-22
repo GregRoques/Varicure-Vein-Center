@@ -2,6 +2,7 @@ import React from "react";
 import Aux from "./Aux";
 import Header from "../HeaderFooter/Header";
 import Footer from "../HeaderFooter/Footer";
+import Corona from "../CoronaUpdate/CaronaPopUp";
 import { css } from "emotion";
 
 const Layout = props => {
@@ -17,6 +18,7 @@ const Layout = props => {
             <Aux>
                 { props.children }
             </Aux>
+            <Corona />
             { contact ? null : <Footer background={backgroundColor}/> }
         </div>
     );

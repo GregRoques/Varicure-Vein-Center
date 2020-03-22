@@ -1,0 +1,74 @@
+.frame{
+    position: absolute;
+    bottom:0;
+    right: 1rem;
+    z-index: 250;
+    overflow: hidden;
+}
+
+.closeButton{
+    font-size: 18px;
+    width:28px;
+    background-color: white;
+    padding:5px;
+    margin: 0px auto 8px auto;
+    animation: closeFade 10s forwards;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.picture{
+    width: 300px;
+    height: 300px;
+    animation: corona 10s forwards;
+}
+
+@keyframes corona{
+    0%{
+        transform: translateY(100%)
+    }
+    10%{
+        transform: translateY(0%);
+    }
+    90%{
+        transform: translateY(0%);
+    }
+    100%{
+        transform: translateY(100%);
+        
+    }
+
+}
+
+@keyframes closeFade{
+    0%{
+        opacity: 0
+    }
+    10%{
+        opacity: 0
+    }
+    20%{
+        opacity: 1
+    }
+    80%{
+        opacity: 1
+    }
+    90%{
+        opacity: 0
+    }
+    100%{
+        opacity: 0
+        
+    }
+
+}
+
+@media screen and (max-width: 620px){
+    .frame{
+        
+        left: 0;
+        right: 0;
+        margin: auto
+    }
+    
+}
