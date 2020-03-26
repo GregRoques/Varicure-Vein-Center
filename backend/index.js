@@ -3,7 +3,6 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
-const { createProxyMiddleware } = require("http-proxy-middleware");
 
 const myContacts = require("./routes/personalData");
 
@@ -19,15 +18,8 @@ app.use(myContacts);
 
 app.use(express.static(path.join(__dirname, "build")));
 app.get("/*", (req, res, next) => {
-    res.sendFile(path.join(__dirname, "build", "index.html"));
+    res.sendFile(path.join(__dirname, "index.html"));
 });
-
-app.use(
-    "/",
-    createProxyMiddleware({
-        target: "http://localhost:2000",
-        changeOrigin: true
-    }));
 
 const PORT = 2000;
 app.listen(PORT, () => {
