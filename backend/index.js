@@ -16,9 +16,9 @@ app.use(bodyParser.json());
 
 app.use(myContacts);
 
-app.use(express.static(path.join(__dirname, "build")));
+app.use(express.static(path.join(__dirname, "public")));
 app.get("/*", (req, res, next) => {
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 const PORT = 2000;
