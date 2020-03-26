@@ -26,7 +26,7 @@ router.post("/personalData", (req, res, next) => {
     const { name, email, phone, message } = req.body;
     const phoneEdit = phoneFormat(phone);
     const sendDate = new Date().toISOString().slice(0, 10);
-
+    console.log(name, email, phone, message)
 
     transporter.sendMail({
         to: "gregg@gregroques.com, info@varicure.com",
