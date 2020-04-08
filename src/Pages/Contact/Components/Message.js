@@ -101,7 +101,7 @@ class Message extends Component {
                     { this.state.loading === true
                         ? <div className={ cssMessage.sendingContainer }>
                             Sending<span className={cssMessage.sending1}>.</span><span className={cssMessage.sending2}>.</span><span className={cssMessage.sending3}>.</span>
-                        </div> : <input className={ cssMessage.shortForm } type="tel" maxLength="14" name="subject" placeholder={ this.props.isEnglish === "e" ? "Subject" : "Sujeto" } value={ this.state.subject}/>
+                        </div> : <input className={ cssMessage.shortForm } type="tel" maxLength="14" name="subject" placeholder={ this.props.isEnglish === "e" ? "Subject" : "Sujeto" } value={ this.state.subject} required/>
                     }
                 </div>
                 <div>
