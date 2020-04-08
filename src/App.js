@@ -32,7 +32,7 @@ class App extends Component {
             <div className = { cssApp.body }>
                 <Layout>
                     <Switch>
-                        <Route exact path= "/" component= { Home }/>} />
+                        <Route exact path= "/" component= { Home }/>
                         <Route exact path= "/contact" component= { Contact } />
                         <Route exact path= "/services" component= { this.serviceAbout } />
                         <Route exact path= "/services/:param" component= { Services } />

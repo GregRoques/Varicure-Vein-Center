@@ -10,10 +10,10 @@ const Modal = ({ isOpen, close, isEnglish, languageToggle, isFadeOut }) => {
                 <span className={ cssModal.parent } onClick={ languageToggle }>
                     { isEnglish === "e" ? "¿Español?" : "English?" }
                 </span>
-                <span className={ cssModal.subService  } onClick={ () => close("close")}>
+                <span className={ cssModal.subService } onClick={ () => close("close")}>
                     <Link to= "/">{ isEnglish === "e" ? "• Home" : "• Principal" }</Link>
                 </span>
-                <span className={ cssModal.subService  } onClick={ () => close("close")}>
+                <span className={ cssModal.subService } onClick={ () => close("close")}>
                     <Link to= "/services/about">{ isEnglish === "e" ? "• About Us" : "• Quienes somos" }</Link>
                 </span>
                 <span className={ cssModal.subService } onClick={ () => close("/services/faq")} >
@@ -25,7 +25,7 @@ const Modal = ({ isOpen, close, isEnglish, languageToggle, isFadeOut }) => {
                 <span className={ cssModal.subService} onClick={ () => close("/contact") }t>
                     <Link to= "/contact">{ isEnglish === "e" ? "• Contact" : "• Informacion" }</Link>
                 </span>
-                
+
                 <div className = {cssModal.modalContact }>
                     <div><a href="tel:305-284-8090">
                         <b>(305) 284-8090</b>

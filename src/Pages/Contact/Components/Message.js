@@ -11,6 +11,7 @@ class Message extends Component {
         email: "",
         phone: "",
         message: "",
+        subject: "",
         loading: false
     };
 
@@ -38,12 +39,13 @@ class Message extends Component {
             this.setState({
                 loading: true
             });
-            const { name, email, phone, message } = this.state;
+            const { name, email, phone, message, subject } = this.state;
             axios.post(`${api}/personalData`, {
                 name,
                 email,
                 phone,
-                message
+                message,
+                subject
             })
                 .then(res => {
                     res.data === "Yes"
@@ -75,6 +77,7 @@ class Message extends Component {
             email: "",
             phone: "",
             message: "",
+            subject: "",
             loading: false
         });
     }
@@ -98,7 +101,7 @@ class Message extends Component {
                     { this.state.loading === true
                         ? <div className={ cssMessage.sendingContainer }>
                             Sending<span className={cssMessage.sending1}>.</span><span className={cssMessage.sending2}>.</span><span className={cssMessage.sending3}>.</span>
-                        </div> : null
+                        </div> : <input className={ cssMessage.shortForm } type="tel" maxLength="14" name="subject" placeholder={ this.props.isEnglish === "e" ? "Subject" : "Sujeto" } value={ this.state.subject}/>
                     }
                 </div>
                 <div>

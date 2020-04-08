@@ -23,14 +23,14 @@ const phoneFormat = ph => {
 
 
 router.post("/personalData", (req, res, next) => {
-    const { name, email, phone, message } = req.body;
+    const { name, email, phone, message, subject } = req.body;
     const phoneEdit = phoneFormat(phone);
     const sendDate = new Date().toISOString().slice(0, 10);
 
     transporter.sendMail({
         to: "gregg@gregroques.com, info@varicure.com",
         from: email,
-        subject: `${name} has a question for Dr. Gurvich`,
+        subject: `${subject}`,
         html: `<b>From:</b> ${name} <br/> 
         <b>Email:</b> ${email} <br/>
         ${phoneEdit.length > 2 ? "<b>Phone:</b> " + phoneEdit + "<br/>" : null}
