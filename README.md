@@ -24,6 +24,7 @@ Company website for Miami-based healthcare business.
 ### Front End
 * npx i create-react-app
 * npm i react-router-dom
+* npm i react-html-parser
 * npm i redux react-redux redux-devtools-extension
 * npm i axios
 * npm i emotions (CSS styling with JavaScript)
