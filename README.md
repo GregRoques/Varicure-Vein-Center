@@ -46,10 +46,8 @@ Company website for Miami-based healthcare business.
 ## Stretch Goals
 * Add online booking option for site visitors and integrate with company calendar.
 
-## Images
+## Desktop/Mobile Preview
+### Click image below to view video
 
-### Home Page
-![home page](/nonessential/ReadMePics/1.png)
+[![desktop and mobile video](/nonessential/ReadMePics/1.png)](https://youtu.be/gYZEp7zgvIw)
 
-### Contact Page
-![contact page](/nonessential/ReadMePics/2.jpg)
