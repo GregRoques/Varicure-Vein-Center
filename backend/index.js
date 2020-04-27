@@ -21,9 +21,6 @@ app.get("/*", (req, res, next) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// const myProxy = createProxyMiddleware("https://www.varicureveincenter.com/");
-// app.use(myProxy);
-
 const PORT = 2000;
 app.listen(PORT, () => {
     console.log("Listening on ", PORT);
