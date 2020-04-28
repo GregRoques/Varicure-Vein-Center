@@ -8,7 +8,7 @@ import cssHome from "./home.module.css";
 import parse from "html-react-parser";
 import { homePageDescription } from "../../Aux/apiLink";
 
-const isiPad = navigator.userAgent.match(/iPad/i) !== null;
+const isTablet = (/tablet|ipad|kindle/i).test(navigator.userAgent.toLowerCase());
 const categories = ["About", "FAQ", "Results"];
 const spanishCategories = ["Quienes somos", "Preguntas", "Fotos"];
 
@@ -45,7 +45,7 @@ class Home extends Component {
     componentDidMount () {
         window.scrollTo(0, 0);
         window.addEventListener("resize", this.logoResize);
-        window.innerWidth < 620 || (window.innerWidth > 767 && window.innerWidth < 1025 && (window.innerHeight > window.innerWidth) && isiPad)
+        window.innerWidth < 620 || ((window.innerHeight > window.innerWidth) && isTablet)
             ? this.setState({ isResized: true }) 
             : this.setState({ isResized: false });
     };
@@ -65,7 +65,7 @@ class Home extends Component {
     };
 
     logoResize = () => {
-        window.innerWidth < 620 || (window.innerWidth > 767 && window.innerWidth < 1025 && (window.innerHeight > window.innerWidth) && isiPad)
+        window.innerWidth < 620 || ((window.innerHeight > window.innerWidth) && isTablet)
             ? this.setState({ isResized: true }) 
             : this.setState({ isResized: false });
     };

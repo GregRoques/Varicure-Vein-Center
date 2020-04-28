@@ -5,7 +5,7 @@ import cssHeader from "./CSS/header.module.css";
 import { setLanguage } from "../../Redux/Actions/Language";
 import Modal from "./Modal";
 
-const isiPad = navigator.userAgent.match(/iPad/i) !== null;
+const isTablet = (/tablet|ipad|kindle/i).test(navigator.userAgent.toLowerCase());
 
 class Header extends Component {
     state = {
@@ -25,7 +25,7 @@ class Header extends Component {
             ? this.setState({ isScrolled: false })
             : this.setState({ isScrolled: true });
         window.addEventListener("resize", this.logoResize);
-        window.innerWidth < 620 || (window.innerWidth > 767 && window.innerWidth < 1025 && (window.innerHeight > window.innerWidth) && isiPad)
+        window.innerWidth < 620 || ((window.innerHeight > window.innerWidth) && isTablet)
             ? this.setState({ isResized: false })
             : this.setState({ isResized: true });
         this.props.history.listen(location => {
@@ -49,7 +49,7 @@ class Header extends Component {
     };
 
     logoResize = () => {
-        window.innerWidth < 620 || (window.innerWidth > 767 && window.innerWidth < 1025 && (window.innerHeight > window.innerWidth) && isiPad)
+        window.innerWidth < 620 || ((window.innerHeight > window.innerWidth) && isTablet)
             ? this.setState({ isResized: false })
             : this.setState({ isResized: true });
     };
