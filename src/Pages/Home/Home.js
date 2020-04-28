@@ -8,7 +8,7 @@ import cssHome from "./home.module.css";
 import parse from "html-react-parser";
 import { homePageDescription } from "../../Aux/apiLink";
 
-const isTablet = (/tablet|ipad|kindle/i).test(navigator.userAgent.toLowerCase());
+const isTablet = (/tablet|ipad|kindle/i).test(navigator.userAgent.toLowerCase()) || ((navigator.platform === 'MacIntel' || navigator.platform === "Macintosh" ) && navigator.maxTouchPoints > 1 && !window.MSStream);
 const categories = ["About", "FAQ", "Results"];
 const spanishCategories = ["Quienes somos", "Preguntas", "Fotos"];
 

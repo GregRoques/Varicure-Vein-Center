@@ -5,7 +5,7 @@ import cssHeader from "./CSS/header.module.css";
 import { setLanguage } from "../../Redux/Actions/Language";
 import Modal from "./Modal";
 
-const isTablet = (/tablet|ipad|kindle/i).test(navigator.userAgent.toLowerCase());
+const isTablet = (/tablet|ipad|kindle/i).test(navigator.userAgent.toLowerCase()) || ((navigator.platform === 'MacIntel' || navigator.platform === "Macintosh" ) && navigator.maxTouchPoints > 1 && !window.MSStream);
 
 class Header extends Component {
     state = {
