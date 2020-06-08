@@ -86,7 +86,7 @@ class instaGallery extends Component {
             </a> 
         </div>
         <div className={instaCss.postCount}>
-            <b>Posts:</b> {this.state.user.postCount}
+            {/* <b>Posts:</b> {this.state.user.postCount} */}
         </div>
         <div className={instaCss.hitemwiththatflexRow}>
             <div className={instaCss.hitemwiththatflexColumn1}>

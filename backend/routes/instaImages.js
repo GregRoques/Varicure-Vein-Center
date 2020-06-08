@@ -13,7 +13,7 @@ router.get("/instaImages", (req,res, next) =>{
         const { profile_pic_url_hd, edge_owner_to_timeline_media } = res.data.graphql.user;
        
         userInfo.profilePic = profile_pic_url_hd;
-        userInfo.postCount = edge_owner_to_timeline_media.count
+        // userInfo.postCount = edge_owner_to_timeline_media.count
         userInfo.image = [];
 
         const images = res.data.graphql.user.edge_owner_to_timeline_media.edges
