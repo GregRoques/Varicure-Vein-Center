@@ -5,7 +5,7 @@ import Top from "./Components/ContactTop";
 import Hours from "./Components/Hours";
 import Map from "./Components/Map";
 import Message from "./Components/Message";
-import InstagramWidget from "./Components/instaGallery";
+// import InstagramWidget from "./Components/instaGallery";
 
 const currYear = (new Date()).getFullYear();
 
@@ -41,7 +41,7 @@ class Contact extends Component {
                         <hr/> 
                     </div>
                     <Map />
-                    <InstagramWidget/>
+                    {/* <InstagramWidget/> */}
                     <div className={ cssContact.copyright}>
                         { this.props.isEnglish === "e"
                             ? <div>Copyright {`${String.fromCharCode(169)}`} { currYear } by <a href="https://www.gregroques.com" target="_blank" rel="noopener noreferrer">Greg Roques</a></div>
