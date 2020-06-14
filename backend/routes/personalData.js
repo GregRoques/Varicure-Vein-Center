@@ -10,7 +10,6 @@ const transporter = nodemailer.createTransport(sendgridTransport({
     }
 }));
 
-
 const phoneFormat = ph => {
     if (ph.length >= 10) {
         const onlyNumbers = ph.replace(/\D/g, "");
