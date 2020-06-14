@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import instaCss from './CSS/instaGallery.module.css';
-import { instaBackend } from "../../../Aux/trackingIDs";
+import { api } from "../../../Aux/trackingIDs";
 
 class instaGallery extends Component {
     state={
@@ -17,7 +17,7 @@ class instaGallery extends Component {
     }
 
     getInstaGallery = () =>{
-        axios.get(instaBackend)
+        axios.get(`${api}/instaImages`)
           .then(res => {
               console.log(res)
               const { userName, profilePic, image, postCount } = res.data;
