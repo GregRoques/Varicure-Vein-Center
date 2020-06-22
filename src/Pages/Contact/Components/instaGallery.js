@@ -19,7 +19,7 @@ class instaGallery extends Component {
     getInstaGallery = () =>{
         axios.get(`${api}/instaImages`)
           .then(res => {
-              console.log(res)
+              // console.log(res.data)
               const { userName, profilePic, image, postCount } = res.data;
               this.setState({
                   user: {
@@ -86,7 +86,7 @@ class instaGallery extends Component {
             </a> 
         </div>
         <div className={instaCss.postCount}>
-            {/* <b>Posts:</b> {this.state.user.postCount} */}
+            <b>Posts:</b> {this.state.user.postCount}
         </div>
         <div className={instaCss.hitemwiththatflexRow}>
             <div className={instaCss.hitemwiththatflexColumn1}>

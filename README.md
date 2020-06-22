@@ -43,8 +43,8 @@ Company website for Miami-based healthcare business.
 * Website featuring company contact information (and email form) in addition to information about services offered and caregiver bios.
 * Ability to toggle between English and Spanish translations.
 
-## Stretch Goals
-* Add online booking option for site visitors and integrate with company calendar.
+## NOTE
+* The Instagram widget on the Contact page uses a legacy Instagram API that is being deprecated sometime during 2020. An modified version of this widget using the new Basic Instagram API and accesss token, available via [Facebook for Developers](https://developers.facebook.com/), can be found on my personal webpage: [back-end](https://github.com/GregRoques/Portfolio-Take-2/tree/master/backend/routes) and [front-end](https://github.com/GregRoques/Portfolio-Take-2/blob/master/src/Containers/Photography/instaGallery.js).
 
 ## Desktop/Mobile Preview
 ### Click image below to view video
