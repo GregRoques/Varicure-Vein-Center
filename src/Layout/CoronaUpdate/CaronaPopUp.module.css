@@ -15,6 +15,11 @@
     animation: closeFade 10s forwards;
     text-align: center;
     border-radius: 5px;
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari */
+      -moz-user-select: none; /* Old versions of Firefox */
+       -ms-user-select: none; /* Internet Explorer/Edge */
+           user-select: none;
 }
 
 .picture{
