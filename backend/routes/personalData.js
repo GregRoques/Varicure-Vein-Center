@@ -32,7 +32,7 @@ router.post("/", (req, res, next) => {
         subject: `${subject}`,
         html: `<b>From:</b> ${name} <br/> 
         <b>Email:</b> ${email} <br/>
-        ${phoneEdit.length > 2 ? "<b>Phone:</b> " + phoneEdit + "<br/>" : null}
+        ${phoneEdit.length > 2 ? "<b>Phone:</b> " + phoneEdit + "<br/>" : ""}
         <b>Date:</b> ${sendDate} <br/><br/>
         ${message}`
     }).then(() => {
