@@ -14,8 +14,8 @@ app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use("/instaImages", instaImages);
-app.use("/personalData", myContacts);
+app.use("/backend/instaImages", instaImages);
+app.use("/backend/personalData", myContacts);
 
 app.use(express.static(path.join(__dirname, "public")));
 app.get("/*", (req, res, next) => {
