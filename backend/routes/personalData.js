@@ -21,7 +21,7 @@ const phoneFormat = ph => {
 };
 
 
-router.post("/personalData", (req, res, next) => {
+router.post("/", (req, res, next) => {
     const { name, email, phone, message, subject } = req.body;
     const phoneEdit = phoneFormat(phone);
     const sendDate = new Date().toISOString().slice(0, 10);

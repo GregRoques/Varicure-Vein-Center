@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 
-router.get("/instaImages", (req,res, next) =>{
+router.get("/", (req,res, next) =>{
     const userName = 'varicuremiami';
     let userInfo ={
         userName: userName
