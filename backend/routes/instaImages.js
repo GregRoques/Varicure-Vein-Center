@@ -4,7 +4,7 @@ const router = express.Router();
 const axios = require("axios");
 
 router.get("/", (req,res, next) =>{
-    const userName = 'varicuremiami';
+    const userName = 'qtrmileatatime'; // varicuremiami insta account deleted; pseduo account for demo
     let userInfo ={
         userName: userName
     };
@@ -12,7 +12,6 @@ router.get("/", (req,res, next) =>{
     axios.get(`https://www.instagram.com/${userName}/?__a=1`)
     .then(res=>{
         const { profile_pic_url_hd, edge_owner_to_timeline_media } = res.data.graphql.user;
-       
         userInfo.profilePic = profile_pic_url_hd;
         userInfo.postCount = edge_owner_to_timeline_media.count
         userInfo.image= [];
@@ -23,7 +22,6 @@ router.get("/", (req,res, next) =>{
         let j=0;
         while(i<5){
             if(images[j].node.is_video === false ){
-                console.log(images[j])
                 const picDate = new Date((images[j].node.taken_at_timestamp) * 1000)
                 userInfo.image.push({   
                     pic: images[j].node.display_url,
@@ -45,7 +43,6 @@ router.get("/", (req,res, next) =>{
         throw err;
     })
 }, (req, res)=>{
-    // console.log(req.forSend)
     res.json(req.forSend)
 })
 

@@ -14,12 +14,11 @@ app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const myBackend = "/backend";
-app.use(`${myBackend}/instaImages`, instaImages);
-app.use(`${myBackend}/personalData`, myContacts);
+app.use("/instaImages/", instaImages);
+app.use("/personalData/", myContacts);
 
 app.use(express.static(path.join(__dirname, "public")));
-app.get(`/*`, (req, res) => {
+app.get("/*", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 

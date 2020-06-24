@@ -27,7 +27,7 @@ router.post("/", (req, res, next) => {
     const sendDate = new Date().toISOString().slice(0, 10);
 
     transporter.sendMail({
-        to: "gregg@gregroques.com",
+        to: "greg@gregroques.com",
         from: email,
         subject: `${subject}`,
         html: `<b>From:</b> ${name} <br/> 
