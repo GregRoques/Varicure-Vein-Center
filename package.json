@@ -4,7 +4,7 @@
   "private": true,
   "proxy": "http://localhost:2000",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bcrypt-nodejs": "0.0.3",
     "emotion": "^10.0.27",
     "history": "^4.10.1",
